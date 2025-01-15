@@ -1,0 +1,403 @@
+
+
+<div class="wrapper">
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Aluno já cadastrado!</h5>
+              
+            </div>
+            <div class="modal-body">
+  
+  
+                <p><b>Aluno:</b> <span id="nomeModal"></span></p>
+                <p>Este aluno já está cadastrado no sistema, clique em acessar cadastro para visualizar os dados.</p>
+            </div>
+            <div class="modal-footer">
+              <a href="/admin/alunos" >
+
+                <button type="button" class="btn btn-danger">Encerrar cadastro</button>
+              </a>
+                <a href="" id="botaoLink">
+                <button type="button" class="btn btn-primary" >Acessar cadastro</button>
+              </a>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Cadastro de Aluno</h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="POST" action="/admin/cadastrar-alunos">
+                <div class="card-body row">
+                  <div class="col-md-12">
+                    <h5>Dados do Aluno</h3>
+                    <hr>
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label>Código INEP</label>
+                    <input type="text" class="form-control"name="txtInep" placeholder="INEP">
+                  </div>
+
+                
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputName">Nome Completo</label>
+                    <input type="text" required class="form-control" id="nomeAluno" name="txtNome" placeholder="Nome Completo">
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputDataNacimento">Data de Nacimento</label>
+                    <input type="date" class="form-control" required id="dataNascimento" name="dtDataNacimento">
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputRg">RG</label>
+                    <input type="text" class="form-control" id="exampleInputRg" name="txtRg" placeholder="RG">
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputRg">CPF</label>
+                    <input type="text" class="form-control" id="exampleInputRg" name="txtCpf" placeholder="CPF">
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputTelefone">Sexo</label>
+                    <select name="txtSexo" class="form-control">
+                      <option value=""></option>
+                      <option value="Feminino">Feminino</option>
+                      <option value="Masculino">Masculino</option>
+                    </select>
+                    
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputTelefone">Cidade Naturalidade</label>
+                    <input type="tel" class="form-control" id="exampleInputTelefone" name="txtCidadeNaturalidade" >
+                  </div>
+
+                  <div class="form-group col-md-1">
+                    <label for="exampleInputTelefone">UF</label>
+                    <select name="txtEstadoNaturalidade" class="form-control">
+                      <option value="-1"></option>
+                      <option value="AC">AC</option>
+                      <option value="AL">AL</option>
+                      <option value="AP">AP</option>
+                      <option value="AM">AM</option>
+                      <option value="BA">BA</option>
+                      <option value="CE">CE</option>
+                      <option value="DF">DF</option>
+                      <option value="ES">ES</option>
+                      <option value="GO">GO</option>
+                      <option value="MA">MA</option>
+                      <option value="MT">MT</option>
+                      <option value="MS">MS</option>
+                      <option value="MG">MG</option>
+                      <option value="PA">PA</option>
+                      <option value="PB">PB</option>
+                      <option value="PR">PR</option>
+                      <option value="PE">PE</option>
+                      <option value="PI">PI</option>
+                      <option value="RJ">RJ</option>
+                      <option value="RN">RN</option>
+                      <option value="RS">RS</option>
+                      <option value="RO">RO</option>
+                      <option value="RR">RR</option>
+                      <option value="SC">SC</option>
+                      <option value="SP">SP</option>
+                      <option value="SE">SE</option>
+                      <option value="TO">TO</option>
+                    </select>
+                  </div>
+  
+
+
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputTelefone">Cor/Raça</label>
+                    <select name="txtRaca" class="form-control">
+                      <option value=""></option>
+                      <option value="Branca">Branca</option>
+                      <option value="Preta">Preta</option>
+                      <option value="Parda">Parda</option>
+                      <option value="Amarela">Amarela</option>
+                      <option value="Negra">Negra</option>
+
+                      <option value="Indígena">Indígena</option>
+                      <option value="Não declarado">Não declarado</option>
+                    </select>
+                    
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputTelefone">Recebe Bolsa Família</label>
+                    <select name="boolBolsaFamilia" class="form-control">
+                      <option value=""></option>
+                      <option value="1">Sim</option>
+                      <option value="0">Não</option>
+                    </select>
+                    
+                  </div>
+
+
+               
+
+
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputTelefone">Tem alguma alergia (Descrever quais)</label>
+                    <input name="txtAlergia" class="form-control" placeholder="Caso não tenha, deixar em branco">
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputTelefone">Autoriza remédio para dor de cabeça e ou febre (Descrever quais) </label>
+                    <input name="txtRemedio" class="form-control" placeholder="Caso não autorizar, deixar em branco">
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputTelefone">Dosagem do remédio autorizado</label>
+                    <input name="txtGotas" class="form-control" placeholder="Caso não autorizar, deixar em branco">
+                  </div>
+
+
+                  <div class="form-group col-md-6">
+                    <label for="exampleInputTelefone">Possui algum problema de sáude que deva ser relatado a escola? (Descreva quais) </label>
+                    <input name="txtSaude" class="form-control" placeholder="Caso não tenha, deixar em branco">
+                  </div>
+
+
+                  <div class="form-group col-md-6">
+                    <label for="exampleInputTelefone">Gostaria de fazer alguma observação </label>
+                    <input name="txtObservacoesSaude" class="form-control" placeholder="Caso não tenha, deixar em branco">
+                  </div>
+
+                  
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputTelefone">Possui restrição alimentar (Descrever quais)</label>
+                    <input name="txtRestricaoAlimentar" class="form-control" placeholder="Caso não tenha, deixar em branco">
+                  </div>
+
+                  <div class="form-group col-md-8">
+                    <label for="exampleInputTelefone">Existe alguma observação alimentar a ser inserida no fomulário do aluno?</label>
+                    <input name="txtObservacaoAlimentar" class="form-control" placeholder="Caso não tenha, deixar em branco">
+                  </div>
+
+
+
+                  <div class="form-group col-md-8">
+                    <label for="exampleInputTelefone">É Portador de Necessidades Educacionais Especiais?</label>
+                    <input name="txtNecessidadesEspeciais" class="form-control" placeholder="Caso negativo, deixar em branco">
+                  </div>
+
+
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputTelefone">Utiliza Transporte</label>
+                    <select name="boolTransporte" class="form-control">
+                      <option value=""></option>
+                      <option value="1">Sim</option>
+                      <option value="0">Não</option>
+                    </select>
+                    
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputTelefone">Autoriza Imagem</label>
+                    <select name="boolAutorizaImagem" class="form-control">
+                      <option value=""></option>
+                      <option value="1">Sim</option>
+                      <option value="0">Não</option>
+                    </select>
+                    
+                  </div>
+
+
+                  <div class="form-group col-md-5">
+                    <label for="exampleInputTelefone">Permite participação em aulas de Ensino Religioso</label>
+                    <select name="boolEnsinoReligioso" class="form-control">
+                      <option value=""></option>
+                      <option value="Sim">Sim</option>
+                      <option value="Não">Não</option>
+                      <option value="N/A">N/A</option>
+                    </select>
+                    
+                  </div>
+
+
+                  <br><br>
+                  <div class="col-md-12" style="margin-top: 20px">
+                    <h5>Dados do Responsável</h3>
+                    <hr>
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="exampleInputNameMom">Nome da Mãe</label>
+                    <input type="text" class="form-control" id="exampleInputNameMom" name="txtNomeMae" placeholder="Nome da Mãe">
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputTelefone">Telefone</label>
+                    <input type="tel" class="form-control" id="exampleInputTelefone" name="txtTelefoneMae">
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputTelefone">Profissão</label>
+                    <input type="text" class="form-control" id="exampleInputTelefone" name="txtProfissaoMae" >
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="exampleInputNameDad">Nome do Pai</label>
+                    <input type="text" class="form-control" id="exampleInputNameDad" name="txtNomePai" placeholder="Nome do Pai">
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputTelefone">Telefone</label>
+                    <input type="tel" class="form-control" id="exampleInputTelefone" name="txtTelefonePai" >
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputTelefone">Profissão</label>
+                    <input type="text" class="form-control" id="exampleInputTelefone" name="txtProfissaoPai" >
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label for="exampleInputNameDad">Nome do Responsável</label>
+                    <input type="text" class="form-control" id="exampleInputNameDad" name="txtNomeResponsavel" placeholder="Nome do Responsável">
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputTelefone">Telefone</label>
+                    <input type="tel" class="form-control" id="exampleInputTelefone" name="txtTelefone">
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputTelefone">Parentesco</label>
+                    <input type="tel" class="form-control" id="exampleInputTelefone" name="txtGrauResponsavel">
+                  </div>
+
+                
+
+  
+
+             
+
+                  <div class="form-group col-md-6">
+                    <label for="exampleInputRua">Logradouro</label>
+                    <input type="text" class="form-control" id="exampleInputRua" name="txtRua" placeholder="Logradouro">
+                  </div>
+
+                  <div class="form-group col-md-1">
+                    <label for="exampleInputNumeroCasa">Nº</label>
+                    <input type="text" class="form-control" id="exampleInputNumeroCasa" name="intNumeroCasa" placeholder="Numero">
+                  </div>
+
+
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputRua">Complemento</label>
+                    <input type="text" class="form-control" id="exampleInputRua" name="txtComplemento" placeholder="Ex.: Ap 202">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputBairro">Bairro</label>
+                    <input type="text" class="form-control" id="exampleInputBairro" name="txtBairro" placeholder="Bairro">
+                  </div>
+                  <div class="form-group col-md-8">
+                    <label for="exampleInputTelefone">Quem está autorizado a buscar a criança na escola?</label>
+                    <input name="txtPessoasAutorizadas" class="form-control" placeholder="Caso negativo, deixar em branco">
+                  </div>
+           
+                
+                  <div class="form-group col-md-12">
+                    <input type="submit" class="btn btn-primary form-control" value="ENVIAR">
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+               
+              </form>
+            </div>
+            <!-- /.card -->
+
+         
+
+       
+
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+        
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+ 
+
+ 
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function sendRequest() {
+      var nome = document.getElementById('nomeAluno').value;
+      var dataNasc = document.getElementById('dataNascimento').value;
+      if (nome && dataNasc) {
+        fetch('/admin/verificar-aluno', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ nome: nome, dataNasc: dataNasc })
+        })
+        .then(response => response.json())
+        .then(data => {
+     
+          if(data?.idAlunos){
+          
+            var link = '/admin/alunos/'+data?.idAlunos;
+            var botaoLink = document.getElementById('botaoLink');
+            botaoLink.href = link;
+
+            var nome = document.getElementById('nomeModal');
+            nome.innerHTML = data.txtNome;
+           
+            var myModal = new bootstrap.Modal(document.getElementById('myModal'), {});
+          
+                                myModal.show();
+          }
+          // Aqui você pode manipular a resposta, se necessário
+        })
+        .catch(error => {
+          console.error(error);
+          // Tratar o erro, se necessário
+        });
+      }
+    }
+  
+    document.getElementById('nomeAluno').addEventListener('change', sendRequest);
+    document.getElementById('dataNascimento').addEventListener('change', sendRequest);
+  });
+  </script>
+
+

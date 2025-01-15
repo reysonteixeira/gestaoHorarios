@@ -1,0 +1,99 @@
+
+<div class="wrapper">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+            <a href="/admin/configuracoes/{$turma}">Voltar</a>
+
+              <h1>Disciplinas Professor</h1>
+            </div>
+           
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+  
+      <!-- Main content -->
+      <section>
+        <div class="container-fluid">
+          
+          
+            <!-- /.card-body -->
+            <div class="card-body row col-sm-12 d-flex align-items-end">
+              
+        
+              <div class="col-sm-2">
+                  <a href="/admin/cadastrarDisciplinaProfessor/{$turma}/{$professor}" class="btn btn-success">Cadastrar Disciplina</a> 
+              </div>
+          
+
+  
+              {if="$disciplinas"}
+              <table class="table mt-3">
+                <thead>
+                  <tr>
+                    <th scope="col">Nome</th>
+                    <th></th>
+                    <th></th>
+                    
+                  </tr>
+                  
+                </thead>
+                <tbody>
+                  {loop="$disciplinas"}
+               
+                  <tr>
+                    <td>{$value.txtNomeDisciplina}</td>
+
+                   
+                 <td>
+                        </td>
+           
+
+
+              <td class="botao"><a 
+                onclick="return confirm('Deseja realmente remover esse professor?')"
+                href="/admin/removerDisciplinaTurmaProfessor/{$turma}/{$professor}/{$value.fkDisciplina}"><button class="btn btn-danger btn-sm">Deletar <i class="fas fa-trash"></i></button></a></td>
+                  </tr>
+
+                 
+                  {/loop}
+                 
+  
+          
+                </tbody>
+              </table>
+              {else}
+              <div class="col-12">
+                <br>
+                <h1>Não foram encontradas disciplinas cadastradas para o professor!</h1>
+              </div>
+            
+              {/if}
+              
+             
+            <!-- ./col -->
+          </div>
+
+
+
+         
+        </div>
+      </section>
+    
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+
+   
+  
+   
+    <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
+  
+  

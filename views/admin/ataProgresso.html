@@ -1,0 +1,72 @@
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Ata de progressão</h1>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section>
+      <div class="container-fluid">
+        
+        
+          <!-- /.card-body -->
+          <form class="card-body row col-sm-12" method="POST" action="/admin/gerarAtaProgresso/{$idTurma}">
+          
+            <div class="col-2 form-group">
+              <label for="">Número da Ata</label>
+              <input type="text" name="intNumAta" class="form-control">
+            </div>
+
+            <div class="col-3 form-group">
+              <label for="">Secretário</label>
+              <select name="secretario" class="form-control">
+                <option value="">Selecione</option>
+                {loop="$secretarios"}
+                  <option value="{$value.txtNome}">{$value.txtNome}</option>
+                {/loop}
+              </select>
+            </div>
+
+            <div class="col-3 form-group">
+              <label for="">Supervisor</label>
+              <select name="supervisores" class="form-control">
+                <option value="">Selecione</option>
+                {loop="$supervisores"}
+                  <option value="{$value.txtNome}">{$value.txtNome}</option>
+                {/loop}
+              </select>
+            </div>
+
+            <div class="col-2 form-group">
+              <label for="">Data da ata</label>
+              <input type="date" name="dtDataAta" class="form-control"/>
+            </div>
+
+            <div class="col-2 form-group">
+              <label for="">Professor</label>
+              <input type="text" name="professor" value="{$professor.txtNome}" class="form-control">
+            </div>
+
+            <div class="col-12 form-group">
+              <label for="">Informações Ata</label>
+              <textarea name="infoAta" id="" class="form-control" rows="3">{$escola.txtInformacoesAta}</textarea>
+            </div>
+            <div class="col-12">
+
+              <input type="submit" value="Gerar Ata" class="form-control btn btn-info" >
+            </div>
+          </form>
+ 
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

@@ -1,0 +1,127 @@
+<div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Cadastro de Avaliação Retroativa - Ano ""</h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="POST" action="/admin/cadastrar-avaliacaoRetroativa/{$fkAnoRetroativo}">
+                <div class="card-body row">
+                  <input type="hidden" value="{$fkAnoRetroativo}" name="fkAnoRetroativo">
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputPostagem">Disciplina</label>
+                    <select name="fkDisciplina" id="" class="form-control">
+                      <option value="">SELECIONE</option>
+                      {loop="$disciplinas"}
+                      <option value="{$value.idDisciplina}">{$value.txtNomeDisciplina}</option>
+                      {/loop}
+                      
+                    </select>
+                   
+                  </div>
+
+               
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputPostagem">Pontos</label>
+                    <input type="text" class="form-control" name="intNota">
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label for="exampleInputPostagem">Conceito</label>
+                    <select name="intConceito" class="form-control" id="">
+                      <option value="">SELECIONE</option>
+                      <optgroup label="Grupo de conceitos 1">
+                      <option value="O">O</option>
+                      <option value="MB">MB</option>
+                      <option value="B">B</option>
+                      <option value="R">R</option>
+                    </optgroup>
+                    <optgroup label="Grupo de conceitos 2">
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                      <option value="D">D</option>
+                    </optgroup>
+                    <optgroup label="Grupo de conceitos 3">
+                      <option value="ET">ET</option>
+                      <option value="ES">ES</option>
+                      <option value="EP">EP</option>
+                      
+                    </optgroup>
+                    <optgroup label="Grupo de conceitos 4">
+                      <option value="F">F (Frequente)</option>
+                      <option value="NF">NF (Não Frequente)</option>
+                      
+                      
+                    </optgroup>
+                    <optgroup label="Grupo de conceitos 5">
+                      <option value="NA">NA</option>
+                      <option value="MA">MA</option>
+                      <option value="PP">PP</option>
+                      <option value="PR">PR</option>
+                      <option value="PM">PM</option>
+                      <option value="PE">PE</option>
+                      
+                      
+                    </optgroup>
+
+                    <optgroup label="Grupo de conceitos 6">
+                      <option value="APD">APD</option>
+                  
+                    </optgroup>
+                    </select>
+                  </div>
+
+               
+
+                  <div class="form-group col-md-4 mt-10">
+                    <br>
+                    <input type="submit" class="btn btn-primary form-control" value="CADASTRAR">
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+               
+              </form>
+            </div>
+            <!-- /.card -->
+
+         
+
+       
+
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+        
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+ 
+
+ 
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->

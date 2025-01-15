@@ -1,0 +1,68 @@
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Perguntas Relatório Fundamental</h1>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section>
+      <div class="container-fluid">
+
+          <div class="card-body row col-sm-12 d-flex align-items-end">
+                  
+
+            <a href="/admin/relatorioFundamental/cadastrarPerguntas" class="btn btn-success">Cadastrar</a>
+            
+            
+
+            {if="$perguntas"}
+            <table class="table mt-3">
+              <thead>
+                <tr>
+                  <th scope="col">Escola</th>
+                  <th scope="col">Etapa</th>
+                  <th scope="col">Pergunta</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {loop="$perguntas"}
+             
+                <tr>
+                  <td>{$value.txtNome}</td>
+                  <td>{$value.fkEtapa}</td>
+                  <td>{$value.txtPergunta}</td>
+                  <td class="botao"></td>
+                </tr>
+               
+                {/loop}
+               
+
+        
+              </tbody>
+            </table>
+            {else}
+            <div class="col-12">
+              <br>
+              <h1>Não foram encontradas questões!</h1>
+            </div>
+          
+            {/if}
+            
+          <!-- ./col -->
+        </div>
+ 
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

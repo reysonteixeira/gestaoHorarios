@@ -1,0 +1,106 @@
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Turmas - Cadastradas</h1>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section>
+      <div class="container-fluid">
+        
+        
+          <!-- /.card-body -->
+          <div class="card-body row col-sm-12 d-flex align-items-end">
+            <!-- <div class="busca col-sm-10">
+              <form action="/admin/produtos" class="form d-flex align-items-end">
+                <div class="form-group">
+                  <label>Busca</label>
+                  <input type="text" name="busca" class="form-control">
+                </div>
+                <div>
+                <input type="submit" value="Buscar" class="btn btn-primary">
+              </div>
+              </form>
+            </div> -->
+            {if="$permissaoMenu < 3"}
+            <div class="col-sm-2">
+                <a href="/admin/cadastrar-turmas" class="btn btn-success">Cadastrar Turmas</a> 
+            </div>
+            {/if}
+
+
+            <div class="col-sm-4">
+              <form action="/admin/turmas" method="get" class="row">
+                <div class="col-md-8 form-group">
+                  <label for="">Ano</label>
+                  <select name="txtAno" id="" class="form-control">
+                    <option value="">SELECIONE</option>
+                    {loop="$anos"}
+                  
+                    <option value="{$value.txtAnoTurma}">{$value.txtAnoTurma}</option>
+                    {/loop}
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <input type="submit" style="margin-top: 30px;" value="Filtrar" class="form-control btn-info"> 
+                </div>
+              </form>
+              
+          </div>
+
+            {if="$turma"}
+            <table class="table mt-3 mb-5">
+              <thead>
+                <tr>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Escola</th>
+                  <th scope="col">Turno</th>
+                  <th scope="col">Ano</th>
+                  <th></th>
+                  {if="$permissaoMenu == 2"} <th></th>{/if}
+                </tr>
+                
+              </thead>
+              <tbody>
+                {loop="$turma"}
+             
+                <tr>
+                  <td>{$value.nomeTurma}</td>
+                  <td>{$value.nomeEscola}</td>
+                  <td>{$value.txtTurno}</td>
+                  <td>{$value.txtAnoTurma}</td>
+                  <td class="botao"><a href="/admin/turmas/{$value.idTurma}"><button class="btn btn-primary btn-sm">Acessar <i class="fas fa-edit"></i></button></a></td>
+                  {if="$permissaoMenu == 2"}<td class="botao"><a href="/SSBordados-admin/ofertas/delete/"><button class="btn btn-danger btn-sm">Deletar <i class="fas fa-trash"></i></button></a></td>{/if}
+                </tr>
+               
+                {/loop}
+               
+
+        
+              </tbody>
+            </table>
+            {else}
+            <div class="col-12">
+              <br>
+              <h1>Não foram encontradas turmas cadastradas!</h1>
+            </div>
+          
+            {/if}
+            
+           
+          <!-- ./col -->
+        </div>
+ 
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

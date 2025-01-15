@@ -1,0 +1,80 @@
+
+
+
+<div class="wrapper">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Avaliação Individual</h1>
+            </div>
+           
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+  
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8">
+
+            </div>
+            <div class="col-md-4">
+              <a href="/admin/turmas/{$turma}/imprimeRelatorioIndividual?fkBimestre={$bimestre}" class="btn btn-info">Imprimir relatórios</a>
+            </div>
+            <!-- left column -->
+            <div class="col-md-12">
+              <!-- general form elements -->
+              {loop="$relatorio"}
+                <h3>{$value.nomeAluno}</h3>
+
+                {if="$bimestre == 'all'"}
+                  <p><b>1º Bimestre</b></p>
+                  <p>{$value.1Bimestre}</p>
+
+                  <p><b>2º Bimestre</b></p>
+                  <p>{$value.2Bimestre}</p>
+                  
+                  <p><b>3º Bimestre</b></p>
+                  <p>{$value.3Bimestre}</p>
+                  
+
+                  <p><b>4º Bimestre</b></p>
+                  <p>{$value.4Bimestre}</p>
+                  
+                {else}
+                <p>{$value.txtRelatorio}</p>
+                {/if}
+              {/loop}
+              <!-- /.card -->
+  
+           
+  
+         
+  
+            </div>
+            <!--/.col (left) -->
+            <!-- right column -->
+          
+            <!--/.col (right) -->
+          </div>
+          <!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    
+  
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
+  

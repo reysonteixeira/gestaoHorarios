@@ -1,0 +1,96 @@
+
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Editar Notas Retroativas</h1>
+          </div>
+        
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="POST" action="/admin/editar-avaliacao-retroativa/{$idRetroativo}">
+                <div class="card-body row">
+                
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputPostagem">Disciplina</label>
+                    <select name="fkDisciplina" id="" class="form-control">
+                      <option value="">SELECIONE</option>
+                      {loop="$disciplinas"}
+                      <option value="{$value.idDisciplina}" {if="$infoAvaliacao.fkDisciplina == $value.idDisciplina"}selected{/if}>{$value.txtNomeDisciplina}</option>
+                      {/loop}
+                      
+                    </select>
+                   
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputPostagem">Bimestre</label>
+                    <select name="fkBimestre" id="" class="form-control">
+                      <option value="">SELECIONE</option>
+                      {loop="$bimestres"}
+                      <option value="{$value.value}" {if="$infoAvaliacao.fkBimestre == $value.value"}selected{/if}>{$value.label}</option>
+                      {/loop}
+                      
+                    </select>
+                   
+                  </div>
+            
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputPostagem">Valor</label>
+                    <input type="text" class="form-control" value="{$infoAvaliacao.intNota}" name="pontos">
+                  </div>
+                  {if="$conceitos"}
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputPostagem">Conceito</label>
+                    <select name="conceito" class="form-control" id="">
+                      <option value="null">SELECIONE</option>
+                      {loop="$conceitos"}
+                      <option value="{$value.idConceito}" {if="$infoAvaliacao.intConceito == $value.idConceito"}selected{/if}>{$value.txtConceito}</option>
+                      {/loop}
+                    
+                    </select>
+                  </div>
+                  {/if}
+
+                
+              
+
+                <!-- /.card-body -->
+
+                <div class="card-footer col-md-12 form-group">
+                  <button type="submit" class="btn btn-primary form-control">CADASTRAR</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+         
+
+       
+
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+        
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>

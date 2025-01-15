@@ -1,0 +1,221 @@
+
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Infraestrutura Escola</h1>
+          </div>
+         
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="POST" action="/admin/infraestruturaEscolar" >
+                <div class="card-body row">
+                  <h3 for="exampleInputName">Local de funcionamento da escola</h3>
+                  
+                  <div class="form-group col-md-12 row">
+                    {if="$localFuncionamento"}
+                      {loop="$localFuncionamento"}
+                      <div class="col-md-4">
+                        <label for="{$value.localFuncionamento}">
+  
+                        <input type="checkbox" {if="$value.existe"}checked{/if} name="localFuncionamento[]" id="{$value.localFuncionamento}" value="{$value.localFuncionamento}" class="">
+                        {$value.localFuncionamento}
+                      </label>
+                      </div>
+                      {/loop}
+                    {/if}
+                   
+                   
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <h3 for="">Forma de ocupação do prédio escolar</h3>
+                    <select name="formaOcupacao" id="" class="form-control">
+                      <option value="1" {if="$infra"}{if="$infra.txtOcupacao==1"}selected{/if}{/if}>Próprio</option>
+                      <option value="2" {if="$infra"}{if="$infra.txtOcupacao==2"}selected{/if}{/if}>Alugado</option>
+                      <option value="3" {if="$infra"}{if="$infra.txtOcupacao==3"}selected{/if}{/if}>Cedido</option>
+
+                    </select>
+                  </div>
+
+
+                  <div class="form-group col-md-3">
+                    <h3 for="">Fornece água potável para o consumo humano</h3>
+                    <select name="forneceAgua" id=""  class="form-control" >
+                      <option value="1" {if="$infra"}{if="$infra.aguaPotavel==1"}selected{/if}{/if}>Sim</option>
+                      <option value="2" {if="$infra"}{if="$infra.aguaPotavel==2"}selected{/if}{/if}>Não</option>
+                      
+                    </select>
+                  </div>
+
+                  <div class="col-md-3">
+                    <h3 for="" class="col-md-12">Internet banda larga</h3><br>
+
+                    <div class="form-group">
+                      <select name="internet" id="" class="form-control">
+                        <option value="1" {if="$infra"}{if="$infra.internet==1"}selected{/if}{/if}>Sim</option>
+                        <option value="2" {if="$infra"}{if="$infra.internet==2"}selected{/if}{/if}>Não</option>
+                        
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <h3 for="" class="col-md-12">Alimentação escolar</h3><br>
+
+                    <div class="form-group">
+                      <select name="alimentacao" id="" class="form-control">
+                        <option value="1" {if="$infra"}{if="$infra.forneceAlimentacao==1"}selected{/if}{/if}>Oferece</option>
+                        <option value="2" {if="$infra"}{if="$infra.forneceAlimentacao==2"}selected{/if}{/if}>Não oferece</option>
+                        
+                      </select>
+                    </div>
+                  </div>
+
+                  <h3 for="exampleInputName">Abastecimento de água</h3>
+
+                  <div class="form-group col-md-12 row">
+                    {if="$agua"}
+
+                    {loop="$agua"}
+                    <div class="col-md-4">
+                      <label for="{$value.agua}">
+                      <input type="checkbox" {if="$value.existe"}checked{/if} name="abastecimentoAgua[]" id="{$value.agua}" value="{$value.agua}" class="">
+                    {$value.agua}
+                    </label>
+                    </div>
+                    {/loop}
+                    {/if}
+
+                  
+                  </div>
+              
+                  <h3 for="exampleInputName">Abastecimento de energia elétrica</h3>
+
+                  <div class="form-group col-md-12 row">
+                    {if="$energia"}
+                    {loop="$energia"}
+                    <div class="col-md-4">
+                      <label for="en{$value.energia}">
+                      <input type="checkbox" {if="$value.existe"}checked{/if} name="abastecimentoEnergia[]" id="en{$value.energia}" value="{$value.energia}" class="">
+                    {$value.energia}
+                    </label>
+                    </div>
+                    {/loop}
+                    {/if}
+
+  
+                  </div>
+
+                  <h3 for="exampleInputName">Esgotamento sanitário</h3>
+
+               
+
+                  <div class="form-group col-md-12 row">
+                    {if="$esgotamento"}
+                    {loop="$esgotamento"}
+                    <div class="col-md-4">
+                      <label for="es{$value.esgotamento}">
+                      <input type="checkbox" {if="$value.existe"}checked{/if} name="esgotamentoSanitario[]" id="es{$value.esgotamento}" value="{$value.esgotamento}" class="">
+                    {$value.esgotamento}
+                    </label>
+                    </div>
+                    {/loop}
+                    {/if}
+                  </div>
+                  
+                  <h3 for="exampleInputName">Destinação do lixo</h3>
+
+                  <div class="form-group col-md-12 row">
+                    {if="$destinacaoLixo"}
+                    {loop="$destinacaoLixo"}
+                    <div class="col-md-4">
+                      <label for="sc{$value.destinacaoLixo}">
+                      <input type="checkbox" {if="$value.existe"}checked{/if} name="destinacaoLixo[]" id="sc{$value.destinacaoLixo}" value="{$value.destinacaoLixo}" class="">
+                    {$value.destinacaoLixo}
+                    </label>
+                    </div>
+                    {/loop}
+                    {/if}
+                    
+
+
+                   
+                  </div>
+                  <h3 for="exampleInputName">Tratamento do lixo/resíduos que a escola realiza</h3>
+                  
+                  <div class="form-group col-md-12 row">
+                    {if="$tratamentoLixo"}
+                    {loop="$tratamentoLixo"}
+                    <div class="col-md-4">
+                      <label for="tl{$value.tratamentoLixo}">
+                      <input type="checkbox" {if="$value.existe"}checked{/if} name="tratamentoLixo[]" id="tl{$value.tratamentoLixo}" value="{$value.tratamentoLixo}" class="">
+                    {$value.tratamentoLixo}
+                    </label>
+                    </div>
+                    {/loop}
+                    {/if}
+                    
+    
+                  </div>
+
+                  <h3 for="exampleInputName">Dependências físicas existentes na escola</h3>
+
+                  <div class="form-group col-md-12 row">
+                    {if="$dependencias"}
+                    {loop="$dependencias"}
+                    <div class="col-md-4">
+                      <label for="{$value.dependencia}">
+                      <input type="checkbox" name="dependenciasFisicas[]" {if="$value.existe"}checked{/if} id="{$value.dependencia}" value="{$value.dependencia}" class="">
+                        {$value.dependencia}
+                    </label>
+                    </div>
+                    {/loop}
+                    {/if}
+                    
+                   
+                
+
+                  </div>
+                  
+                 
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer col-md-12 form-group">
+                  <button type="submit" class="btn btn-primary ">Cadastrar</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+         
+
+       
+
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+        
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>

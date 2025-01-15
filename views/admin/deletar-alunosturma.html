@@ -1,0 +1,90 @@
+
+<div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Apagar Aluno da Turma</h1>
+          </div>
+         
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="GET" action="/admin/apagarAluno/{$turma}/{$aluno}" onsubmit="desabilitarBotao()" value="Remover Aluno">
+                <div class="card-body row">
+                  <div class="col-md-12">
+                  <h3>ATENÇÃO! Ao excluir o aluno da turma todos os dados lançados pelo professor para o aluno na turma serão apagados, sendo uma ação irreversível. </h3>
+                  <p>Continue apenas se tiver certeza de tal ação!</p><br>
+
+                  <span>Deseja realmente excluir o aluno da turma?</span>
+                  <br>
+                  <label for=""><b>Aluno: </b>{$infoAluno.txtNome}</label>
+                  <label for=""><b>Turma:</b> {$infoTurma.nomeTurma}</label>
+                </div>
+               
+                <div class="col-md-2 form-group">
+                 
+                  <a href="/admin/desligarAluno/{$turma}/{$aluno}">Voltar</a>
+                </div>
+                <div class="col-md-3 form-group">
+                 
+                  <input type="submit" value="Confirmar" class="btn btn-primary form-control" id="enviar-btn" >
+                </div>
+
+                </div>
+                <!-- /.card-body -->
+
+              
+              </form>
+            </div>
+            <!-- /.card -->
+
+         
+
+       
+
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+        
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+
+
+<script>
+  function desabilitarBotao() {
+      document.getElementById("enviar-btn").disabled = true;
+      document.getElementById("enviar-btn").value = "Apagando..."; // Opcional: Alterar o texto do botão
+  }
+</script>

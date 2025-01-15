@@ -1,0 +1,108 @@
+
+<div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Reclassificar Aluno</h1>
+          </div>
+         
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              
+
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="POST" action="/admin/reclassificarAluno/{$turma}/{$aluno}" onsubmit="desabilitarBotao()">
+                <div class="card-body row">
+                 
+                  <div class="col-md-12">
+                    <h3>Ao reclassificar o aluno da turma o consolidado de faltas será exportado para a nova turma!</h3>
+  
+                      <span>Deseja realmente reclassificar o aluno da turma?</span>
+                          <br>
+                          <label for=""><b>Aluno: </b>{$infoAluno.txtNome}</label><br>
+                          <label for=""><b>Turma Atual:</b> {$infoTurma.txtNome}</label>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputTelefone">Data de saída</label>
+                    <input type="date" name="dataSaida" class="form-control">
+
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="exampleInputTelefone">Turma a ser reclassificado</label>
+                    <select name="novaTurma" class="form-control">
+                      <option value=""></option>
+                      {loop="$turmas"}
+                      <option value="{$value.idTurma}" >{$value.txtNome}</option>
+                      {/loop}
+                    </select>
+                    
+                  </div>
+
+
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer col-md-12 form-group">
+                  <input type="submit" class="btn btn-primary form-control" id="enviar-btn" value="Reclassificar" >
+
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+            <br/><br/>
+         
+            
+
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+        
+          <!--/.col (right) -->
+        </div>
+
+
+
+     
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+
+
+<script>
+  function desabilitarBotao() {
+      document.getElementById("enviar-btn").disabled = true;
+      document.getElementById("enviar-btn").value = "Reclassificando..."; // Opcional: Alterar o texto do botão
+  }
+</script>
+
+
+
+

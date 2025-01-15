@@ -1,0 +1,84 @@
+
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Cadastro de Frequência Retroativa</h1>
+          </div>
+        
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="POST" action="/admin/cadastrar-frequenciaRetroativoAno/{$anoRetroativo}">
+                <div class="card-body row">
+                  <input type="hidden" name="fkAnoRetroativo" value="{$anoRetroativo}">
+                  <!-- {if="$cargaDisciplina"}
+                  <div class="form-group col-md-3">
+                    <label for="">Disciplina</label>
+                    <select name="fkDisciplina" class="form-control" id="">
+                      {loop="$disciplinas"}
+                        <option value="{$value.idDisciplina}">{$value.txtNomeDisciplina}</option>
+                      {/loop}
+                    </select>
+                  </div>
+                  {/if} -->
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputPostagem">Faltas(Dias)</label>
+                    <input type="text" class="form-control" name="intFaltas">
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputPostagem">Faltas(Horas)</label>
+                    <input type="text" class="form-control" name="faltasHoras">
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputPostagem">Faltas(Minutos)</label>
+                    <input type="text" class="form-control" name="faltasMinutos">
+                  </div>
+
+
+                
+              
+
+                <!-- /.card-body -->
+
+                <div class="card-footer col-md-12 form-group">
+                  <button type="submit" class="btn btn-primary form-control">CADASTRAR</button>
+                </div>
+
+                <div class="col-12 mt-20 info">
+                  Não é necessário passar os 2 valores, basta inserir um dos valores e o sistema fará a inclusão do outro.
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+         
+
+       
+
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+        
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>

@@ -1,0 +1,70 @@
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Casos Monitorados - Ativos</h1>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section>
+      <div class="container-fluid">
+        
+        
+          <!-- /.card-body -->
+          <div class="card-body row col-sm-12 d-flex align-items-end">
+            <!-- <div class="busca col-sm-10">
+              <form action="/admin/produtos" class="form d-flex align-items-end">
+                <div class="form-group">
+                  <label>Busca</label>
+                  <input type="text" name="busca" class="form-control">
+                </div>
+                <div>
+                <input type="submit" value="Buscar" class="btn btn-primary">
+              </div>
+              </form>
+            </div> -->
+            <div class="col-sm-2">
+                <a href="/monitoramento-covid" class="btn btn-success">Informar Contato</a> 
+                        </div>
+            <table class="table mt-3">
+              <thead>
+                <tr>
+                  <th scope="col">Aluno</th>
+                  <th scope="col">Escola</th>
+                  <th scope="col">Turma</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {loop="$casos"}
+             
+                <tr>
+                  <td>{$value.txtAluno}</td>
+                  <td>{$value.fkEscola}</td>
+                  <td>{$value.txtTurma}</td>
+                  <td class="botao"><a href="/monitoramento-covid/casosMonitorados/{$value.idMonitoramento}"><button class="btn btn-primary btn-sm">Acessar <i class="fas fa-edit"></i></button></a></td>
+                </tr>
+               
+                {/loop}
+               
+
+        
+              </tbody>
+            </table>
+           
+            
+          <!-- ./col -->
+        </div>
+ 
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

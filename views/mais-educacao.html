@@ -1,0 +1,91 @@
+<main>
+    <section class="container mais-educacao-titulo">
+        <h2>MAIS EDUCAÇÃO</h2>
+        <p>O aprendizado é um processo que envolve sala de aula, dedicação
+            e curiosidade.</p>
+    </section>
+    <section class="literario container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card-educacao">
+                <div class="card-head">
+                    <i class="fas fa-book-open"></i><span> INDICAÇÕES LITERÁRIAS</span>
+                </div>
+                <div class="card-body">
+
+                    {loop="$maisEducacao"}
+                    {if="$value.intTipo==1"}
+                    <div class="item">
+                        <img src="/res/_img/maiseducacao/{$value.txtImagem}" style="width: 100px">
+                        <div>
+                            <h4>{$value.txtNome}</h4>
+                            {if="$value.txtAutor"}<span class="negrito">Autor: </span><span>{$value.txtAutor}</span><br>{/if}
+                            {if="$value.txtAno"}<span class="negrito">Publicação: </span><span>{$value.txtAno}</span>{/if}
+                            <br>
+                            <a href="{$value.txtLink}" target="_blank"><button>ACESSE AQUI</button></a>
+                        </div>
+                    </div>
+                    <hr>
+                    {/if}
+                    {/loop}
+                  
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card-educacao">
+                <div class="card-head">
+                    <i class="fas fa-gamepad"></i><span> INDICAÇÕES DE JOGOS</span>
+                </div>
+                <div class="card-body">
+                    
+                    {loop="$maisEducacao"}
+                    {if="$value.intTipo==2"}
+                    <div class="item">
+                        <img src="/res/_img/maiseducacao/{$value.txtImagem}" style="width: 100px">
+                        <div>
+                            <h4>{$value.txtNome}<span> {if="$value.intIdadeSugerida"} {$value.intIdadeSugerida} anos</span>{/if}</h4>
+                            <span>{$value.txtDescricao}</span>
+                            <br>
+                            <a href="{$value.txtLink}" target="_blank"><button>ACESSE AQUI</button></a>
+                        </div>
+                    </div>
+                    <hr>
+                    {/if}
+                    {/loop}
+                  
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card-educacao">
+                <div class="card-head">
+                    <i class="fas fa-video"></i><span> INDICAÇÕES DE FILMES</span>
+                </div>
+                <div class="card-body">
+                    
+                    {loop="$maisEducacao"}
+                    {if="$value.intTipo==3"}
+                    <div class="item">
+                        <img src="/res/_img/maiseducacao/{$value.txtImagem}" style="width: 100px">
+                        <div>
+                            <h4>{$value.txtNome}</h4>
+                            {if="$value.txtAutor"}<span class="negrito">Autor: </span><span>{$value.txtAutor}</span><br>{/if}
+                            {if="$value.txtAno"}<span class="negrito">Publicação: </span><span>{$value.txtAno}</span>{/if}
+                            <br>
+                            <a href="{$value.txtLink}" target="_blank"><button>ACESSE AQUI</button></a>
+                        </div>
+                    </div>
+                    <hr>
+                    {/if}
+                    {/loop}
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+   
+</main>

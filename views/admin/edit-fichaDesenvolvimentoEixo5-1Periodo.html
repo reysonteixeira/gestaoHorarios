@@ -1,0 +1,340 @@
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Ficha Desenvolvimento 1º Período -  EVOLUÇÃO DA CRIANÇA NO CONTEXTO ESCOLAR
+            </h1>
+          </div>
+          
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              
+              <!-- /.card-header -->
+              <!-- form start -->
+              
+              <form method="POST" action="/admin/editarFicha/eixo5/{$idTurma}/{$idProfessor}/{$idAluno}/{$semestre}">
+                
+                <div class="card-body row">
+                    <h4>TRAÇOS ,SONS, CORES E FORMAS
+
+                    </h4>
+                  <div class="form-group col-md-12">
+                    <label for="exampleInputName">Participa de momentos musicais.</label>
+                    <br>
+                <div class="questionsFlex" style="display: flex;">
+                    <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                        <input type="radio"  name="euOutroNos1" {if="$ficha.q1 == 0"}checked{/if} id="11" class="form-control" value="0">
+                        <label for="11" style="margin:0;">Sim</label>
+                    </div>
+
+                    <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                        <input type="radio" name="euOutroNos1" {if="$ficha.q1 == 1"}checked{/if} id="12" class="form-control" value="1">
+                        <label for="12" style="margin:0;">Não</label>
+                    </div>
+
+                    <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                        <input type="radio" name="euOutroNos1" {if="$ficha.q1 == 2"}checked{/if} id="13" class="form-control" value="2">
+                        <label for="13" style="margin:0;">ED</label>
+                    </div>
+                  
+        
+                </div>
+                      
+                   
+                </div>
+
+
+
+                <div class="form-group col-md-12">
+                    <label for="exampleInputName">Ouve, percebe e discrimina eventos sonoros presentes no ambiente.
+
+                    </label>
+                    <br>
+                
+                    <div class="questionsFlex" style="display: flex;">
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos2" {if="$ficha.q2 == 0"}checked{/if} id="21" class="form-control" value="0">
+                            <label for="21" style="margin:0;">Sim</label>
+                        </div>
+    
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos2" {if="$ficha.q2 == 1"}checked{/if} id="22" class="form-control" value="1">
+                            <label for="22" style="margin:0;">Não</label>
+                        </div>
+    
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos2" {if="$ficha.q2 == 2"}checked{/if} id="23" class="form-control" value="2">
+                            <label for="23" style="margin:0;">ED</label>
+                        </div>
+                      
+            
+                    </div>
+                   
+                </div>
+
+
+                <div class="form-group col-md-12">
+                    <label for="exampleInputName">Demonstra interesse e prazer em cantar
+
+                    </label>
+                    <br>
+                
+                    <div class="questionsFlex" style="display: flex;">
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos3" {if="$ficha.q3 == 0"}checked{/if} id="31" class="form-control" value="0">
+                            <label for="31" style="margin:0;">Sim</label>
+                        </div>
+    
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos3" {if="$ficha.q3 == 1"}checked{/if} id="32" class="form-control" value="1">
+                            <label for="32" style="margin:0;">Não</label>
+                        </div>
+    
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos3" {if="$ficha.q3 == 2"}checked{/if} id="33" class="form-control" value="2">
+                            <label for="33" style="margin:0;">ED</label>
+                        </div>
+                      
+            
+                    </div>
+            
+                   
+                </div>
+
+
+                <div class="form-group col-md-12">
+                    <label for="exampleInputName">Utiliza a música para expressar sentimentos e sensações interagindo com o outro.
+
+                        .</label>
+                    <br>
+                    <div class="questionsFlex" style="display: flex;">
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos4" {if="$ficha.q4 == 0"}checked{/if} id="41" class="form-control" value="0">
+                            <label for="41" style="margin:0;">Sim</label>
+                        </div>
+    
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos4" {if="$ficha.q4 == 1"}checked{/if} id="42" class="form-control" value="1">
+                            <label for="42" style="margin:0;">Não</label>
+                        </div>
+    
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos4" {if="$ficha.q4 == 2"}checked{/if} id="43" class="form-control" value="2">
+                            <label for="43" style="margin:0;">ED</label>
+                        </div>
+                      
+            
+                    </div>
+                   
+                </div>
+
+
+
+                <div class="form-group col-md-12">
+                    <label for="exampleInputName">Expressa sua emoções, sentimentos e ideias pessoais, por meio das diferentes linguagens oferecidas pela arte.
+
+
+
+                    </label>
+                    <br>
+                
+                    <div class="questionsFlex" style="display: flex;">
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos5" {if="$ficha.q5 == 0"}checked{/if} id="51" class="form-control" value="0">
+                            <label for="51" style="margin:0;">Sim</label>
+                        </div>
+    
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos5" {if="$ficha.q5 == 1"}checked{/if} id="52" class="form-control" value="1">
+                            <label for="52" style="margin:0;">Não</label>
+                        </div>
+    
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos5" {if="$ficha.q5 == 2"}checked{/if} id="53" class="form-control" value="2">
+                            <label for="53" style="margin:0;">ED</label>
+                        </div>
+                      
+            
+                    </div>
+                   
+                </div>
+
+
+                <div class="form-group col-md-12">
+                    <label for="exampleInputName">
+                        Realiza atividades de pintura, colagem, modelagem, recorte, desenho, dobradura com desempenho.
+
+</label>
+                    <br>
+                
+                    <div class="questionsFlex" style="display: flex;">
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos6" {if="$ficha.q6 == 0"}checked{/if} id="61" class="form-control" value="0">
+                            <label for="61" style="margin:0;">Sim</label>
+                        </div>
+    
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos6" {if="$ficha.q6 == 1"}checked{/if} id="62" class="form-control" value="1">
+                            <label for="62" style="margin:0;">Não</label>
+                        </div>
+    
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos6" {if="$ficha.q6 == 2"}checked{/if} id="63" class="form-control" value="2">
+                            <label for="63" style="margin:0;">ED</label>
+                        </div>
+                      
+            
+                    </div>
+                   
+                </div>
+
+
+                <div class="form-group col-md-12">
+                    <label for="exampleInputName">Apresenta sensibilidade para a imaginação, percepção e capacidade de expressão criativa.
+
+
+                        </label>
+                    <br>
+                    <div class="questionsFlex" style="display: flex;">
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos7" {if="$ficha.q7 == 0"}checked{/if} id="71" class="form-control" value="0">
+                            <label for="71" style="margin:0;">Sim</label>
+                        </div>
+    
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos7" {if="$ficha.q7 == 1"}checked{/if} id="72" class="form-control" value="1">
+                            <label for="72" style="margin:0;">Não</label>
+                        </div>
+    
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos7" {if="$ficha.q7 == 2"}checked{/if} id="73" class="form-control" value="2">
+                            <label for="73" style="margin:0;">ED</label>
+                        </div>
+                      
+            
+                    </div>
+                   
+                </div>
+
+
+                <div class="form-group col-md-12">
+                    <label for="exampleInputName">Usa de imaginação, criatividade e harmonia em emprego de cores.
+
+
+
+                    </label>
+                    <br>
+                
+                    <div class="questionsFlex" style="display: flex;">
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos8" {if="$ficha.q8 == 0"}checked{/if} id="81" class="form-control" value="0">
+                            <label for="81" style="margin:0;">Sim</label>
+                        </div>
+    
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos8" {if="$ficha.q8 == 1"}checked{/if} id="82" class="form-control" value="1">
+                            <label for="82" style="margin:0;">Não</label>
+                        </div>
+    
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos8" {if="$ficha.q8 == 2"}checked{/if} id="83" class="form-control" value="2">
+                            <label for="83" style="margin:0;">ED</label>
+                        </div>
+                      
+            
+                    </div>
+                   
+                </div>
+
+                <div class="form-group col-md-12">
+                    <label for="exampleInputName">
+                        
+                        Identifica e nomeia figuras: Círculo, triângulo, quadrado e retângulo.
+
+
+                    </label>
+                    <br>
+                
+                    <div class="questionsFlex" style="display: flex;">
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos9" {if="$ficha.q9 == 0"}checked{/if} id="91" class="form-control" value="0">
+                            <label for="91" style="margin:0;">Sim</label>
+                        </div>
+    
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos9" {if="$ficha.q9 == 1"}checked{/if} id="92" class="form-control" value="1">
+                            <label for="92" style="margin:0;">Não</label>
+                        </div>
+    
+                        <div class="form-group" style="display: flex; align-items: center; margin-right: 20px;">
+                            <input type="radio" name="euOutroNos9" {if="$ficha.q9 == 2"}checked{/if} id="93" class="form-control" value="2">
+                            <label for="93" style="margin:0;">ED</label>
+                        </div>
+                      
+            
+                    </div>
+                   
+                </div>
+
+          
+
+
+
+                <div class="form-group col-md-12">
+                    <input type="submit" class="btn btn-success form-control" value="ENVIAR">
+
+                </div>
+
+                </div>
+                <!-- /.card-body -->
+
+                
+              </form>
+            </div>
+
+            <!-- /.card -->
+
+         
+
+       
+
+          </div>
+
+        
+
+          
+          <!--/.col (left) -->
+          <!-- right column -->
+        
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+

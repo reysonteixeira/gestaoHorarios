@@ -1,0 +1,82 @@
+
+<div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Declaração de matrícula</h1>
+          </div>
+         
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="POST" action="/admin/declaracaoMatricula/{$aluno}" >
+                <div class="card-body row">
+
+             
+                <div class="col-12 form-group">
+                  <label for="">Observações</label>
+                  <textarea name="observacoes" rows="2" class="form-control"></textarea>
+                </div>
+                <div class="col-md-2 form-group">
+                  <label for=""></label>
+                  <input type="submit" value="GERAR DECLARAÇÃO" class="btn btn-primary form-control" id="enviar-btn" >
+                </div>
+
+                </div>
+                <!-- /.card-body -->
+
+              
+              </form>
+            </div>
+            <!-- /.card -->
+
+         
+
+       
+
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+        
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+
+
+<script>
+  function desabilitarBotao() {
+      document.getElementById("enviar-btn").disabled = true;
+      document.getElementById("enviar-btn").value = "Tranferindo..."; // Opcional: Alterar o texto do botão
+  }
+</script>

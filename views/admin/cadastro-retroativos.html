@@ -1,0 +1,101 @@
+<div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Cadastro de Retroativos</h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="POST" action="/admin/cadastrar-anosRetroativos">
+                <div class="card-body row">
+                  <input type="hidden" value="{$aluno}" name="fkAluno">
+                  <div class="form-group col-md-1">
+                    <label for="exampleInputName">Ano</label>
+                    <input type="text" class="form-control" id="exampleInputName" value="{$ano}" readonly name="txtAno" >
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label for="exampleInputDataNacimento">Etapa</label>
+                    <input type="text" class="form-control" id="exampleInputDataNacimento" value="{$etapa}" readonly name="txtEtapa">
+                  </div>
+
+                  <div class="form-group col-md-7">
+                    <label for="exampleInputNameMom">Escola</label>
+                    <input type="text" class="form-control" id="exampleInputNameMom" name="txtEscola">
+                  </div>
+
+                  <div class="form-group col-md-5">
+                    <label for="exampleInputNameMom">Cidade</label>
+                    <input type="text" class="form-control" id="exampleInputNameMom" name="txtCidade">
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputNameMom">Estado</label>
+                    <input type="text" class="form-control" id="exampleInputNameMom" name="txtEstado">
+                  </div>
+
+
+                  <div class="form-group col-md-12">
+                    <label for="exampleInputNameMom">Observações</label>
+                    <textarea name="txtObservacoes" class="form-control" rows="10"></textarea>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="exampleInputNameMom">Situação de caráter especial* (Em alguns casos, como no período de COVID19 ou outros acontecimentos a escola fez sua avaliação por meio de relatórios, 
+                      para esses casos informar no campo abaixo qual a avaliação adotada, caso contrário deixar em BRANCO)</label>
+                    <textarea name="txtAvaliacaoEspecial" class="form-control" rows="10"></textarea>
+                  </div>
+
+
+               
+
+                  <div class="form-group col-md-4 mt-10">
+                    <br>
+                    <input type="submit" class="btn btn-primary form-control" value="CADASTRAR">
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+               
+              </form>
+            </div>
+            <!-- /.card -->
+
+         
+
+       
+
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+        
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+ 
+
+ 
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
