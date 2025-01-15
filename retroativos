@@ -1,0 +1,16 @@
+tblAvaliacoesRetroativasBimestres(
+idRetroativo int primary key auto_increment,
+fkDisciplina int,
+fkAluno int,
+fkBimestre int,
+intNota decimal (3,1));
+
+create procedure spSaveRetroativos(
+  pfkDisciplina int,
+pfkAluno int,
+pfkBimestre int,
+pintNota decimal (3,1))
+begin
+	insert into tblAvaliacoesRetroativasBimestres (fkDisciplina, fkAluno, fkBimestre, intNota)
+	values(pfkDisciplina, pfkAluno, pfkBimestre, pintNota);
+end//					
