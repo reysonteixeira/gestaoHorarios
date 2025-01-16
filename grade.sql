@@ -18,7 +18,5 @@ CREATE TABLE  tblEscola (
   `matricula` varchar(200) null,
 `txtEmail` varchar(200) null,
 fkEscola int,
-foreign key fkEscola references tblEscola(idEscola)
-  
-  
+foreign key (fkEscola) references tblEscola(idEscola)
   )
