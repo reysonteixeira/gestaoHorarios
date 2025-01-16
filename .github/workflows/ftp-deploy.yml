@@ -22,5 +22,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./  # Diretório local do repositório
-          server-dir: /test  # Diretório remoto no FTP
+          server-dir: /test/  # Diretório remoto no FTP
           concurrency: 1
