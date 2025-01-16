@@ -1,0 +1,8 @@
+create table tblNotaRetroativa(
+idNota int primary key auto_increment,
+fkAluno int,
+fkDisciplina int,
+dataInicio date,
+dataFim date,
+intNota decimal (3,1)
+);
