@@ -86,7 +86,13 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
         
-
+               <li class="nav-item">
+                <a href="/admin/escolas" class="nav-link">
+                  <i class="nav-icon fas fa-school"></i>
+                  <p>Escolas</p>
+                </a>
+              </li>
+          
 
           {if="$permissaoMenu"}
 
@@ -120,13 +126,7 @@
           {/if}
          
    
-          <li class="nav-item">
-            <a href="/admin/escolas" class="nav-link">
-              <i class="nav-icon fas fa-school"></i>
-              <p>Escolas</p>
-            </a>
-          </li>
-      
+       
 
           {if="$permissaoMenu < 3"}
           <li class="nav-item">
