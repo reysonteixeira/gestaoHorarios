@@ -2,15 +2,10 @@
 
 class Sql {
 
-	// const HOSTNAME = 'localhost';
-	// const USERNAME = 'root';
-	// const PASSWORD = '';
-	// const DBNAME = 'sec_educacao';
-
 	const HOSTNAME = 'localhost';
-	const USERNAME = 'capitoli_reyson';
+	const USERNAME = 'easygrad_reyson';
 	const PASSWORD = 'ReysonTeixeira1129@';
-	const DBNAME = 'capitoli_educacao';
+	const DBNAME = 'easygrad_educacao';
 
 	private $conn;
 
