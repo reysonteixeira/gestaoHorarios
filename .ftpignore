@@ -1,3 +1,12 @@
 .git/
 logs/
 backups/
+node-modules/
+vendor/composer/
+vendor/dompdf/
+vendor/Ktira/
+vendor/masterminds/
+vendor/phenx/
+vendor/rain/
+vendor/sabberworm/
+vendor/slim
