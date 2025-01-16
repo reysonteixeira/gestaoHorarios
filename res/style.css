@@ -1,0 +1,970 @@
+* {
+  font-family: "Roboto";
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+* li {
+  list-style-type: none;
+}
+
+.mobile {
+  display: none;
+}
+.mobile .collapse {
+  background-color: #164589;
+}
+.mobile ul li {
+  color: #fff;
+}
+
+main {
+  padding-top: 43px;
+  padding-bottom: 43px;
+}
+
+nav {
+  background-color: #F8F8F8;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+nav .menu-desktop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .menu-desktop img {
+  width: 300px;
+}
+nav ul {
+  display: flex;
+  font-size: 20px;
+  margin: 0;
+}
+nav ul a {
+  text-decoration: none;
+  margin: 0;
+}
+nav ul li {
+  text-decoration: none;
+  color: #164589;
+  font-weight: 700;
+  margin: 0;
+  margin-left: 30px;
+}
+
+.banner {
+  width: 100%;
+}
+.banner img {
+  width: 100%;
+}
+
+.volta-aulas {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.volta-aulas h1 {
+  text-align: center;
+  color: #777777;
+}
+.volta-aulas .protocolos {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+.volta-aulas .protocolos .protocolo {
+  display: flex;
+  flex-direction: column;
+}
+.volta-aulas .protocolos .protocolo img {
+  height: 93px;
+  margin-bottom: 8px;
+}
+.volta-aulas .protocolos p {
+  margin: 0;
+  text-align: center;
+  font-weight: bold;
+  color: #164589;
+  font-size: 24px;
+}
+
+.escolas {
+  margin-top: 40px;
+}
+.escolas a {
+  text-decoration: none;
+}
+.escolas .card {
+  padding: 10px;
+  border-color: #164589;
+}
+.escolas p {
+  margin: 0;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #164589;
+}
+
+.atividade {
+  font-size: 20px;
+}
+.atividade h2 {
+  color: #164589;
+  margin-top: 30px;
+  margin-bottom: 0px;
+}
+.atividade span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.ensino-remoto {
+  background-color: #164589;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.ensino-remoto h2 {
+  color: #fff;
+}
+.ensino-remoto p {
+  color: #fff;
+  font-size: 23px;
+}
+.ensino-remoto button {
+  color: #fff;
+  background-color: #164589;
+  border: 1px solid #fff;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 3px 25px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  margin-top: 20px;
+  outline: none;
+}
+.ensino-remoto button:hover {
+  color: #164589;
+  background-color: #fff;
+  transition: ease-in all 0.2s;
+}
+
+.atividades-remoto {
+  padding-top: 80px;
+  border-bottom: 1px solid #164589;
+}
+.atividades-remoto h2 {
+  color: #777777;
+}
+.atividades-remoto p {
+  color: #777777;
+  font-size: 23px;
+}
+.atividades-remoto button {
+  color: #164589;
+  border: 1px solid #164589;
+  background-color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 3px 25px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  margin-top: 20px;
+  outline: none;
+}
+.atividades-remoto button:hover {
+  color: #fff;
+  background-color: #164589;
+  transition: ease-in all 0.2s;
+}
+
+.mais-educacao {
+  padding-top: 40px;
+}
+.mais-educacao h1 {
+  text-align: center;
+  color: #164589;
+}
+.mais-educacao p {
+  margin-top: 30px;
+  font-size: 22px;
+  color: #777777;
+}
+.mais-educacao .texto {
+  margin-top: 50px;
+}
+.mais-educacao img {
+  width: 90%;
+}
+.mais-educacao button {
+  color: #164589;
+  border: 1px solid #164589;
+  background-color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 3px 25px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  margin-top: 20px;
+  outline: none;
+}
+.mais-educacao button:hover {
+  color: #fff;
+  background-color: #164589;
+  transition: ease-in all 0.2s;
+}
+
+.postagens-pricipais {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 8fr 4fr;
+  grid-template-areas: "a b" "a c";
+}
+
+.post-a {
+  grid-area: a;
+  height: 440px;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
+}
+.post-a .titulo {
+  background-color: rgba(22, 70, 137, 0.8156862745);
+  width: 100%;
+  padding: 10px 20px;
+}
+.post-a .titulo h3 {
+  color: #fff;
+  margin: 0;
+  font-weight: 700;
+}
+.post-a .titulo span {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+}
+.post-a .titulo span i {
+  margin-right: 8px;
+}
+
+.post-b {
+  grid-area: b;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
+  height: 200px;
+}
+.post-b .titulo {
+  background-color: rgba(22, 70, 137, 0.8156862745);
+  width: 100%;
+  padding: 10px 20px;
+}
+.post-b .titulo h3 {
+  color: #fff;
+  margin: 0;
+  font-weight: 700;
+  font-size: 20px;
+}
+.post-b .titulo span {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+.post-b .titulo span i {
+  margin-right: 8px;
+}
+
+.post-c {
+  grid-area: c;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
+  height: 200px;
+}
+.post-c .titulo {
+  background-color: rgba(22, 70, 137, 0.8156862745);
+  width: 100%;
+  padding: 10px 20px;
+}
+.post-c .titulo h3 {
+  color: #fff;
+  margin: 0;
+  font-weight: 700;
+  font-size: 20px;
+}
+.post-c .titulo span {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+.post-c .titulo span i {
+  margin-right: 8px;
+}
+
+.img-post {
+  width: 100%;
+}
+
+.postagem h2 {
+  color: #164589;
+  margin-top: 40px;
+}
+.postagem p {
+  color: #777777;
+  font-size: 22px;
+}
+.postagem span {
+  color: #777777;
+  font-size: 22px;
+}
+.postagem span i {
+  color: #164589;
+  margin-right: 5px;
+}
+
+.cabecalho-ultimas {
+  background-color: #164589;
+  margin-bottom: 10px;
+  color: #fff;
+  padding: 8px 16px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.posts-lateral {
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
+  height: 250px;
+  margin-bottom: 20px;
+}
+.posts-lateral .titulo {
+  background-color: rgba(22, 70, 137, 0.8156862745);
+  width: 100%;
+  padding: 10px 20px;
+}
+.posts-lateral .titulo h3 {
+  color: #fff;
+  margin: 0;
+  font-weight: 700;
+  font-size: 20px;
+}
+.posts-lateral .titulo span {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+.posts-lateral .titulo span i {
+  margin-right: 8px;
+}
+
+.paginacao {
+  display: flex;
+  justify-content: center;
+}
+.paginacao button {
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #164589;
+  border: 1px solid #164589;
+  background-color: #fff;
+  padding: 4px 20px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+}
+.paginacao button:hover {
+  color: #fff;
+  background-color: #164589;
+  transition: ease-in all 0.26s;
+}
+
+.blog {
+  margin-bottom: 20px;
+}
+.blog h1 {
+  text-align: center;
+  color: #164589;
+}
+.blog .info {
+  padding: 22px 17px;
+}
+.blog .card {
+  border: none;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 5px 15px 3px rgba(0, 0, 0, 0.12);
+}
+.blog .card h6 {
+  color: #164589;
+  font-size: 18px;
+}
+.blog .card span, .blog .card i {
+  color: #164589;
+}
+.blog .card p {
+  margin-top: 10px;
+  color: #777777;
+  font-size: 18x;
+}
+.blog .card button {
+  width: 100%;
+  color: #164589;
+  border: 1px solid #164589;
+  background-color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 3px 25px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  margin-top: 10px;
+  outline: none;
+}
+.blog .card button:hover {
+  color: #fff;
+  background-color: #164589;
+  transition: ease-in all 0.2s;
+}
+
+.card-educacao {
+  margin-top: 50px;
+}
+.card-educacao .card-head {
+  background-color: #164589;
+  color: #fff;
+  padding: 10px 18px;
+}
+.card-educacao .card-body {
+  border: 1px solid #164589;
+}
+.card-educacao .card-body h4 {
+  color: #164589;
+  margin: 0;
+}
+.card-educacao .card-body h4 span {
+  font-size: 17px;
+  margin-left: 5px;
+}
+.card-educacao .card-body .item {
+  display: flex;
+}
+.card-educacao .card-body img {
+  margin-right: 8px;
+}
+.card-educacao .card-body button {
+  color: #164589;
+  background-color: #fff;
+  border: 1px solid #164589;
+  padding: 2px 20px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+}
+.card-educacao .card-body button:hover {
+  color: #fff;
+  background-color: #164589;
+  transition: ease-in 0.26s all;
+}
+
+.mais-educacao-titulo h2 {
+  text-align: center;
+  color: #164589;
+  font-size: 48px;
+  margin: 0;
+}
+.mais-educacao-titulo p {
+  text-align: center;
+  color: #777777;
+  font-size: 24px;
+  margin: 0;
+}
+
+footer {
+  margin-top: 10px;
+  background-color: #164589;
+  padding: 40px 0;
+}
+footer .conteudo {
+  display: flex;
+}
+footer .conteudo p {
+  color: #fff;
+  font-size: 20px;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.formulario-remoto {
+  margin-top: 20px;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+.formulario-remoto select {
+  width: 100%;
+  padding: 8px 20px;
+  outline: none;
+  border-color: #164589;
+  color: #164589;
+}
+.formulario-remoto select option {
+  color: #164589;
+}
+.formulario-remoto input[type=submit] {
+  background-color: #164589;
+  width: 100%;
+  color: #fff;
+  border: none;
+  height: 100%;
+}
+
+.aulas-remotas-titulo h2 {
+  text-align: center;
+  color: #164589;
+  font-size: 48px;
+  margin: 0;
+}
+.aulas-remotas-titulo p {
+  text-align: center;
+  color: #777777;
+  font-size: 24px;
+  margin: 0;
+}
+
+.lista-remoto {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.lista-remoto img {
+  width: 100%;
+}
+.lista-remoto h6, .lista-remoto .escola {
+  text-align: center;
+}
+.lista-remoto h6, .lista-remoto p {
+  color: #164589;
+  margin: 0;
+}
+.lista-remoto h6 {
+  font-weight: 700;
+  font-size: 24px;
+}
+.lista-remoto .professor {
+  margin-top: 7px;
+  font-weight: 600;
+}
+.lista-remoto .dias-aulas {
+  font-size: 14px;
+}
+.lista-remoto button {
+  background-color: #164589;
+  width: 100%;
+  color: #fff;
+  border: none;
+  font-size: 19px;
+  font-weight: 700;
+  padding: 7px 0;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  margin-top: 10px;
+}
+.lista-remoto button:hover {
+  background-color: #0f2f5d;
+  transition: ease-in 0.26s all;
+}
+
+.breadcumb {
+  text-decoration: none;
+  color: #164589;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+.breadcumb span {
+  color: #164589;
+}
+.breadcumb a {
+  text-decoration: none;
+  color: #164589;
+}
+
+.turmas {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.turmas .item {
+  margin-bottom: 20px;
+  padding: 5px 12px;
+  display: flex;
+  background-color: #164589;
+  align-items: center;
+  text-decoration: none;
+}
+.turmas .item i {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 60px;
+  margin-right: 10px;
+}
+.turmas .item img {
+  width: 90px;
+  margin-right: 10px;
+}
+.turmas .item .nome-turmas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  font-size: 20px;
+  margin: 0;
+}
+.turmas .item .turma {
+  font-size: 23px;
+  font-weight: 600;
+}
+.turmas .item span {
+  color: #fff;
+}
+.turmas .item:hover {
+  background-color: #123a73;
+  transition: ease-in all 0.26s;
+}
+
+@media screen and (max-width: 1099px) {
+  nav .menu-desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav .menu-desktop img {
+    width: 290px;
+  }
+  nav .menu-desktop ul {
+    display: flex;
+    font-size: 19px;
+    margin: 0;
+  }
+  nav .menu-desktop ul a {
+    text-decoration: none;
+    margin: 0;
+  }
+  nav .menu-desktop ul li {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    margin: 0;
+    margin-left: 24px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+  .mobile .collapse {
+    background-color: #164589;
+  }
+  .mobile ul {
+    margin-bottom: 0;
+    padding-top: 10px;
+  }
+  .mobile ul a {
+    margin-top: 10px;
+  }
+  .mobile ul li {
+    color: #fff;
+    margin-top: 10px;
+    font-weight: 700;
+  }
+}
+@media screen and (max-width: 768px) {
+  .postagens-pricipais {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: none;
+    grid-template-rows: 1fr;
+    grid-template-areas: "a" "b" "c";
+  }
+  .post-a {
+    grid-area: a;
+    height: 300px;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+  }
+  .post-a .titulo {
+    padding: 8px 15px;
+  }
+  .post-a .titulo h3 {
+    font-weight: 700;
+    font-size: 22px;
+  }
+  .post-a .titulo span {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .post-a .titulo span i {
+    margin-right: 8px;
+  }
+  .post-b {
+    grid-area: b;
+    height: 300px;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+  }
+  .post-b .titulo {
+    padding: 8px 15px;
+  }
+  .post-b .titulo h3 {
+    font-weight: 700;
+    font-size: 22px;
+  }
+  .post-b .titulo span {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .post-b .titulo span i {
+    margin-right: 8px;
+  }
+  .post-c {
+    grid-area: c;
+    height: 300px;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+  }
+  .post-c .titulo {
+    padding: 8px 15px;
+  }
+  .post-c .titulo h3 {
+    font-weight: 700;
+    font-size: 22px;
+  }
+  .post-c .titulo span {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .post-c .titulo span i {
+    margin-right: 8px;
+  }
+  .formulario-remoto {
+    margin-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .formulario-remoto select {
+    width: 100%;
+    padding: 8px 16px;
+    outline: none;
+    border-color: #164589;
+    color: #164589;
+  }
+  .formulario-remoto select option {
+    color: #164589;
+  }
+  .formulario-remoto input[type=submit] {
+    background-color: #164589;
+    width: 100%;
+    color: #fff;
+    border: none;
+    height: 100%;
+  }
+  .volta-aulas {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .volta-aulas h1 {
+    font-size: 26px;
+    text-align: center;
+    color: #777777;
+  }
+  .volta-aulas .protocolos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .volta-aulas .protocolos .protocolo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+  .volta-aulas .protocolos .protocolo img {
+    height: 93px;
+    margin-bottom: 8px;
+  }
+  .volta-aulas .protocolos p {
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+    color: #164589;
+    font-size: 24px;
+  }
+  .mais-educacao-titulo h2 {
+    text-align: center;
+    color: #164589;
+    font-size: 26px;
+    margin: 0;
+  }
+  .mais-educacao-titulo p {
+    text-align: center;
+    color: #777777;
+    font-size: 20px;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 575.98px) {
+  .card-educacao {
+    margin-top: 20px;
+  }
+  .atividades-remoto {
+    padding-top: 30px;
+    border-bottom: 1px solid #164589;
+  }
+  .atividades-remoto h2 {
+    color: #777777;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .atividades-remoto p {
+    color: #777777;
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+  }
+  .atividades-remoto button {
+    color: #164589;
+    border: 1px solid #164589;
+    background-color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 3px 25px;
+    width: 100%;
+    margin-bottom: 30px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    margin-top: 20px;
+    outline: none;
+  }
+  .atividades-remoto button:hover {
+    color: #fff;
+    background-color: #164589;
+    transition: ease-in all 0.2s;
+  }
+  .mais-educacao {
+    padding-top: 30px;
+  }
+  .mais-educacao h1 {
+    text-align: center;
+    color: #164589;
+  }
+  .mais-educacao p {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: justify;
+    color: #777777;
+  }
+  .mais-educacao .texto {
+    margin-top: 0px;
+  }
+  .mais-educacao img {
+    width: 90%;
+  }
+  .mais-educacao button {
+    color: #164589;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    border: 1px solid #164589;
+    background-color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 3px 25px;
+    width: 100%;
+    margin-top: 20px;
+    outline: none;
+  }
+  .mais-educacao button:hover {
+    color: #fff;
+    background-color: #164589;
+    transition: ease-in all 0.2s;
+  }
+  .mais-educacao-titulo h2, .aulas-remotas-titulo h2 {
+    text-align: center;
+    color: #164589;
+    font-size: 24px;
+    margin: 0;
+  }
+  .mais-educacao-titulo p, .aulas-remotas-titulo p {
+    text-align: center;
+    color: #777777;
+    font-size: 18px;
+    margin: 0;
+  }
+  .blog {
+    margin-bottom: 20px;
+    margin-top: 40px;
+  }
+  .blog h1 {
+    text-align: center;
+    color: #164589;
+  }
+  .blog .info {
+    padding: 22px 17px;
+  }
+  .blog .card {
+    margin-bottom: 30px;
+  }
+  .blog .card h6 {
+    color: #164589;
+    font-size: 18px;
+  }
+  .blog .card span, .blog .card i {
+    color: #164589;
+  }
+  .blog .card p {
+    margin-top: 10px;
+    color: #777777;
+    font-size: 18x;
+  }
+  .blog .card button {
+    width: 100%;
+    color: #164589;
+    border: 1px solid #164589;
+    background-color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 3px 25px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    margin-top: 10px;
+    outline: none;
+  }
+  .blog .card button:hover {
+    color: #fff;
+    background-color: #164589;
+    transition: ease-in all 0.2s;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -24,4 +24,3 @@ jobs:
           local-dir: ./  # Diretório local do repositório
           server-dir: /  # Diretório remoto no FTP
           concurrency: 1
-          log-level: verbose
