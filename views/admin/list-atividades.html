@@ -1,0 +1,84 @@
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Atividades Cadastradas</h1>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section>
+      <div class="container-fluid">
+        
+        
+          <!-- /.card-body -->
+          <div class="card-body row col-sm-12 d-flex align-items-end">
+            <!-- <div class="busca col-sm-10">
+              <form action="/admin/produtos" class="form d-flex align-items-end">
+                <div class="form-group">
+                  <label>Busca</label>
+                  <input type="text" name="busca" class="form-control">
+                </div>
+                <div>
+                <input type="submit" value="Buscar" class="btn btn-primary">
+              </div>
+              </form>
+            </div> -->
+            <div class="col-sm-2">
+              <a href="/admin/turmas/{$turma}" class="btn btn-success form-control">Voltar</a> 
+            </div>
+            <div class="col-sm-2">
+                <a href="/admin/cadastrar-atividades/{$turma}" class="btn btn-success form-control">Cadastrar Atividades</a> 
+                        </div>
+            {if="$atividades"}
+            
+            <table class="table mt-3">
+              <thead>
+                <tr>
+                  <th scope="col">Data da Atividade</th>
+                  <th>Descrição</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {loop="$atividades"}
+             
+                <tr>
+                  <td>{function="date('d/m/Y', strtotime($value.dtAtividade))"}</td>
+                  <td>{$value.txtDescricao}</td>
+                  <td class="botao"><a href="/admin/controleAtividade/{$value.idAtividades}"><button class="btn btn-success btn-sm">Controle Alunos <i class="fas fa-check"></i></button></a></td>
+                  <td class="botao"><a href="/admin/atividade/{$value.idAtividades}"><button class="btn btn-primary btn-sm">Acessar <i class="fas fa-edit"></i></button></a></td>
+                  <td class="botao"><a href="/SSBordados-admin/ofertas/delete/"><button class="btn btn-danger btn-sm">Deletar <i class="fas fa-trash"></i></button></a></td>
+                </tr>
+               
+
+                {/loop}
+               
+
+        
+              </tbody>
+            </table>
+            {else}
+            <div class="col-12">
+              <br>
+              <h1>Não foram encontrados atividades cadastradas!</h1>
+            </div>
+          
+            {/if}
+            
+          <!-- ./col -->
+        </div>
+ 
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

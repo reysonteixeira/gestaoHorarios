@@ -1,0 +1,198 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Recursos Humanos Escola</h1>
+        </div>
+
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+          <!-- general form elements -->
+          <div class="card card-primary">
+
+            <!-- /.card-header -->
+            <!-- form start -->
+            
+            <form method="POST" action="/admin/recursosHumanos">
+              <div class="card-body row form">
+               
+                <div class="form-group col-12">
+                  <label for="">
+                    Agrônomos(as), horticultores(as), técnicos ou monitores(as) responsáveis pela gestão da área de
+                    horta, plantio e/ou produção agrícola
+
+                  </label>
+                  <input type="text"   {if="$respostas"}value="{$respostas.agronomos}"{/if} class="form-control" name="agronomos">
+                </div>
+                <br><br>
+
+                <div class="form-group col-12">
+                  <label for="">
+                    Auxiliares de secretaria ou auxiliares admi
+                    nistrativos, atendentes
+
+                  </label>
+                  <input type="text" {if="$respostas"}value="{$respostas.auxiliarSecretaria}"{/if}  class="form-control" name="auxiliarSecretaria">
+                </div>
+
+                <div class="form-group col-12">
+                  <label for="">
+                    Auxiliar de serviços gerais, porteiro(a), zelador(a), faxineiro(a), jardineiro(a)
+
+                  </label>
+                  <input type="text" {if="$respostas"}value="{$respostas.auxiliarServicosGerais}"{/if}  class="form-control" name="auxiliarServicosGerais">
+                </div>
+
+
+                <div class="form-group col-12">
+                  <label for="">
+                    Bibliotecário(a), auxiliar de biblioteca ou monitor(a) da sala de leitura
+
+                  </label>
+                  <input type="text" {if="$respostas"}value="{$respostas.bibliotecario}"{/if}  class="form-control" name="bibliotecario">
+                </div>
+
+                <div class="form-group col-12">
+                  <label for="">
+                    Bombeiro(a) brigadista, profissionais de assistência a saúde (urgência e emergência), enfermeiro(a),
+                    técnico(a) de enfermagem e socorrista
+                  </label>
+                  <input type="text" {if="$respostas"}value="{$respostas.bombeiro}"{/if}  class="form-control" name="bombeiro">
+                </div>
+
+
+                <div class="form-group col-12">
+                  <label for="">
+                    Coordenador(a) de turno/disciplinar
+                  </label>
+                  <input type="text" {if="$respostas"}value="{$respostas.coordenador}"{/if}  class="form-control" name="coordenador">
+                </div>
+
+                <div class="form-group col-12">
+                  <label for="">
+                    Fonoaudiólogo(a)
+                  </label>
+                  <input type="text" {if="$respostas"}value="{$respostas.fonoaudiologo}"{/if}  class="form-control" name="fonoaudiologo">
+                </div>
+
+                <div class="form-group col-12">
+                  <label for="">
+                    Nutricionista
+                  </label>
+                  <input type="text" {if="$respostas"}value="{$respostas.nutricionista}"{/if}  class="form-control" name="nutricionista">
+                </div>
+
+                <div class="form-group col-12">
+                  <label for="">
+                    Psicólogo(a) escolar
+                  </label>
+                  <input type="text"  {if="$respostas"}value="{$respostas.psicologo}"{/if} class="form-control" name="psicologo">
+                </div>
+
+
+                <div class="form-group col-12">
+                  <label for="">
+                    Profissionais de preparação e segurança alimentar, cozinheiro(a), merendeira e auxiliar de cozinha
+                  </label>
+                  <input type="text"  {if="$respostas"}value="{$respostas.segurancaAlimentar}"{/if} class="form-control" name="segurancaAlimentar">
+                </div>
+
+
+                <div class="form-group col-12">
+                  <label for="">
+                    Profissionais de apoio e supervisão pedagógica: (pedagogo(a), coordenador(a) pedagógico(a),
+                    orientador(a) educacional, supervisor(a) escolar e coordenador(a) de área de ensino
+                  </label>
+                  <input type="text"  {if="$respostas"}value="{$respostas.apoioPedagogico}"{/if} class="form-control" name="apoioPedagogico">
+                </div>
+
+                <div class="form-group col-12">
+                  <label for="">
+                    Secretário(a) escolar
+                  </label>
+                  <input type="text" class="form-control"  {if="$respostas"}value="{$respostas.secretarios}"{/if} name="secretarios">
+                </div>
+
+                <div class="form-group col-12">
+                  <label for="">
+                    Segurança, guarda ou segurança patrimonial
+                  </label>
+                  <input type="text" class="form-control"  {if="$respostas"}value="{$respostas.seguranca}"{/if} name="seguranca">
+                </div>
+
+                <div class="form-group col-12">
+                  <label for="">
+                    Técnicos(as), monitores(as), supervisores(as) ou auxiliares de laboratório(s), de apoio a
+                    tecnologias educacionais ou em multimeios/multimídias eletrônico-digitais.
+                  </label>
+                  <input type="text" class="form-control"  {if="$respostas"}value="{$respostas.tecnicos}"{/if} name="tecnicos">
+                </div>
+
+                <div class="form-group col-12">
+                  <label for="">
+                    Vice-diretor(a) ou diretor(a) adjunto(a), profissionais responsáveis pela gestão administrativa e/ou
+                    financeira
+                  </label>
+                  <input type="text" class="form-control"  {if="$respostas"}value="{$respostas.viceDiretor}"{/if} name="viceDiretor">
+                </div>
+
+
+                <div class="form-group col-12">
+                  <label for="">
+                    Orientador(a) comunitário(a) ou assistente social
+                  </label>
+                  <input type="text" class="form-control"  {if="$respostas"}value="{$respostas.orientador}"{/if} name="orientador">
+                </div>
+
+                <div class="form-group col-12">
+                  <label for="">
+                    Tradutor e Intérprete de Libras para atendimento em outros ambientes da escola que não seja sala de
+                    aula
+                  </label>
+                  <input type="text" class="form-control" {if="$respostas"}value="{$respostas.tradutor}"{/if}  name="tradutor">
+                </div>
+
+
+                <div class="form-group col-12">
+                  <label for="">
+                    Revisor de texto Braille, assistente vidente (assistente de revisão do texto em Braille)
+                  </label>
+                  <input type="text" class="form-control"  {if="$respostas"}value="{$respostas.revisorBraile}"{/if} name="revisorBraile">
+                </div>
+
+
+              </div>
+              <!-- /.card-body -->
+
+              <div class="card-footer col-md-12 form-group">
+                <button type="submit" class="btn btn-primary ">Cadastrar</button>
+              </div>
+            </form>
+          </div>
+          <!-- /.card -->
+
+
+
+
+
+        </div>
+        <!--/.col (left) -->
+        <!-- right column -->
+
+        <!--/.col (right) -->
+      </div>
+      <!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>

@@ -1,0 +1,122 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">Aulas Cadastradas</h1>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <section>
+    <div class="container-fluid">
+
+
+      <!-- /.card-body -->
+      <div class="card-body row col-sm-12 d-flex align-items-end">
+
+        <div class="col-sm-1">
+          <a href="/admin/turmas/{$turma}" class="btn btn-success form-control">Voltar</a>
+        </div>
+        <div class="col-sm-2">
+          <a href="/admin/cadastrar-aulas/{$turma}" class="btn btn-success form-control">Cadastrar Aulas</a>
+        </div>
+
+
+
+        <div class="col-3">
+          <a href="/admin/apuracaoPresencas/{$turma}" class="btn btn-info form-control">Apuração de Presenças</a>
+        </div>
+
+
+        <div class="col-sm-6">
+          <form action="/admin/aulas/{$turma}" method="get" class="row">
+            <div class="col-md-4 form-group">
+              <label for="">Bimestres</label>
+              <select name="bimestres" id="" class="form-control">
+                {loop="$bimestres"}
+                  <option value="{$value.idBimestre}" 
+                  {if="$bimestreSelecionado == $value.idBimestre"}selected{/if}>{$value.nomeBimestre}</option>
+                {/loop}
+              </select>
+              
+            </div>
+
+            {if="$infoTurma.txtNivelEnsino == 'Ensino Fundamental II' && $disciplinas"}
+            <div class="form-group col-md-3">
+              <label for="exampleInputPostagem">Disciplina</label>
+              <select name="disciplina" id="-1" class="form-control" >
+                <option value="">SELECIONE</option>
+                {loop="$disciplinas"}
+                <option value="{$value.fkDisciplina}">{$value.txtNomeDisciplina}</option>
+                {/loop}
+              </select>
+            </div>
+            {/if}
+           
+            <div class="col-md-3 form-group">
+              <label for=""></label>
+              <input type="submit" class="form-control btn btn-info" value="FILTRAR">
+            </div>
+          </form>
+      </div>
+
+        {if="$aulas"}
+
+        <table class="table mt-3">
+          <thead>
+            <tr>
+              <th scope="col">Data da Aula</th>
+              {if="$infoTurma.txtNivelEnsino == 'Ensino Fundamental II' && $disciplinas"}
+              <th scope="col">Disciplina</th>
+              {/if}
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {loop="$aulas"}
+
+            <tr>
+              <td>{function="date('d/m/Y', strtotime($value.dtData))"}</td>
+              {if="$infoTurma.txtNivelEnsino == 'Ensino Fundamental II' && $disciplinas"}
+              
+              <td>{$value.txtNomeDisciplina}</td>
+              {/if}
+              <td class="botao"><a href="/admin/listaPresenca/{$value.idAulas}"><button
+                    class="btn btn-success btn-sm">Controle de Presenças <i class="fas fa-check"></i></button></a></td>
+              <td class="botao"><a href="/admin/editar-aulas/{$value.idAulas}"><button
+                    class="btn btn-primary btn-sm">Acessar <i class="fas fa-edit"></i></button></a></td>
+              <td class="botao"><a href="/admin/deletar-aula/{$value.idAulas}"><button
+                    class="btn btn-danger btn-sm">Deletar <i class="fas fa-trash"></i></button></a></td>
+            </tr>
+
+
+            {/loop}
+
+
+
+          </tbody>
+        </table>
+        {else}
+        <div class="col-12">
+          <br>
+          <h1>Não foram encontradas aulas cadastradas!</h1>
+        </div>
+
+        {/if}
+
+        <!-- ./col -->
+      </div>
+
+    </div>
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

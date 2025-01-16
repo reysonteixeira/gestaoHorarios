@@ -1,0 +1,34 @@
+<main>
+    <section class="aulas-remotas-titulo container">
+        <h2>ATIVIDADES REMOTAS</h2>
+        <p>Agora você tem um canal oficial com acesso a todas atividades do ensino remoto das escolas municipais em um só lugar!</p>
+    </section>
+    
+  
+
+    <section class="escolas container">
+        <div class="row">
+          
+            
+            {loop="$escolas"}
+            <div class="col-md-3">
+                <div class="card">
+                <a class="" href="/atividades/{$value.idEscola}">
+                    <img src="/res/_img/escolas/{$value.txtLogo}" class="img-fluid">
+                    <div class="nome-turmas">
+                        <p>{$value.txtNome}</p>
+                    </div>
+                </a>
+            </div>
+            </div>
+            {/loop}
+            
+            
+            
+           
+        
+
+        </div>
+    </section>
+    
+</main>
