@@ -11,9 +11,7 @@ class Professores
 
         public function setDados($dados)
         {
-                $this->matricula = $dados['matricula'];
                 $this->txtemail = $dados['txtemail'];
-                $this->fkEscola = $dados['fkEscola'];
                 $this->nomeProfessor = $dados['nomeProfessor'];
         }
 
@@ -93,9 +91,10 @@ class Professores
                 try {
                         $sql = new Sql();
                         return ($sql->select(
-                                "SELECT * from tblProfessores where idProfessor = :ATRIBUTO1;",
+                                "SELECT * from tblProfessores where idProfessor = :ATRIBUTO1 and fkEscola = :ATRIBUTO2;",
                                 array(
-                                        ":ATRIBUTO1" => $this->getIdProfessor()
+                                        ":ATRIBUTO1" => $this->getIdProfessor(),
+                                        ":ATRIBUTO2" => $this->getFkEscola()
                                 ) //fim array
                         ) //fim função select
                         ); //fim return
@@ -104,6 +103,24 @@ class Professores
                 catch (Exception $e) {
                    
                 } //fim catch      
+        }
+
+        public function searchProfessor(){
+                try {
+                        $sql = new Sql();
+                        return ($sql->select(
+                                "SELECT * from tblProfessores where fkEscola = :ATRIBUTO2 and nomeProfessor like :ATRIBUTO1",
+                                array(
+                                        ":ATRIBUTO1" => "%".$this->getNomeProfessor()."%",
+                                        ":ATRIBUTO2" => $this->getFkEscola()
+                                ) //fim array
+                        ) //fim função select
+                        ); //fim return
+                } //fim try
+        
+                catch (Exception $e) {
+                   
+                } //fim catch
         }
 
         /**

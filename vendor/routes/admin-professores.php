@@ -4,6 +4,13 @@ $app->get('/admin/professores', function () {
     // User::verifyLoginAdmin();
     $page = new PageAdmin();
     $professores = new Professores();
+    $professores->setFkEscola(1);
+    if(isset($_GET["busca"])){
+        $professores->setNomeProfessor($_GET["busca"]);
+        $listaProfessores = $professores->searchProfessor();
+        $page->setTpl("list-professores", array("professores" => $listaProfessores));
+        exit;
+    }
     $listaProfessores = $professores->listAll();
     $page->setTpl("list-professores", array("professores" => $listaProfessores));
 
@@ -14,14 +21,21 @@ $app->get('/admin/professores/:id', function ($id) {
     // User::verifyLoginAdmin();
     $page = new PageAdmin();
     $professores = new Professores();
+    $professores->setFkEscola(1);
     $professores->setIdProfessor($id);
-    $page->setTpl("edit-professores", array("professor" => $professores->getProfessor()));
+    $infoProfessor = $professores->getProfessor();
+    if(count($infoProfessor) == 0){
+        header("location: /admin/professores");
+        exit;
+    }
+    $page->setTpl("edit-professores", array("professor" => $infoProfessor[0]));
     exit;
 });
 
 $app->post('/admin/professores/:id', function ($id) {
     // User::verifyLoginAdmin();
     $professores = new Professores();
+    $professores->setFkEscola(1);
     $professores->setIdProfessor($id);
     $professores->setDados($_POST);
     $professores->update();

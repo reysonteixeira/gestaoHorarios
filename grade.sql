@@ -17,16 +17,16 @@ DROP TABLE IF EXISTS tblEscola;
 CREATE TABLE IF NOT EXISTS tblEscolas
 (
     idEscola INT PRIMARY KEY AUTO_INCREMENT ,
-    nomeEscola VARCHAR(200) not NULL,
-    registroInep VARCHAR(20) not null,
-    logradouro VARCHAR(200) null,
+    nomeEscola VARCHAR(200) NOT NULL,
+    registroInep VARCHAR(20) NOT NULL,
+    logradouro VARCHAR(200) NULL,
 	numero INT,
-    complemento VARCHAR(200) null,
-    bairro VARCHAR(200) null,
-    cidade VARCHAR(200) null,
-    estado VARCHAR(2) null,
-    cep VARCHAR(9) null,
-    telefone varchar(11) null
+    complemento VARCHAR(200) NULL,
+    bairro VARCHAR(200) NULL,
+    cidade VARCHAR(200) NULL,
+    estado VARCHAR(2) NULL,
+    cep VARCHAR(9) NULL,
+    telefone varchar(11) NULL
 );
 
 CREATE TABLE IF NOT EXISTS tblHorarios
@@ -68,6 +68,16 @@ CREATE TABLE IF NOT EXISTS tblHorarioTurma
     FOREIGN key (fkTurma) REFERENCES tblTurmas(idTurma)
 );
 
+CREATE TABLE IF NOT EXISTS tblProfessores
+(
+    idProfessor INT PRIMARY KEY AUTO_INCREMENT,
+    matricul VARCHAR(200) NULL,
+    nomeProfessor VARCHAR(200) NOT NULL,
+    txtEmail VARCHAR(200) NULL,
+	fkEscola INT,
+	FOREIGN KEY (fkEscola) REFERENCES tblEscolas(idEscola)
+);
+
 CREATE TABLE IF NOT EXISTS tblDisciplinas
 (
     idDisciplina INT PRIMARY KEY AUTO_INCREMENT,
@@ -81,55 +91,246 @@ CREATE TABLE IF NOT EXISTS tblDisciplinasTurma
     idDisciplinaTurma INT PRIMARY KEY AUTO_INCREMENT,
     quantidadeAulasSemana INT,
     fkDisciplina INT,
-    -- fkProfessor INT,
+    fkProfessor INT,
     fkTurma INT,
     FOREIGN KEY (fkDisciplina) REFERENCES tblDisciplinas(idDisciplina),
-    -- FOREIGN KEY (fkProfessor) REFERENCES tblProfessor(idProfessor),
+    FOREIGN KEY (fkProfessor) REFERENCES tblProfessorES(idProfessor),
     FOREIGN KEY (fkTurma) REFERENCES tblTurmas(idTurma)
 );
 -- CREATE TABLE IF NOT EXISTS
+  
+-- Procedures
+DELIMITER //
+
+CREATE PROCEDURE sp_insert_update_tblEscolas (
+    IN p_idEscola INT,
+    IN p_nomeEscola VARCHAR(200),
+    IN p_registroInep VARCHAR(20),
+    IN p_logradouro VARCHAR(200),
+    IN p_numero INT,
+    IN p_complemento VARCHAR(200),
+    IN p_bairro VARCHAR(200),
+    IN p_cidade VARCHAR(200),
+    IN p_estado VARCHAR(2),
+    IN p_cep VARCHAR(9),
+    IN p_telefone VARCHAR(11)
+)
+BEGIN
+    IF EXISTS (SELECT 1 FROM tblEscolas WHERE idEscola = p_idEscola) THEN
+        UPDATE tblEscolas
+        SET nomeEscola = p_nomeEscola,
+            registroInep = p_registroInep,
+            logradouro = p_logradouro,
+            numero = p_numero,
+            complemento = p_complemento,
+            bairro = p_bairro,
+            cidade = p_cidade,
+            estado = p_estado,
+            cep = p_cep,
+            telefone = p_telefone
+        WHERE idEscola = p_idEscola;
+    ELSE
+        INSERT INTO tblEscolas (nomeEscola, registroInep, logradouro, numero, complemento, bairro, cidade, estado, cep, telefone)
+        VALUES (p_nomeEscola, p_registroInep, p_logradouro, p_numero, p_complemento, p_bairro, p_cidade, p_estado, p_cep, p_telefone);
+    END IF;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE sp_insert_update_tblHorarios (
+    IN p_idHorario INT,
+    IN p_fkEscola INT,
+    IN p_nomeHorario VARCHAR(50)
+)
+BEGIN
+    IF EXISTS (SELECT 1 FROM tblHorarios WHERE idHorario = p_idHorario) THEN
+        UPDATE tblHorarios
+        SET fkEscola = p_fkEscola,
+            nomeHorario = p_nomeHorario
+        WHERE idHorario = p_idHorario;
+    ELSE
+        INSERT INTO tblHorarios (fkEscola, nomeHorario)
+        VALUES (p_fkEscola, p_nomeHorario);
+    END IF;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE sp_insert_update_tblHorasHorarios (
+    IN p_idHora INT,
+    IN p_horaFim TIME,
+    IN p_horaInicio TIME,
+    IN p_fkHorario INT
+)
+BEGIN
+    IF EXISTS (SELECT 1 FROM tblHorasHorarios WHERE idHora = p_idHora) THEN
+        UPDATE tblHorasHorarios
+        SET horaFim = p_horaFim,
+            horaInicio = p_horaInicio,
+            fkHorario = p_fkHorario
+        WHERE idHora = p_idHora;
+    ELSE
+        INSERT INTO tblHorasHorarios (horaFim, horaInicio, fkHorario)
+        VALUES (p_horaFim, p_horaInicio, p_fkHorario);
+    END IF;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE sp_insert_update_tblTurmas (
+    IN p_idTurma INT,
+    IN p_nomeTurma VARCHAR(100),
+    IN p_turno INT,
+    IN p_podeRepetirAula BOOLEAN,
+    IN p_fkEscola INT
+)
+BEGIN
+    IF EXISTS (SELECT 1 FROM tblTurmas WHERE idTurma = p_idTurma) THEN
+        UPDATE tblTurmas
+        SET nomeTurma = p_nomeTurma,
+            turno = p_turno,
+            podeRepetirAula = p_podeRepetirAula,
+            fkEscola = p_fkEscola
+        WHERE idTurma = p_idTurma;
+    ELSE
+        INSERT INTO tblTurmas (nomeTurma, turno, podeRepetirAula, fkEscola, criadoEm)
+        VALUES (p_nomeTurma, p_turno, p_podeRepetirAula, p_fkEscola, CURRENT_DATE);
+    END IF;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE sp_insert_update_tblHorarioTurma (
+    IN p_idHorarioTurma INT,
+    IN p_fkHorario INT,
+    IN p_fkTurma INT
+)
+BEGIN
+    IF EXISTS (SELECT 1 FROM tblHorarioTurma WHERE idHorarioTurma = p_idHorarioTurma) THEN
+        UPDATE tblHorarioTurma
+        SET fkHorario = p_fkHorario,
+            fkTurma = p_fkTurma
+        WHERE idHorarioTurma = p_idHorarioTurma;
+    ELSE
+        INSERT INTO tblHorarioTurma (fkHorario, fkTurma)
+        VALUES (p_fkHorario, p_fkTurma);
+    END IF;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE sp_insert_update_tblProfessores (
+    IN p_idProfessor INT,
+    IN p_matricul VARCHAR(200),
+    IN p_nomeProfessor VARCHAR(200),
+    IN p_txtEmail VARCHAR(200),
+    IN p_fkEscola INT
+)
+BEGIN
+    IF EXISTS (SELECT 1 FROM tblProfessores WHERE idProfessor = p_idProfessor) THEN
+        UPDATE tblProfessores
+        SET matricul = p_matricul,
+            nomeProfessor = p_nomeProfessor,
+            txtEmail = p_txtEmail,
+            fkEscola = p_fkEscola
+        WHERE idProfessor = p_idProfessor;
+    ELSE
+        INSERT INTO tblProfessores (matricul, nomeProfessor, txtEmail, fkEscola)
+        VALUES (p_matricul, p_nomeProfessor, p_txtEmail, p_fkEscola);
+    END IF;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE sp_insert_update_tblDisciplinas (
+    IN p_idDisciplina INT,
+    IN p_sigla VARCHAR(5),
+    IN p_codigoDisciplina VARCHAR(50),
+    IN p_nomeDisciplina VARCHAR(100)
+)
+BEGIN
+    IF EXISTS (SELECT 1 FROM tblDisciplinas WHERE idDisciplina = p_idDisciplina) THEN
+        UPDATE tblDisciplinas
+        SET sigla = p_sigla,
+            codigoDisciplina = p_codigoDisciplina,
+            nomeDisciplina = p_nomeDisciplina
+        WHERE idDisciplina = p_idDisciplina;
+    ELSE
+        INSERT INTO tblDisciplinas (sigla, codigoDisciplina, nomeDisciplina)
+        VALUES (p_sigla, p_codigoDisciplina, p_nomeDisciplina);
+    END IF;
+END //
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE sp_insert_update_tblDisciplinasTurma (
+    IN p_idDisciplinaTurma INT,
+    IN p_quantidadeAulasSemana INT,
+    IN p_fkDisciplina INT,
+    IN p_fkProfessor INT,
+    IN p_fkTurma INT
+)
+BEGIN
+    IF EXISTS (SELECT 1 FROM tblDisciplinasTurma WHERE idDisciplinaTurma = p_idDisciplinaTurma) THEN
+        UPDATE tblDisciplinasTurma
+        SET quantidadeAulasSemana = p_quantidadeAulasSemana,
+            fkDisciplina = p_fkDisciplina,
+            fkProfessor = p_fkProfessor,
+            fkTurma = p_fkTurma
+        WHERE idDisciplinaTurma = p_idDisciplinaTurma;
+    ELSE
+        INSERT INTO tblDisciplinasTurma (quantidadeAulasSemana, fkDisciplina, fkProfessor, fkTurma)
+        VALUES (p_quantidadeAulasSemana, p_fkDisciplina, p_fkProfessor, p_fkTurma);
+    END IF;
+END //
+
+DELIMITER ;
+
+-- Dados para tblEscolas:
+CALL sp_insert_update_tblEscolas(NULL, 'Escola Estadual de Capitólio', '1234567890', 'Rua Principal', 100, 'Próximo à praça', 'Centro', 'Capitólio', 'MG', '37930000', '3534567890');
+CALL sp_insert_update_tblEscolas(NULL, 'Escola Municipal de Capitólio', '0987654321', 'Avenida Secundária', 200, 'Em frente ao mercado', 'Bairro Novo', 'Capitólio', 'MG', '37930001', '3534567891');
+
+-- Dados para tblHorarios:
+CALL sp_insert_update_tblHorarios(NULL, 1, 'Horário Matutino');
+CALL sp_insert_update_tblHorarios(NULL, 2, 'Horário Vespertino');
+
+-- Dados para tblHorasHorarios:
+CALL sp_insert_update_tblHorasHorarios(NULL, '08:00:00', '07:00:00', 1);
+CALL sp_insert_update_tblHorasHorarios(NULL, '12:00:00', '11:00:00', 1);
+CALL sp_insert_update_tblHorasHorarios(NULL, '14:00:00', '13:00:00', 2);
+CALL sp_insert_update_tblHorasHorarios(NULL, '18:00:00', '17:00:00', 2);
+
+-- Dados para tblTurmas:
+CALL sp_insert_update_tblTurmas(NULL, 'Turma 1A', 1, TRUE, 1);
+CALL sp_insert_update_tblTurmas(NULL, 'Turma 2B', 2, FALSE, 2);
+-- Dados para tblHorarioTurma:
+CALL sp_insert_update_tblHorarioTurma(NULL, 1, 1);
+CALL sp_insert_update_tblHorarioTurma(NULL, 2, 2);
+
+-- Dados para tblProfessores:
+CALL sp_insert_update_tblProfessores(NULL, 'MAT123', 'Professor A', 'prof.a@escola.com', 1);
+CALL sp_insert_update_tblProfessores(NULL, 'POR456', 'Professor B', 'prof.b@escola.com', 2);
+
+-- Dados para tblDisciplinas:
+CALL sp_insert_update_tblDisciplinas(NULL, 'MAT', 'MAT101', 'Matemática');
+CALL sp_insert_update_tblDisciplinas(NULL, 'POR', 'POR102', 'Português');
+-- Dados para tblDisciplinasTurma:
+CALL sp_insert_update_tblDisciplinasTurma(NULL, 5, 1, 1, 1);
+CALL sp_insert_update_tblDisciplinasTurma(NULL, 4, 2, 2, 2);
 
 
--- Inserindo dados na tabela tblEscolas
-INSERT INTO tblEscolas (nomeEscola, registroInep, logradouro, numero, complemento, bairro, cidade, estado, cep, telefone)
-VALUES 
-('Escola Estadual de Capitólio', '1234567890', 'Rua Principal', 100, 'Próximo à praça', 'Centro', 'Capitólio', 'MG', '37930000', '3534567890'),
-('Escola Municipal de Capitólio', '0987654321', 'Avenida Secundária', 200, 'Em frente ao mercado', 'Bairro Novo', 'Capitólio', 'MG', '37930001', '3534567891');
 
--- Inserindo dados na tabela tblHorarios
-INSERT INTO tblHorarios (fkEscola, nomeHorario)
-VALUES 
-(1, 'Horário Matutino'),
-(2, 'Horário Vespertino');
-
--- Inserindo dados na tabela tblHorasHorarios
-INSERT INTO tblHorasHorarios (horaFim, horaInicio, fkHorario)
-VALUES 
-('08:00:00', '07:00:00', 1),
-('12:00:00', '11:00:00', 1),
-('14:00:00', '13:00:00', 2),
-('18:00:00', '17:00:00', 2);
-
--- Inserindo dados na tabela tblTurmas
-INSERT INTO tblTurmas (nomeTurma, turno, podeRepetirAula, fkEscola, criadoEm)
-VALUES 
-('Turma 1A', 1, TRUE, 1, CURRENT_DATE),
-('Turma 2B', 2, FALSE, 2, CURRENT_DATE);
-
--- Inserindo dados na tabela tblHorarioTurma
-INSERT INTO tblHorarioTurma (fkHorario, fkTurma)
-VALUES 
-(1, 1),
-(2, 2);
-
--- Inserindo dados na tabela tblDisciplinas
-INSERT INTO tblDisciplinas (sigla, codigoDisciplina, nomeDisciplina)
-VALUES 
-('MAT', 'MAT101', 'Matemática'),
-('POR', 'POR102', 'Português');
-
--- Inserindo dados na tabela tblDisciplinasTurma
-INSERT INTO tblDisciplinasTurma (quantidadeAulasSemana, fkDisciplina, fkTurma)
-VALUES 
-(5, 1, 1),
-(4, 2, 2);
