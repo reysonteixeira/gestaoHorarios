@@ -23,6 +23,8 @@ $app->get('/admin/professores/:id', function ($id) {
     $professores = new Professores();
     $professores->setFkEscola(1);
     $professores->setIdProfessor($id);
+    $getProfessor = $professores->getProfessor();
+    var_dump($getProfessor);
     $page->setTpl("edit-professores", array("professor" => $professores->getProfessor()));
     exit;
 });
