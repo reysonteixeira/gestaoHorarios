@@ -1,16 +1,16 @@
-DROP DATABASE GestaoHorario;
-CREATE DATABASE GestaoHorario;
+-- DROP DATABASE GestaoHorario;
+-- CREATE DATABASE GestaoHorario;
 
-USE GestaoHorario;
+-- USE GestaoHorario;
 
 -- DROP
-DROP TABLE IF EXISTS tblDisciplinas;
-DROP TABLE IF EXISTS tblHorarioTurma;
-DROP TABLE IF EXISTS tblHorasHorarios;
-DROP TABLE IF EXISTS tblDisciplinasTurmas;
-DROP TABLE IF EXISTS tblHorarios;
-DROP TABLE IF EXISTS tblTurmas;
-DROP TABLE IF EXISTS tblEscola;
+-- DROP TABLE IF EXISTS tblDisciplinas;
+-- DROP TABLE IF EXISTS tblHorarioTurma;
+-- DROP TABLE IF EXISTS tblHorasHorarios;
+-- DROP TABLE IF EXISTS tblDisciplinasTurmas;
+-- DROP TABLE IF EXISTS tblHorarios;
+-- DROP TABLE IF EXISTS tblTurmas;
+-- DROP TABLE IF EXISTS tblEscola;
 -- DROP TABLE IF EXISTS
 
 -- CREATE

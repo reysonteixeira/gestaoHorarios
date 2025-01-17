@@ -35,7 +35,7 @@
         }
 
         //Função devolve um array com todos os dados do banco de dados da tabela Escola
-        public function listAllEscolas()
+        public function listAll()
         {
             try
             {
@@ -50,13 +50,13 @@
         }
 
         //Função de busca um elemento pelo id na tabela:
-        public function get()
+        public function get($id)
         {
             try{
                 $sql = new Sql();
                 return ($sql->select(
-                    "SELECT *, txtNome as nomeEscola FROM tblEscola WHERE idEscola = :ID;",
-                    array(":ID" => $this->idEscola,)
+                    "SELECT * FROM tblEscolas WHERE idEscola = :ID;",
+                    array(":ID" => $id)
                 )[0]);
             }
             
@@ -67,14 +67,14 @@
         }
 
         //Deleta do banco de dados os dados referete ao id
-        public function delete()
+        public function delete($id)
         {
             try{
                 $sql = new Sql();
 
                 return ($sql->query(
                     "DELETE FROM tblEscolas WHERE idEscola = :ID;",
-                    array(":ID" => $this->idEscola)
+                    array(":ID" => $id)
                 ));
             }
             
