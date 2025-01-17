@@ -4,6 +4,7 @@ $app->get('/admin/professores', function () {
     // User::verifyLoginAdmin();
     $page = new PageAdmin();
     $professores = new Professores();
+    $professores->setFkEscola(1);
     if(isset($_GET["busca"])){
         $professores->setNomeProfessor($_GET["busca"]);
         $listaProfessores = $professores->searchProfessor();

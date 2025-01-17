@@ -108,9 +108,10 @@ class Professores
                 try {
                         $sql = new Sql();
                         return ($sql->select(
-                                "SELECT * from tblProfessores where nomeProfessor like :ATRIBUTO1;",
+                                "SELECT * from tblProfessores where nomeProfessor like :ATRIBUTO1 and fkEscola = :ATRIBUTO2;",
                                 array(
-                                        ":ATRIBUTO1" => "%".$this->getNomeProfessor()."%"
+                                        ":ATRIBUTO1" => "%".$this->getNomeProfessor()."%",
+                                        ":ATRIBUTO2" => $this->getFkEscola()
                                 ) //fim array
                         ) //fim função select
                         ); //fim return
