@@ -22,6 +22,7 @@ $app->get('/admin/professores/:id', function ($id) {
 $app->post('/admin/professores/:id', function ($id) {
     // User::verifyLoginAdmin();
     $professores = new Professores();
+    $professores->setFkEscola(1);
     $professores->setIdProfessor($id);
     $professores->setDados($_POST);
     $professores->update();
