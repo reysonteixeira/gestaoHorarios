@@ -75,18 +75,12 @@
                 if ($id != 0)
                 {
                     $this->idDisciplina = $id;
-                    //
-                    return ($sql->select(
-                        "CALL sp_insert_update_tblDisciplinas(:ATRIBUTO00,:ATRIBUTO01, :ATRIBUTO02, :ATRIBUTO03)",
-                        $this->return_array()
-                    ));
                 }
-                else {
-                    return ($sql->select(
-                        "CALL sp_insert_update_tblDisciplinas(:ATRIBUTO00,:ATRIBUTO01, :ATRIBUTO02, :ATRIBUTO03)",
-                        $this->return_array()
-                    ));
-                }      
+                
+                return ($sql->select(
+                    "CALL sp_insert_update_tblDisciplinas(:ATRIBUTO00,:ATRIBUTO01, :ATRIBUTO02, :ATRIBUTO03)",
+                    $this->return_array()
+                ));   
             }
             catch (Exception $e)
             {

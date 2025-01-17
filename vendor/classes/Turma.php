@@ -87,7 +87,8 @@ class Turma
                 if ($id != 0)
                 {
                     $this->idTurma = $id;
-                }    
+                }
+                
                 $sql->select(
                     "CALL sp_insert_update_tblTurmas(:ATRIBUTO00,:ATRIBUTO01, :ATRIBUTO02, :ATRIBUTO03, :ATRIBUTO04)",
                     $this->return_array()

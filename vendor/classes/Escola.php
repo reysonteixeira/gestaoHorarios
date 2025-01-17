@@ -94,18 +94,12 @@
                 if ($id != 0)
                 {
                     $this->idEscola = $id;
-                    //
-                    return ($sql->select(
-                        "CALL sp_insert_update_tblEscolas(:ATRIBUTO00,:ATRIBUTO01, :ATRIBUTO02, :ATRIBUTO03, :ATRIBUTO04, :ATRIBUTO05, :ATRIBUTO06, :ATRIBUTO07, :ATRIBUTO08, :ATRIBUTO09, :ATRIBUTO10)",
-                        $this->return_array()
-                    ));
                 }
-                else {
-                    return ($sql->select(
-                        "CALL sp_insert_update_tblEscolas(:ATRIBUTO00,:ATRIBUTO01, :ATRIBUTO02, :ATRIBUTO03, :ATRIBUTO04, :ATRIBUTO05, :ATRIBUTO06, :ATRIBUTO07, :ATRIBUTO08, :ATRIBUTO09, :ATRIBUTO10)",
-                        $this->return_array()
-                    ));
-                }      
+                
+                $sql->select(
+                    "CALL sp_insert_update_tblEscolas(:ATRIBUTO00,:ATRIBUTO01, :ATRIBUTO02, :ATRIBUTO03, :ATRIBUTO04, :ATRIBUTO05, :ATRIBUTO06, :ATRIBUTO07, :ATRIBUTO08, :ATRIBUTO09, :ATRIBUTO10)",
+                    $this->return_array()
+                );    
             }
             catch (Exception $e)
             {
