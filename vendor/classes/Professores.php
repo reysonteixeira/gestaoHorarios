@@ -1,10 +1,110 @@
 <?php
-    class Professores {
+class Professores
+{
         private $idProfessor;
         private $matricula;
         private $txtemail;
         private $fkEscola;
+
+        private $nomeProfessor;
+
+
+        public function setDados($dados)
+        {
+                $this->matricula = $dados['matricula'];
+                $this->txtemail = $dados['txtemail'];
+                $this->fkEscola = $dados['fkEscola'];
+                $this->nomeProfessor = $dados['nomeProfessor'];
+        }
+
+        public function save()
+        {
+                try {
+                        $sql = new Sql();
+                        return ($sql->select(
+                                "CALL sp_SaveProfessores(:ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3,:ATRIBUTO4)",
+                                array(
+                                        ":ATRIBUTO1" => $this->getNomeProfessor(),
+                                        ":ATRIBUTO2" => $this->getMatricula(),
+                                        ":ATRIBUTO3" => $this->getTxtemail(),
+                                        ":ATRIBUTO4" => $this->getFkEscola()
+                                ) //fim array
+                        ) //fim função select
+                        ); //fim return
+                } //fim try
+
+                catch (Exception $e) {
+                } //fim catch            
+        }
+
+        public function update(){
+                try {
+                        $sql = new Sql();
+                        return ($sql->select(
+                        "CALL sp_updProfessores(:ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3,:ATRIBUTO4, :ATRIBUTO5)",
+                        array(
+                                ":ATRIBUTO1"=>$this->getIdProfessor(),
+                                ":ATRIBUTO2" => $this->getNomeProfessor(),
+                                ":ATRIBUTO3"=>$this->getMatricula(),
+                                ":ATRIBUTO4"=>$this->getTxtemail(),
+                                ":ATRIBUTO5"=>$this->getFkEscola()
+                        ) //fim array
+                        ) //fim função select
+                        ); //fim return
+                } //fim try
         
+                catch (Exception $e) {
+                   
+                } //fim catch            
+        }
+
+        public function listProfessorEscola(){
+                try {
+                        $sql = new Sql();
+                        return ($sql->select(
+                                "SELECT * from tblProfessores where fkEscola = :ATRIBUTO1 order by nomeProfessor;",
+                                array(
+                                        ":ATRIBUTO1" => $this->getFkEscola()
+                                ) //fim array
+                        ) //fim função select
+                        ); //fim return
+                } //fim try
+        
+                catch (Exception $e) {
+                   
+                } //fim catch      
+        }
+
+        public function listAll(){
+                try {
+                        $sql = new Sql();
+                        return ($sql->select(
+                                "SELECT * from tblProfessores order by nomeProfessor;"
+                        ) //fim função select
+                        ); //fim return
+                } //fim try
+        
+                catch (Exception $e) {
+                   
+                } //fim catch      
+        }
+
+        public function getProfessor(){
+                try {
+                        $sql = new Sql();
+                        return ($sql->select(
+                                "SELECT * from tblProfessores where idProfessor = :ATRIBUTO1;",
+                                array(
+                                        ":ATRIBUTO1" => $this->getIdProfessor()
+                                ) //fim array
+                        ) //fim função select
+                        ); //fim return
+                } //fim try
+        
+                catch (Exception $e) {
+                   
+                } //fim catch      
+        }
 
         /**
          * Get the value of idProfessor
@@ -77,6 +177,22 @@
 
                 return $this;
         }
-    }
 
-?>
+        /**
+         * Get the value of nomeProfessor
+         */
+        public function getNomeProfessor()
+        {
+                return $this->nomeProfessor;
+        }
+
+        /**
+         * Set the value of nomeProfessor
+         */
+        public function setNomeProfessor($nomeProfessor): self
+        {
+                $this->nomeProfessor = $nomeProfessor;
+
+                return $this;
+        }
+}
