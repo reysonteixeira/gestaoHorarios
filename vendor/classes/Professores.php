@@ -104,6 +104,23 @@ class Professores
                 } //fim catch      
         }
 
+        public function searchProfessor(){
+                try {
+                        $sql = new Sql();
+                        return ($sql->select(
+                                "SELECT * from tblProfessores where nomeProfessor like :ATRIBUTO1;",
+                                array(
+                                        ":ATRIBUTO1" => "%".$this->getNomeProfessor()."%"
+                                ) //fim array
+                        ) //fim função select
+                        ); //fim return
+                } //fim try
+        
+                catch (Exception $e) {
+                   
+                } //fim catch
+        }
+
         /**
          * Get the value of idProfessor
          */

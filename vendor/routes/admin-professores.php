@@ -4,6 +4,12 @@ $app->get('/admin/professores', function () {
     // User::verifyLoginAdmin();
     $page = new PageAdmin();
     $professores = new Professores();
+    if(isset($_GET["busca"])){
+        $professores->setNomeProfessor($_GET["busca"]);
+        $listaProfessores = $professores->searchProfessor();
+        $page->setTpl("list-professores", array("professores" => $listaProfessores));
+        exit;
+    }
     $listaProfessores = $professores->listAll();
     $page->setTpl("list-professores", array("professores" => $listaProfessores));
 
