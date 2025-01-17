@@ -9,7 +9,6 @@
 
         public function setDadosForm($post)
         {
-            // Idetificadores da Escola:
             $this->idProfessor   =$post['idProfessor'];
             $this->matricula     =$post['matricula'];
             $this->nomeProfessor =$post['nomeProfessor'];

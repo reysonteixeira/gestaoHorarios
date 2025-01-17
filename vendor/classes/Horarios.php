@@ -6,7 +6,6 @@
 
         public function setDadosForm($post)
         {
-            // Idetificadores da Escola:
             $this->idHorario     =$post['idHorario'];
             $this->fkEscola      =$post['fkEscola'];
             $this->nomeHorario   =$post['nomeHorario'];

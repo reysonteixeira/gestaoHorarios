@@ -7,7 +7,6 @@
 
         public function setDadosForm($post)
         {
-            // Idetificadores da Escola:
             $this->idDisciplina     =$post['idDisciplina'];
             $this->sigla            =$post['sigla'];
             $this->codigoDisciplina =$post['codigoDisciplina'];

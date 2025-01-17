@@ -19,7 +19,6 @@ class Turma
 
         public function setDadosForm($post)
         {
-            // Idetificadores da Escola:
             $this->idTurma         =$post['idTurma'];
             $this->nomeTurma       =$post['nomeTurma'];
             $this->turno           =$post['turno'];
