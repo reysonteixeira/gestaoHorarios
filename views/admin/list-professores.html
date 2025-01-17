@@ -32,7 +32,7 @@
                 <a href="/admin/cadastrar-professores" class="btn btn-success">Cadastrar Professores</a> 
                         </div>
 
-            {if="$servidores"}
+            {if="$professores"}
             <table class="table mt-3">
               <thead>
                 <tr>
@@ -44,7 +44,7 @@
                 </tr>
               </thead>
               <tbody>
-                {loop="$servidores"}
+                {loop="$professores"}
              
                 <tr>
                   <td>{$value.txtNome}</td>
