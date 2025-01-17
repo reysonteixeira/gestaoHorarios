@@ -7,6 +7,7 @@
     require_once('User.php');
     require_once('Turma.php'); // Rescrita
     require_once('Escola.php');// Rescrita
-    require_once('Disciplina.php');//Rescrita
-    require_once('Professor.php');
+    require_once('Horarios.php');
+    require_once('Professor.php');// Rescrita
+    require_once('Disciplina.php');// Rescrita
 ?>
