@@ -21,6 +21,7 @@ $app->get('/admin/professores/:id', function ($id) {
     // User::verifyLoginAdmin();
     $page = new PageAdmin();
     $professores = new Professores();
+    $professores->setFkEscola(1);
     $professores->setIdProfessor($id);
     $page->setTpl("edit-professores", array("professor" => $professores->getProfessor()));
     exit;
