@@ -11,9 +11,7 @@ class Professores
 
         public function setDados($dados)
         {
-                $this->matricula = $dados['matricula'];
                 $this->txtemail = $dados['txtemail'];
-                $this->fkEscola = $dados['fkEscola'];
                 $this->nomeProfessor = $dados['nomeProfessor'];
         }
 
