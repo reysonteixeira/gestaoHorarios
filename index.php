@@ -42,6 +42,11 @@ $dompdf->stream();
           exit;
     });
 
+    $app->get('/',function(){
+      header('location: /admin/escolas');
+      exit;
+   });
+
    $app->get('/admin/secretaria/login',function(){
     
        $page = new PageAdmin(["header"=>false,"footer"=>false]);//Intancia de nova página administrativa
