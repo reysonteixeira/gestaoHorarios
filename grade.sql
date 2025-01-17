@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS tblHorarioTurma
 CREATE TABLE IF NOT EXISTS tblProfessores
 (
     idProfessor INT PRIMARY KEY AUTO_INCREMENT,
-    matricul VARCHAR(200) NULL,
+    matricula VARCHAR(200) NULL,
     nomeProfessor VARCHAR(200) NOT NULL,
     txtEmail VARCHAR(200) NULL,
 	fkEscola INT,

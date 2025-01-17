@@ -5,7 +5,7 @@
     require_once('PageAdmin.php');
     // Classes do Projeto:
     require_once('User.php');
-    require_once('Turma.php');
+    require_once('Turma.php'); // Rescrita
     require_once('Escola.php');// Rescrita
     require_once('Disciplina.php');//Rescrita
     require_once('Professor.php');
