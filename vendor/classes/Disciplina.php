@@ -7,7 +7,6 @@
 
         public function setDadosForm($post)
         {
-            $this->idDisciplina     =$post['idDisciplina'];
             $this->sigla            =$post['sigla'];
             $this->codigoDisciplina =$post['codigoDisciplina'];
             $this->nomeDisciplina   =$post['nomeDisciplina'];
@@ -98,6 +97,24 @@
                     );
                 break;
             }
+        }
+
+        /**
+         * Get the value of idDisciplina
+         */
+        public function getIdDisciplina()
+        {
+                return $this->idDisciplina;
+        }
+
+        /**
+         * Set the value of idDisciplina
+         */
+        public function setIdDisciplina($idDisciplina): self
+        {
+                $this->idDisciplina = $idDisciplina;
+
+                return $this;
         }
     }
 ?>

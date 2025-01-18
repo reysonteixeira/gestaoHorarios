@@ -3,9 +3,8 @@
     $app->post('/admin/cadastrar-disciplinas', function(){
         // User::verifyLoginAdmin();
         $disciplinas = new Disciplinas();
-        $disciplinas->setTxtNomeDisciplina($_POST["txtNomeDisciplinas"]);
-        $disciplinas->setIntTipoAvaliacao($_POST["intTipoAvaliacao"]);
-        $disciplinas->setMatrizCurricular($_POST["matrizCurricular"]);
+        $disciplinas->setIdDisciplina(0);
+        $disciplinas->setDadosForm($_POST);
 
         $disciplinas->save();
         header('location: /admin/disciplinas');
@@ -24,11 +23,9 @@
     {
         // User::verifyLoginAdmin();
         $disciplina = new Disciplinas();
-        $disciplina->setIdDisciplinas($id);
-        $disciplina->setTxtNomeDisciplina($_POST["txtNomeDisciplinas"]);
-        $disciplina->setIntTipoAvaliacao($_POST["intTipoAvaliacao"]);
-        $disciplina->setMatrizCurricular($_POST["matrizCurricular"]);
-        $disciplina->update();
+        $disciplina->setIdDisciplina($id);
+        $disciplina->setDadosForm($_POST);
+        $disciplina->save();
         header("location: /admin/disciplinas");
         exit;
     });
@@ -38,8 +35,7 @@
         // User::verifyLoginAdmin();
         $page = new PageAdmin();
         $disciplina = new Disciplinas();
-        $disciplina->setIdDisciplinas($id);
-        $disciplinaInfo = $disciplina->get();
+        $disciplinaInfo = $disciplina->get($id);
         $page->setTpl("edit-disciplinas", array("disciplina"=>$disciplinaInfo));
         exit;
     });
@@ -57,8 +53,7 @@
     {
         // User::verifyLoginAdmin();
         $disciplina = new Disciplinas();
-        $disciplina->setIdDisciplinas($id);
-        $disciplina->delete();
+        $disciplina->delete($id);
         header('location: /admin/disciplinas');
         exit;
     });
