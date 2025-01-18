@@ -4,12 +4,9 @@
         private $fkEscola;
         private $nomeHorario;
 
-        public function setDadosForm($post)
+        public function setDados($post)
         {
-            $this->idHorario     =$post['idHorario'];
-            $this->fkEscola      =$post['fkEscola'];
             $this->nomeHorario   =$post['nomeHorario'];
-            
         }
 
         //Função devolve um array com todos os dados do banco de dados da tabela 
@@ -18,7 +15,7 @@
             try
             {
                 $sql = new Sql();
-                return $sql->select("SELECT * FROM tblHorarios order by nomeHorario;");
+                return $sql->select("SELECT * FROM tblHorarios where fkEscola = :ATRIBUTO1 order by nomeHorario;", array(":ATRIBUTO1"=>$this->getFkEscola()));
             }
             
             catch (Exception $e)
@@ -33,8 +30,8 @@
             try{
                 $sql = new Sql();
                 return ($sql->select(
-                    "SELECT * FROM tblHorarios WHERE idHorario = :ID;",
-                    array(":ID" => $id)
+                    "SELECT * FROM tblHorarios WHERE idHorario = :ID and fkEscola = :FKESCOLA;",
+                    array(":ID" => $id, ":FKESCOLA" => $this->getFkEscola())
                 )[0]);
             }
             
@@ -95,6 +92,60 @@
                     );
                 break;
             }
+        }
+
+        /**
+         * Get the value of idHorario
+         */
+        public function getIdHorario()
+        {
+                return $this->idHorario;
+        }
+
+        /**
+         * Set the value of idHorario
+         */
+        public function setIdHorario($idHorario): self
+        {
+                $this->idHorario = $idHorario;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of fkEscola
+         */
+        public function getFkEscola()
+        {
+                return $this->fkEscola;
+        }
+
+        /**
+         * Set the value of fkEscola
+         */
+        public function setFkEscola($fkEscola): self
+        {
+                $this->fkEscola = $fkEscola;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of nomeHorario
+         */
+        public function getNomeHorario()
+        {
+                return $this->nomeHorario;
+        }
+
+        /**
+         * Set the value of nomeHorario
+         */
+        public function setNomeHorario($nomeHorario): self
+        {
+                $this->nomeHorario = $nomeHorario;
+
+                return $this;
         }
     }
 ?>
