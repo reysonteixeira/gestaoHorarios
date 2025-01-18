@@ -20,10 +20,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./  # Diretório base do repositório local
-          server-dir: /public_html/  # Diretório remoto no servidor
+          server-dir: ./  # Diretório remoto no servidor
           method: mirror  # Sincronizar apenas arquivos novos ou alterados
-          excludes: |
-            node_modules/**   # Ignorar pasta node_modules
-            vendor/**         # Ignorar pasta vendor
-            res/**            # Ignorar pasta res
           concurrency: 5      # 5 uploads simultâneos
