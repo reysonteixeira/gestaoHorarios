@@ -1,27 +1,27 @@
 <?php
 
 $app->get('/admin/professores', function () {
-    // User::verifyLoginAdmin();
+    Usuario::verifyLoginEscola();
     $page = new PageAdmin();
     $professores = new Professores();
-    $professores->setFkEscola(1);
+    $professores->setFkEscola($_SESSION['fkEscola']);
     if(isset($_GET["busca"])){
         $professores->setNomeProfessor($_GET["busca"]);
         $listaProfessores = $professores->searchProfessor();
         $page->setTpl("list-professores", array("professores" => $listaProfessores));
         exit;
     }
-    $listaProfessores = $professores->listAll();
+    $listaProfessores = $professores->listProfessorEscola();
     $page->setTpl("list-professores", array("professores" => $listaProfessores));
 
     exit;
 });
 
 $app->get('/admin/professores/:id', function ($id) {
-    // User::verifyLoginAdmin();
+    Usuario::verifyLoginEscola();
     $page = new PageAdmin();
     $professores = new Professores();
-    $professores->setFkEscola(1);
+    $professores->setFkEscola($_SESSION['fkEscola']);
     $professores->setIdProfessor($id);
     $infoProfessor = $professores->getProfessor();
     if(count($infoProfessor) == 0){
@@ -33,9 +33,9 @@ $app->get('/admin/professores/:id', function ($id) {
 });
 
 $app->post('/admin/professores/:id', function ($id) {
-    // User::verifyLoginAdmin();
+    Usuario::verifyLoginEscola();
     $professores = new Professores();
-    $professores->setFkEscola(1);
+    $professores->setFkEscola($_SESSION['fkEscola']);
     $professores->setIdProfessor($id);
     $professores->setDados($_POST);
     $professores->update();
@@ -44,15 +44,16 @@ $app->post('/admin/professores/:id', function ($id) {
 });
 
 $app->get('/admin/cadastrar-professores', function () {
-    // User::verifyLoginAdmin();
+    Usuario::verifyLoginEscola();
     $page = new PageAdmin();
     $page->setTpl("cadastra-professores", array());
     exit;
 });
 
 $app->post('/admin/cadastrar-professores', function () {
-    // User::verifyLoginAdmin();
+    Usuario::verifyLoginEscola();
     $professores = new Professores();
+    $professores->setFkEscola($_SESSION['fkEscola']);
     $professores->setDados($_POST);
     $professores->save();
     header("location: /admin/professores");
