@@ -29,4 +29,4 @@ jobs:
             vendor/**         # Ignorar toda a pasta vendor
             views-cache/**    # Ignorar toda a pasta views-cache
           method: noclobber   # Evitar sobrescrever arquivos existentes
-          concurrency: 5   
+          concurrency: 1
