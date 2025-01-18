@@ -1,5 +1,36 @@
 <?php
 
+$app->get("/login", function(){
+    $page = new PageAdmin(
+        array(
+            "header"=>false,
+            "footer"=>false
+        )
+    );
+    $page->setTpl("login");
+    exit;
+});
+
+$app->post("/login", function(){
+    $usuario = new Usuario();
+    $usuario->setEmail($_POST['email']);
+    $usuario->setSenha($_POST['senha']);
+    $usuario->login();
+    if($usuario->getIdUsuario() > 0){
+        $_SESSION['idUsuario'] = $usuario->getIdUsuario();
+        $_SESSION['nomeUsuario'] = $usuario->getNomeUsuario();
+        $_SESSION['tipoAcesso'] = $usuario->getTipoAcesso();
+        $_SESSION['fkEscola'] = $usuario->getFkEscola();
+
+        var_dump($_SESSION);
+        exit;
+        header("location: /admin");
+        exit;
+    }else{
+        header("location: /login");
+        exit;
+    }
+});
 
 $app->get('/admin/usuarios', function () {
     $usuario = new Usuario();

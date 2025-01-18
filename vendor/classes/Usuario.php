@@ -20,6 +20,21 @@ $primeiraParte = strtolower($partesNome[0]);
             $this->setTipoAcesso($dados['tipoAcesso']);
         }
 
+        public function login(){
+            try{
+                $sql = new Sql();
+                $results = $sql->select("SELECT * FROM tblUsuarios where txtEmail = :email and senha = :senha", array(
+                    ":email"=>$this->getEmail(),
+                    ":senha"=>$this->getSenha()
+                ));
+                if(count($results) > 0){
+                    $this->setDados($results[0]);
+                }
+            }catch(Exception $e){
+                var_dump($e->getMessage());
+            }
+        }
+
         public function save(){
             try{
                 $sql = new Sql();
