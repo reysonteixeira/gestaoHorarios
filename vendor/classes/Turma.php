@@ -31,7 +31,7 @@ class Turma
             try
             {
                 $sql = new Sql();
-                return $sql->select("SELECT * FROM tblTurmas where fkEscola = :FKESCOLA order by nomeTurma;", array(":FKESCOLA"=>$this->getFkEscola()));
+                return $sql->select("SELECT * FROM tblTurmas inner join tblHorarios on fkHorario = idHorario where fkEscola = :FKESCOLA order by nomeTurma;", array(":FKESCOLA"=>$this->getFkEscola()));
             }
             
             catch (Exception $e)
