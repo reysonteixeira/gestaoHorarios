@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Editar Disciplinas</h1>
+            <h1>Cadastrar Disciplinas</h1>
           </div>
          
         </div>
@@ -29,33 +29,30 @@
                 <div class="card-body row">
 
 
-                  <div class="form-group col-md-5">
+                  <div class="form-group col-md-6">
                     <label for="exampleInputName">Nome da Disciplina</label>
-                    <input type="text" class="form-control" value="{$disciplina.txtNomeDisciplina}"  id="exampleInputName" name="txtNomeDisciplinas" placeholder=" Nome">
-                  </div>
-
-                  <div class="form-group col-md-4">
-                    <label for="exampleInputName">Método de Avaliação</label>
-                    <select name="intTipoAvaliacao" class="form-control" id="">
-                      <option value="1" {if="$disciplina.intTipoAvaliacao==1"}selected{/if}>Pontos</option>
-                      <option value="3" {if="$disciplina.intTipoAvaliacao==3"}selected{/if}>Conceitos (Correspondente aos pontos)</option>
-                      <option value="2" {if="$disciplina.intTipoAvaliacao==2"}selected{/if}>Conceitos (Atingiu, parcial, não atingiu)</option>
-                      
-                    </select>
+                    <input type="text" class="form-control" value="{$disciplina.nomeDisciplina}" name="nomeDisciplina" >
                   </div>
 
                   <div class="form-group col-md-3">
-                    <label for="exampleInputName">Estrutura Curricular</label>
-                    <select class="form-control" name="matrizCurricular">
-                      <option value="1" {if="$disciplina.intEstruturaCurricular==1"}selected{/if}>Base Nacional Comum</option>
-                      <option value="2" {if="$disciplina.intEstruturaCurricular==2"}selected{/if}>Parte Diversificada</option>
-                    </select>
+                    <label for="exampleInputName">Sigla</label>
+                    <input type="text" class="form-control"   value="{$disciplina.sigla}" name="sigla">
                   </div>
+
+
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputName">Código da disciplina</label>
+                    <input type="text" class="form-control"   value="{$disciplina.codigoDisciplina}" name="codigoDisciplina">
+                  </div>
+
+
+
+               
 
           
                   <div class="form-group col-md-3">
                     <label for=""></label>
-                    <button type="submit" class="btn btn-success form-control">Cadastrar</button>
+                    <button type="submit" class="btn btn-success form-control">Salvar</button>
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -81,7 +78,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  
+
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
