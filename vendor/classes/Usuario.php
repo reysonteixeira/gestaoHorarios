@@ -28,6 +28,7 @@ $primeiraParte = strtolower($partesNome[0]);
                     ":senha"=>$this->getSenha()
                 ));
                 if(count($results) > 0){
+                    $this->setIdUsuario($results[0]['idUsuario']);
                     $this->setDados($results[0]);
                 }
             }catch(Exception $e){
