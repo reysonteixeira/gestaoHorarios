@@ -7,23 +7,22 @@ class Turma
         // Variaveis pricipais:
         private $idTurma = null;
         private $nomeTurma;
-        private $turno;
-        private $podeRepetirAula;
+        private $fkHorario;
+        private $anoTurma;
         private $fkEscola;
 
-        // Array de apoio:
-        public $list_turno = ["MANHÃ", "TARDE", "NOTURNO", "INTEGRAL"];
 
+        
+        // Array de apoio:
+       
         // Objetos relacionados:
         // private $obj_escola = new Escola()
 
         public function setDadosForm($post)
         {
-            $this->idTurma         =$post['idTurma'];
             $this->nomeTurma       =$post['nomeTurma'];
-            $this->turno           =$post['turno'];
-            $this->podeRepetirAula =$post['podeRepetirAula'];
-            $this->fkEscola        =$post['fkEscola'];
+           $this->fkHorario       =$post['fkHorario'];
+           $this->anoTurma        =$post['anoTurma'];
         }
 
         //Função devolve um array com todos os dados do banco de dados da tabela 
@@ -98,6 +97,8 @@ class Turma
                 return json_encode(Msg::arrayErros($e));
             }
         }
+
+     
         public function return_array($type=0)
         {
             switch ($type) {
@@ -105,13 +106,15 @@ class Turma
                     return array(
                         ":ATRIBUTO00" => $this->idTurma,
                         ":ATRIBUTO01" => $this->nomeTurma,
-                        ":ATRIBUTO02" => $this->turno,
-                        ":ATRIBUTO03" => $this->podeRepetirAula,
-                        ":ATRIBUTO04" => $this->fkEscola,
+                        ":ATRIBUTO02" => $this->fkHorario,
+                        ":ATRIBUTO03" => $this->fkEscola,
+                        ":ATRIBUTO04" => $this->anoTurma,
                     );
                 break;
             }
         }
+
+     
 
         /**
          * Get the value of idTurma
@@ -150,37 +153,37 @@ class Turma
         }
 
         /**
-         * Get the value of turno
+         * Get the value of fkHorario
          */
-        public function getTurno()
+        public function getFkHorario()
         {
-                return $this->turno;
+                return $this->fkHorario;
         }
 
         /**
-         * Set the value of turno
+         * Set the value of fkHorario
          */
-        public function setTurno($turno): self
+        public function setFkHorario($fkHorario): self
         {
-                $this->turno = $turno;
+                $this->fkHorario = $fkHorario;
 
                 return $this;
         }
 
         /**
-         * Get the value of podeRepetirAula
+         * Get the value of anoTurma
          */
-        public function getPodeRepetirAula()
+        public function getAnoTurma()
         {
-                return $this->podeRepetirAula;
+                return $this->anoTurma;
         }
 
         /**
-         * Set the value of podeRepetirAula
+         * Set the value of anoTurma
          */
-        public function setPodeRepetirAula($podeRepetirAula): self
+        public function setAnoTurma($anoTurma): self
         {
-                $this->podeRepetirAula = $podeRepetirAula;
+                $this->anoTurma = $anoTurma;
 
                 return $this;
         }
@@ -204,39 +207,8 @@ class Turma
         }
 
         /**
-         * Get the value of list_turno
-         */
-        public function getListTurno()
-        {
-                return $this->list_turno;
-        }
-
-        /**
-         * Set the value of list_turno
-         */
-        public function setListTurno($list_turno): self
-        {
-                $this->list_turno = $list_turno;
-
-                return $this;
-        }
-
-        /**
          * Get the value of obj_escola
          */
-        public function getObjEscola()
-        {
-                return $this->obj_escola;
-        }
 
-        /**
-         * Set the value of obj_escola
-         */
-        public function setObjEscola($obj_escola): self
-        {
-                $this->obj_escola = $obj_escola;
-
-                return $this;
-        }
     }
 ?>

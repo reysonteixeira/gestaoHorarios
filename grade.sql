@@ -227,7 +227,6 @@ DELIMITER //
 CREATE PROCEDURE sp_insert_update_tblTurmas (
     IN p_idTurma INT,
     IN p_nomeTurma VARCHAR(100),
-    in p_maximoAulasMateriaDia int,
     IN p_fkHorario INT,
     IN p_fkEscola INT,
     in p_anoTurma INT
@@ -238,14 +237,12 @@ BEGIN
         SET nomeTurma = p_nomeTurma,
             fkHorario = p_fkHorario,
             anoTurma = p_anoTurma,
-            fkEscola = p_fkEscola,
-            maximoAulasMateriaDia = p_maximoAulasMateriaDia
+            fkEscola = p_fkEscola
         WHERE idTurma = p_idTurma;
     ELSE
         INSERT INTO tblTurmas (nomeTurma, fkHorario,
-        maximoAulasMateriaDia,
          anoTurma , fkEscola, criadoEm)
-        VALUES (p_nomeTurma, p_fkHorario,p_maximoAulasMateriaDia,
+        VALUES (p_nomeTurma, p_fkHorario,
         p_anoTurma, p_fkEscola, CURRENT_DATE);
     END IF;
 END //
