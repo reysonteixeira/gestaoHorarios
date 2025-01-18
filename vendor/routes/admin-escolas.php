@@ -31,7 +31,6 @@ $app->post('/admin/cadastrar-escolas', function () {
      $escola->setIdEscola(0);
      $escola->setDadosForm($_POST);
      $escola->save();
-     exit;
      header("location: /admin/escolas");
      exit;
 });
