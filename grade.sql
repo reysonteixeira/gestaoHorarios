@@ -46,6 +46,18 @@ CREATE TABLE IF NOT EXISTS tblHorasHorarios
     FOREIGN KEY (fkHorario) REFERENCES tblHorarios(idHorario)
 );
 
+
+
+CREATE TABLE IF NOT EXISTS tblUsuarios
+(
+    idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+    nomeUsuario VARCHAR(200) NOT NULL,
+    senha varchar(80) not null,
+    tipoAcesso int not null,
+    txtEmail VARCHAR(200) not NULL
+    fkEscola INT
+);
+
 CREATE TABLE IF NOT EXISTS tblTurmas
 (
     idTurma INT PRIMARY KEY AUTO_INCREMENT,
@@ -112,6 +124,30 @@ CREATE TABLE IF NOT EXISTS tblDisciplinasTurma
   
 -- Procedures
 DELIMITER //
+
+
+CREATE PROCEDURE sp_usuarios_insert (
+    in p_idUsuario INT,
+    in p_nomeUsuario VARCHAR(200),
+    in p_senha varchar(80),
+    in p_tipoAcesso int,
+    in p_txtEmail VARCHAR(200),
+    in p_fkEscola INT
+)
+BEGIN
+    IF EXISTS (SELECT 1 FROM tblUsuarios WHERE idUsuario = p_idUsuario) THEN
+        UPDATE tblUsuarios
+        SET nomeUsuario = p_nomeUsuario,
+            txtEMail = p_txtEmail,
+            senha = p_senha,
+            tipoAcesso = p_tipoAcesso,
+            fkEscola = p_fkEscola
+        WHERE idUsuario = p_idUsuario;
+    ELSE
+        INSERT INTO tblUsuarios (nomeUsuarios, txtEmail, senha, tipoAcesso, fkEscola)
+        VALUES (p_nomeUsuario, p_txtEmail, p_senha, p_tipoAcesso, p_fkEscola);
+    END IF;
+END //
 
 CREATE PROCEDURE sp_insert_update_tblEscolas (
     IN p_idEscola INT,
