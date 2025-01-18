@@ -229,7 +229,7 @@ CREATE PROCEDURE sp_insert_update_tblTurmas (
     IN p_nomeTurma VARCHAR(100),
     IN p_fkHorario INT,
     IN p_fkEscola INT,
-    in p_anoTurma INT
+    in p_anoTurma varchar(50)
 )
 BEGIN
     IF EXISTS (SELECT 1 FROM tblTurmas WHERE idTurma = p_idTurma) THEN
