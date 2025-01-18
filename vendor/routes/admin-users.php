@@ -18,15 +18,11 @@ $app->post("/login", function(){
     $usuario->login();
 
     if($usuario->getIdUsuario() > 0){
-        var_dump($usuario);
-        exit;
+    
         $_SESSION['idUsuario'] = $usuario->getIdUsuario();
         $_SESSION['nomeUsuario'] = $usuario->getNomeUsuario();
         $_SESSION['tipoAcesso'] = $usuario->getTipoAcesso();
         $_SESSION['fkEscola'] = $usuario->getFkEscola();
-
-        var_dump($_SESSION);
-        exit;
         header("location: /admin");
         exit;
     }else{
