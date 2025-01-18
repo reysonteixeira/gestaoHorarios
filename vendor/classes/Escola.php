@@ -103,7 +103,7 @@
             }
             catch (Exception $e)
             {
-                return json_encode(Msg::arrayErros($e));
+                var_dump($e);
             }
         }
         public function return_array($type=0)
