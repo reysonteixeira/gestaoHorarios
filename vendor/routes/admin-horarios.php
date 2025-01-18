@@ -20,6 +20,7 @@
             header("location: /admin/horarios");
             exit;
         }
+        var_dump($infoHorario[0]);
         $page->setTpl("edit-horarios", array("horario" => $infoHorario[0]));
         exit;
     });
