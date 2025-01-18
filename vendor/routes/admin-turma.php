@@ -90,17 +90,30 @@ $app->get('/admin/disciplinasTurma/:id', function($id){
     exit;
 });
 
+
+
 $app->get('/admin/cadastraDisciplinasTurma/:id', function($id){
     Usuario::verifyLoginEscola();
     $page = new PageAdmin();
     $disciplina = new Disciplinas();
     $disciplina->setFkEscola($_SESSION['fkEscola']);
-
     $professor = new Professores();
     $professor->setFkEscola($_SESSION['fkEscola']);
-
     $listaDisciplinas = $disciplina->listAll();
     $page->setTpl("cadastra-disciplinas-turma", array("disciplinas" => $listaDisciplinas, "professores"=> $professor->listProfessorEscola(), "turma" => $id));
+    exit;
+});
+
+
+$app->post('/admin/cadastraDisciplinasTurma/:id', function($id){
+    Usuario::verifyLoginEscola();
+    $page = new PageAdmin();
+    $disciplina = new Disciplinas();
+    $disciplina->setFkEscola($_SESSION['fkEscola']);
+    $professor = new Professores();
+    $professor->setFkEscola($_SESSION['fkEscola']);
+    $listaDisciplinas = $disciplina->listAll();
+    
     exit;
 });
 
