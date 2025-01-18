@@ -15,7 +15,7 @@
         }
 
         //Função devolve um array com todos os dados do banco de dados da tabela 
-        public function listAll()
+        public static function listAll()
         {
             try
             {
