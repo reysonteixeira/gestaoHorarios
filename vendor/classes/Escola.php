@@ -97,7 +97,7 @@
                 
                 var_dump($this->return_array());
                 $sql->select(
-                    "CALL sp_insert_update_tblEscolas(:ATRIBUTO00,:ATRIBUTO01, :ATRIBUTO02, :ATRIBUTO03, :ATRIBUTO04, :ATRIBUTO05, :ATRIBUTO06, :ATRIBUTO07, :ATRIBUTO08, :ATRIBUTO09, :ATRIBUTO10)",
+                    "CALL sp_insert_update_tblEscolas(:ATRIBUTO0,:ATRIBUTO01, :ATRIBUTO02, :ATRIBUTO03, :ATRIBUTO04, :ATRIBUTO05, :ATRIBUTO06, :ATRIBUTO07, :ATRIBUTO08, :ATRIBUTO09, :ATRIBUTO10)",
                     $this->return_array()
                 );    
             }
@@ -111,11 +111,11 @@
             switch ($type) {
                 case 0:
                     return array(
-                        ":ATRIBUTO00" => $this->idEscola,
+                        ":ATRIBUTO0" => $this->idEscola,
                         ":ATRIBUTO01" => $this->nomeEscola,
                         ":ATRIBUTO02" => $this->registroInep,
                         ":ATRIBUTO03" => $this->logradouro,
-                        ":ATRIBUTO4"  => $this->numero,
+                        ":ATRIBUTO04"  => $this->numero,
                         ":ATRIBUTO05" => $this->complemento,
                         ":ATRIBUTO06" => $this->bairro,
                         ":ATRIBUTO07" => $this->cidade,
