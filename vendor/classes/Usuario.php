@@ -11,7 +11,7 @@
 
         public function setDados($dados){
             $this->setNomeUsuario($dados['nomeUsuario']);
-            $this->setEmail($dados['email']);
+            $this->setEmail($dados['txtEmail']);
 
             $partesNome = explode(" ", $dados['nomeUsuario']); // Divide o nome em partes
 $primeiraParte = strtolower($partesNome[0]);
