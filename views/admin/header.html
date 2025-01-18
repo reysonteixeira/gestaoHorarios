@@ -86,7 +86,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                {if= "$tipoAcesso==1"}
+                {if="$tipoAcesso==1"}
                <li class="nav-item">
                 <a href="/admin/escolas" class="nav-link">
                   <i class="nav-icon fas fa-school"></i>
@@ -101,7 +101,7 @@
                   <p>Disciplinas</p>
                 </a>
               </li>
-              {if= "$tipoAcesso==2"}
+              {if="$tipoAcesso==2"}
               <li class="nav-item">
                 <a href="/admin/horarios" class="nav-link">
                   <i class="nav-icon fas fa-clock"></i>
@@ -131,27 +131,26 @@
                 </a>
               </li>
 
-          {if="$permissaoMenu"}
+      
 
 
 
           <li class="nav-header">ACESSO PESSOAL</li>
 
-          {if="$permissaoMenu"}
+ 
           <li class="nav-item">
             <a href="/admin/dados-pessoais" class="nav-link">
               <i class="nav-icon fas fa-user"></i><p>Minha Conta</p>
             </a>
 
           </li>
-          {/if}
+         
           <li class="nav-item">
             <a href="/admin/logout" class="nav-link">
               <i class="nav-icon fas fa-door-open"></i>
               <p>Sair do Sistema</p>
             </a>
           </li>
-          {/if}
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

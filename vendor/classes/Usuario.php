@@ -20,6 +20,25 @@ $primeiraParte = strtolower($partesNome[0]);
             $this->setTipoAcesso($dados['tipoAcesso']);
         }
 
+        
+        public static function verifyLoginAdmin(){
+            if(!isset($_SESSION["tipoAcesso"])){
+                header("location: /admin/login");
+                exit;
+            }
+            if($_SESSION["tipoAcesso"] != 1){
+                header("location: /admin/login");
+                exit;
+            }
+        }
+
+        public static function verifyLoginEscola(){
+            if(!isset($_SESSION["tipoAcesso"])){
+                header("location: /admin/login");
+                exit;
+            }
+        }
+
         public function login(){
             try{
                 $sql = new Sql();
