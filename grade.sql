@@ -62,23 +62,16 @@ CREATE TABLE IF NOT EXISTS tblTurmas
 (
     idTurma INT PRIMARY KEY AUTO_INCREMENT,
     nomeTurma VARCHAR(100),
-    turno INT,   -- Manhã 1 // Tarde 2 // Noturno 3 // Integral 4
-    podeRepetirAula BOOLEAN,
+    maximoAulasMateriaDia int,
+    fkHorario INT,
+    tipoEnsino int,
     fkEscola INT,
-    -- fkAno INT,
+    anoTurma int,
+   	criadoEm DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (fkEscola) REFERENCES tblEscolas(idEscola),
-    -- FOREIGN KEY (fkAno) REFERENCES tblAnos(idAno),
-	criadoEm DATE DEFAULT CURRENT_DATE
+    FOREIGN KEY (fKHorario) REFERENCES tblHorarios(idHorario)
 );
 
-CREATE TABLE IF NOT EXISTS tblHorarioTurma
-(
-    idHorarioTurma INT PRIMARY KEY AUTO_INCREMENT,
-    fkHorario INT,
-    fkTurma INT,
-    FOREIGN KEY (fkHorario) REFERENCES tblHorarios(idHorario),
-    FOREIGN key (fkTurma) REFERENCES tblTurmas(idTurma)
-);
 
 CREATE TABLE IF NOT EXISTS tblUsuarios
 (
@@ -230,24 +223,32 @@ DELIMITER ;
 
 DELIMITER //
 
+
 CREATE PROCEDURE sp_insert_update_tblTurmas (
     IN p_idTurma INT,
     IN p_nomeTurma VARCHAR(100),
-    IN p_turno INT,
-    IN p_podeRepetirAula BOOLEAN,
-    IN p_fkEscola INT
+    in p_maximoAulasMateriaDia int,
+    IN p_fkHorario INT,
+    IN p_tipoEnsino int,
+    IN p_fkEscola INT,
+    in p_anoTurma INT
 )
 BEGIN
     IF EXISTS (SELECT 1 FROM tblTurmas WHERE idTurma = p_idTurma) THEN
         UPDATE tblTurmas
         SET nomeTurma = p_nomeTurma,
-            turno = p_turno,
-            podeRepetirAula = p_podeRepetirAula,
-            fkEscola = p_fkEscola
+            fkHorario = p_fkHorario,
+            tipoEnsino = p_tipoEnsino,
+            anoTurma = p_anoTurma,
+            fkEscola = p_fkEscola,
+            maximoAulasMateriaDia = p_maximoAulasMateriaDia
         WHERE idTurma = p_idTurma;
     ELSE
-        INSERT INTO tblTurmas (nomeTurma, turno, podeRepetirAula, fkEscola, criadoEm)
-        VALUES (p_nomeTurma, p_turno, p_podeRepetirAula, p_fkEscola, CURRENT_DATE);
+        INSERT INTO tblTurmas (nomeTurma, fkHorario,
+        maximoAulasMateriaDia,
+         tipoEnsino,anoTurma , fkEscola, criadoEm)
+        VALUES (p_nomeTurma, p_fkHorario,p_maximoAulasMateriaDia,
+         p_tipoEnsino, p_anoTurma, p_fkEscola, CURRENT_DATE);
     END IF;
 END //
 

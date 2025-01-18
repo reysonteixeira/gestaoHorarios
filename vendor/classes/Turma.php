@@ -32,12 +32,12 @@ class Turma
             try
             {
                 $sql = new Sql();
-                return $sql->select("SELECT * FROM tblTurmas order by nomeTurma;");
+                return $sql->select("SELECT * FROM tblTurmas where fkEscola = :FKESCOLA order by nomeTurma;", array(":FKESCOLA"=>$this->getFkEscola()));
             }
             
             catch (Exception $e)
             {
-                return json_encode(Msg::arrayErros($e));
+                var_dump($e);
             }
         }
 
@@ -54,7 +54,7 @@ class Turma
             
             catch (Exception $e)
             {
-                return json_encode(Msg::arrayErros($e));
+                var_dump($e);
             }
         }
 
@@ -72,7 +72,7 @@ class Turma
             
             catch (Exception $e)
             {
-                return json_encode(Msg::arrayErros($e));
+                var_dump($e);
             }
         }
 
@@ -111,6 +111,132 @@ class Turma
                     );
                 break;
             }
+        }
+
+        /**
+         * Get the value of idTurma
+         */
+        public function getIdTurma()
+        {
+                return $this->idTurma;
+        }
+
+        /**
+         * Set the value of idTurma
+         */
+        public function setIdTurma($idTurma): self
+        {
+                $this->idTurma = $idTurma;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of nomeTurma
+         */
+        public function getNomeTurma()
+        {
+                return $this->nomeTurma;
+        }
+
+        /**
+         * Set the value of nomeTurma
+         */
+        public function setNomeTurma($nomeTurma): self
+        {
+                $this->nomeTurma = $nomeTurma;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of turno
+         */
+        public function getTurno()
+        {
+                return $this->turno;
+        }
+
+        /**
+         * Set the value of turno
+         */
+        public function setTurno($turno): self
+        {
+                $this->turno = $turno;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of podeRepetirAula
+         */
+        public function getPodeRepetirAula()
+        {
+                return $this->podeRepetirAula;
+        }
+
+        /**
+         * Set the value of podeRepetirAula
+         */
+        public function setPodeRepetirAula($podeRepetirAula): self
+        {
+                $this->podeRepetirAula = $podeRepetirAula;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of fkEscola
+         */
+        public function getFkEscola()
+        {
+                return $this->fkEscola;
+        }
+
+        /**
+         * Set the value of fkEscola
+         */
+        public function setFkEscola($fkEscola): self
+        {
+                $this->fkEscola = $fkEscola;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of list_turno
+         */
+        public function getListTurno()
+        {
+                return $this->list_turno;
+        }
+
+        /**
+         * Set the value of list_turno
+         */
+        public function setListTurno($list_turno): self
+        {
+                $this->list_turno = $list_turno;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of obj_escola
+         */
+        public function getObjEscola()
+        {
+                return $this->obj_escola;
+        }
+
+        /**
+         * Set the value of obj_escola
+         */
+        public function setObjEscola($obj_escola): self
+        {
+                $this->obj_escola = $obj_escola;
+
+                return $this;
         }
     }
 ?>
