@@ -23,7 +23,7 @@ $primeiraParte = strtolower($partesNome[0]);
         public function save(){
             try{
                 $sql = new Sql();
-                $sql->select("CALL sp_usuarios_insert(:idUsuario, :nomeUsuario, :email, :senha, :fkEscola, :tipoAcesso)", array(
+                $sql->select("CALL sp_usuarios_insert(:idUsuario, :nomeUsuario, :senha,:tipoAcesso, :email, :fkEscola)", array(
                     ":idUsuario"=>$this->getIdUsuario(),
                     ":nomeUsuario"=>$this->getNomeUsuario(),
                     ":email"=>$this->getEmail(),

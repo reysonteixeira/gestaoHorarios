@@ -144,7 +144,7 @@ BEGIN
             fkEscola = p_fkEscola
         WHERE idUsuario = p_idUsuario;
     ELSE
-        INSERT INTO tblUsuarios (nomeUsuarios, txtEmail, senha, tipoAcesso, fkEscola)
+        INSERT INTO tblUsuarios (nomeUsuario, txtEmail, senha, tipoAcesso, fkEscola)
         VALUES (p_nomeUsuario, p_txtEmail, p_senha, p_tipoAcesso, p_fkEscola);
     END IF;
 END //
