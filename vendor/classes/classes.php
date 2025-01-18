@@ -10,4 +10,5 @@
     require_once('Horarios.php');
     require_once('Professor.php');// Rescrita
     require_once('Disciplina.php');// Rescrita
+    require_once('Usuario.php');
 ?>
