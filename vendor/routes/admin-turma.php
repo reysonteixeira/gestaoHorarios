@@ -21,7 +21,7 @@ $app->get('/admin/turmas/:id', function($id){
         header("location: /admin/turmas");
         exit;
     }
-    $page->setTpl("edit-turmas", array("turma" => $infoTurma[0]));
+    $page->setTpl("edita-turmas", array("turma" => $infoTurma[0]));
     exit;
 });
 

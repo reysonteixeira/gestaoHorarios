@@ -46,9 +46,9 @@ class Turma
             try{
                 $sql = new Sql();
                 return ($sql->select(
-                    "SELECT * FROM tblTurmas WHERE idTurma = :ID;",
-                    array(":ID" => $id)
-                )[0]);
+                    "SELECT * FROM tblTurmas WHERE idTurma = :ID and fkEscola = :ESCOLA;",
+                    array(":ID" => $id, ":ESCOLA"=>$this->getFkEscola())
+                ));
             }
             
             catch (Exception $e)

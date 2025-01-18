@@ -1,0 +1,98 @@
+
+<div class="wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Cadastro Turma</h1>
+          </div>
+         
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="POST" action="/admin/turmas/{$turma.idTurma}">
+                <div class="card-body row">
+
+                  <div class="form-group col-md-5">
+                    <label for="exampleInputName">Nome</label>
+                    <input type="text" class="form-control" value="{$turma.nomeTurma}" required id="exampleInputName" name="nomeTurma" placeholder="Nome da turma">
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputAnoTurma">Etapa</label>
+                    <select name="anoTurma" value="{$turma.anoTurma}" id=" " class="form-control">
+                      <option value="1º ANO - Ens. Fundamental">1º ANO - Ens. Fundamental</option>
+                      <option value="2º ANO - Ens. Fundamental">2º ANO - Ens. Fundamental</option>                     
+                      <option value="3º ANO - Ens. Fundamental">3º ANO - Ens. Fundamental</option>
+                      <option value="4º ANO - Ens. Fundamental">4º ANO - Ens. Fundamental</option>
+                      <option value="5º ANO - Ens. Fundamental">5º ANO - Ens. Fundamental</option>
+                      <option value="6º ANO - Ens. Fundamental">6º ANO - Ens. Fundamental</option>
+                      <option value="7º ANO - Ens. Fundamental">7º ANO - Ens. Fundamental</option>
+                      <option value="8º ANO - Ens. Fundamental">8º ANO - Ens. Fundamental</option>
+                      <option value="9º ANO - Ens. Fundamental">9º ANO - Ens. Fundamental</option>
+                      <option value="1º ANO - Ens. Médio">1º ANO - Ens. Médio</option>
+                      <option value="2º ANO - Ens. Médio">2º ANO - Ens. Médio</option>                     
+                      <option value="3º ANO - Ens. Médio">3º ANO - Ens. Médio</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label for="exampleInputAnoTurma">Horário</label>
+                    <select name="fkHorario" value="{$turma.fkHorario}" class="form-control">
+                      {loop="$horarios"}
+                        <option value="{$value.idHorario}">{$value.nomeHorario}</option>
+                      {/loop}
+                    </select>
+                  </div>
+
+
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer col-md-12 form-group">
+                  <button type="submit" class="btn btn-primary form-control">Cadastrar</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+         
+
+       
+
+          </div>
+          <!--/.col (left) -->
+          <!-- right column -->
+        
+          <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
