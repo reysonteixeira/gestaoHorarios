@@ -74,6 +74,11 @@ $app->post('/admin/cadastrar-usuarios', function () {
 
 $app->get('/admin/cadastrar-usuarios', function () {
     $page = new PageAdmin();
-    $page->setTpl("cadastro-usuarios");
+
+    $escolas = [];
+    if($_SESSION['tipoAcesso'] == 1){
+        $escolas = Escola::listAll();
+    }
+    $page->setTpl("cadastro-usuarios", array("escolas"=>$escolas, "tipoAcesso"=>$_SESSION['tipoAcesso']));
     exit;
 });

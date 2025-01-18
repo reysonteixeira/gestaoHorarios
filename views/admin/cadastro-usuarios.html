@@ -26,6 +26,7 @@
               <label>Nome Completo</label>
               <input type="text" name="nomeUsuario" required class="form-control" required>
             </div>
+            {if="$tipoAcesso == 1"}
             <div class="form-group col-md-3">
               <label>Tipo de Acesso</label>
               <select name="tipoAcesso" class="form-control" required>
@@ -34,7 +35,16 @@
                 <option value="2">ESCOLA</option>
               </select>
             </div>
-            
+            <div class="form-group col-md-4">
+              <label>Escola</label>
+              <select name="escola" class="form-control" required>
+                <option value="">SELECIONE</option>
+                {loop="$escolas"}
+                <option value="{$value.idEscola}">{$escola.nomeEscola}</option>
+                {/loop}
+              </select>
+            </div>
+            {/if}
            
             <div class="form-group col-md-6">
               <label>Email</label>
