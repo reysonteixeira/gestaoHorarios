@@ -17,11 +17,16 @@ jobs:
       # Deploy incremental via FTP
       - name: FTP Deploy (Incremental Upload)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.0
-        with:
-          server: ${{ secrets.FTP_SERVER }}
+         with:
+          server: ftp://ftp.seuservidor.com
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./ # Diretório local do repositório
           server-dir: /public_html/ # Diretório remoto no servidor
-          method: noclobber # Ignora arquivos que já existem no servidor
-          concurrency: 1 # Conexões simultâneas
+          excludes: |
+            res/**            # Ignorar toda a pasta res
+            node_modules/**   # Ignorar toda a pasta node_modules
+            vendor/**         # Ignorar toda a pasta vendor
+            views-cache/**    # Ignorar toda a pasta views-cache
+          method: noclobber   # Evitar sobrescrever arquivos existentes
+          concurrency: 5   
