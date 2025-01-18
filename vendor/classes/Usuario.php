@@ -23,7 +23,7 @@ $primeiraParte = strtolower($partesNome[0]);
         public function login(){
             try{
                 $sql = new Sql();
-                $results = $sql->select("SELECT * FROM tblUsuarios where txtEmail = :email and senha = :senha", array(
+                $results = $sql->select("SELECT * FROM tblUsuarios where email = :email and senha = :senha", array(
                     ":email"=>$this->getEmail(),
                     ":senha"=>$this->getSenha()
                 ));
