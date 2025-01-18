@@ -32,7 +32,7 @@ $primeiraParte = strtolower($partesNome[0]);
                     ":tipoAcesso"=>$this->getTipoAcesso()
                 ));
             }catch(Exception $e){
-                var_dump($e->getMessage());
+                var_dump($e);
             }
         }
 
