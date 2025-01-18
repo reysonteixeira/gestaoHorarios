@@ -11,7 +11,7 @@
 
     $app->get('/admin/horarios/:id', function ($id) {
         Usuario::verifyLoginEscola();
-        //$page = new PageAdmin();
+        $page = new PageAdmin();
         $horarios = new Horarios();
         $horarios->setFkEscola($_SESSION['fkEscola']);
         $horarios->setIdHorario($id);
@@ -20,8 +20,8 @@
             header("location: /admin/horarios");
             exit;
         }
-        var_dump($infoHorario[0]);
-      //  $page->setTpl("edit-horarios", array("horario" => $infoHorario[0]));
+       
+        $page->setTpl("edit-horarios", array("horario" => $infoHorario[0]));
         exit;
     });
 
