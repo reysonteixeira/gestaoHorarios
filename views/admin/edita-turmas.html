@@ -35,26 +35,26 @@
 
                   <div class="form-group col-md-3">
                     <label for="exampleInputAnoTurma">Etapa</label>
-                    <select name="anoTurma" value="{$turma.anoTurma}" id=" " class="form-control">
-                      <option value="1º ANO - Ens. Fundamental" {if="{$turma.anoTurma == '1º ANO - Ens. Fundamental'}"}selected{/if}>1º ANO - Ens. Fundamental</option>
-                      <option value="2º ANO - Ens. Fundamental" {if="{$turma.anoTurma == '2º ANO - Ens. Fundamental'}"}selected{/if}>2º ANO - Ens. Fundamental</option>                     
-                      <option value="3º ANO - Ens. Fundamental" {if="{$turma.anoTurma == '3º ANO - Ens. Fundamental'}"}selected{/if}>3º ANO - Ens. Fundamental</option>
-                      <option value="4º ANO - Ens. Fundamental" {if="{$turma.anoTurma == '4º ANO - Ens. Fundamental'}"}selected{/if}>4º ANO - Ens. Fundamental</option>
-                      <option value="5º ANO - Ens. Fundamental" {if="{$turma.anoTurma == '5º ANO - Ens. Fundamental'}"}selected{/if}>5º ANO - Ens. Fundamental</option>
-                      <option value="6º ANO - Ens. Fundamental" {if="{$turma.anoTurma == '6º ANO - Ens. Fundamental'}"}selected{/if}>6º ANO - Ens. Fundamental</option>
-                      <option value="7º ANO - Ens. Fundamental" {if="{$turma.anoTurma == '7º ANO - Ens. Fundamental'}"}selected{/if}>7º ANO - Ens. Fundamental</option>
-                      <option value="8º ANO - Ens. Fundamental" {if="{$turma.anoTurma == '8º ANO - Ens. Fundamental'}"}selected{/if}>8º ANO - Ens. Fundamental</option>
-                      <option value="9º ANO - Ens. Fundamental" {if="{$turma.anoTurma == '9º ANO - Ens. Fundamental'}"}selected{/if}>9º ANO - Ens. Fundamental</option>
-                      <option value="1º ANO - Ens. Médio" {if="{$turma.anoTurma == '1º ANO - Ens. Médio'}"}selected{/if}>1º ANO - Ens. Médio</option>
-                      <option value="2º ANO - Ens. Médio" {if="{$turma.anoTurma == '2º ANO - Ens. Médio'}"}selected{/if}>2º ANO - Ens. Médio</option>                     
-                      <option value="3º ANO - Ens. Médio" {if="{$turma.anoTurma == '3º ANO - Ens. Médio'}"}selected{/if}>3º ANO - Ens. Médio</option>
+                    <select name="anoTurma" id="exampleInputAnoTurma" class="form-control">
+                      <option value="1º ANO - Ens. Fundamental" {if="$turma.anoTurma == '1º ANO - Ens. Fundamental'"}selected{/if}>1º ANO - Ens. Fundamental</option>
+                      <option value="2º ANO - Ens. Fundamental" {if="$turma.anoTurma == '2º ANO - Ens. Fundamental'"}selected{/if}>2º ANO - Ens. Fundamental</option>
+                      <option value="3º ANO - Ens. Fundamental" {if="$turma.anoTurma == '3º ANO - Ens. Fundamental'"}selected{/if}>3º ANO - Ens. Fundamental</option>
+                      <option value="4º ANO - Ens. Fundamental" {if="$turma.anoTurma == '4º ANO - Ens. Fundamental'"}selected{/if}>4º ANO - Ens. Fundamental</option>
+                      <option value="5º ANO - Ens. Fundamental" {if="$turma.anoTurma == '5º ANO - Ens. Fundamental'"}selected{/if}>5º ANO - Ens. Fundamental</option>
+                      <option value="6º ANO - Ens. Fundamental" {if="$turma.anoTurma == '6º ANO - Ens. Fundamental'"}selected{/if}>6º ANO - Ens. Fundamental</option>
+                      <option value="7º ANO - Ens. Fundamental" {if="$turma.anoTurma == '7º ANO - Ens. Fundamental'"}selected{/if}>7º ANO - Ens. Fundamental</option>
+                      <option value="8º ANO - Ens. Fundamental" {if="$turma.anoTurma == '8º ANO - Ens. Fundamental'"}selected{/if}>8º ANO - Ens. Fundamental</option>
+                      <option value="9º ANO - Ens. Fundamental" {if="$turma.anoTurma == '9º ANO - Ens. Fundamental'"}selected{/if}>9º ANO - Ens. Fundamental</option>
+                      <option value="1º ANO - Ens. Médio" {if="$turma.anoTurma == '1º ANO - Ens. Médio'"}selected{/if}>1º ANO - Ens. Médio</option>
+                      <option value="2º ANO - Ens. Médio" {if="$turma.anoTurma == '2º ANO - Ens. Médio'"}selected{/if}>2º ANO - Ens. Médio</option>
+                      <option value="3º ANO - Ens. Médio" {if="$turma.anoTurma == '3º ANO - Ens. Médio'"}selected{/if}>3º ANO - Ens. Médio</option>
                     </select>
                   </div>
                   <div class="form-group col-md-3">
                     <label for="exampleInputAnoTurma">Horário</label>
-                    <select name="fkHorario" value="{$turma.fkHorario}" class="form-control">
+                    <select name="fkHorario" class="form-control">
                       {loop="$horarios"}
-                        <option value="{$value.idHorario}" {if="{$turma.fkHorario == $value.idHorario}"}selected{/if}>{$value.nomeHorario}</option>
+                        <option value="{$value.idHorario}" {if="$turma.fkHorario == $value.idHorario"}selected{/if}>{$value.nomeHorario}</option>
                       {/loop}
                     </select>
                   </div>
