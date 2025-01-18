@@ -33,9 +33,9 @@
               <thead>
                 <tr>
                   <th scope="col">Nome</th>
-
-                  <th scope="col">Turno</th>
                   <th scope="col">Ano</th>
+                  <th scope="col">Horário</th>
+                 
                   <th></th>
    
                 </tr>
@@ -46,11 +46,11 @@
              
                 <tr>
                   <td>{$value.nomeTurma}</td>
-                  <td>{$value.nomeEscola}</td>
-                  <td>{$value.txtTurno}</td>
-                  <td>{$value.txtAnoTurma}</td>
+                  <td>{$value.anoTurma}</td>
+                  <td>{$value.nomeHorario}</td>
+       
                   <td class="botao"><a href="/admin/turmas/{$value.idTurma}"><button class="btn btn-primary btn-sm">Acessar <i class="fas fa-edit"></i></button></a></td>
-                  {if="$permissaoMenu == 2"}<td class="botao"><a href="/SSBordados-admin/ofertas/delete/"><button class="btn btn-danger btn-sm">Deletar <i class="fas fa-trash"></i></button></a></td>{/if}
+               
                 </tr>
                
                 {/loop}
