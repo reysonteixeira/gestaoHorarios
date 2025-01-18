@@ -107,13 +107,12 @@ $app->get('/admin/cadastraDisciplinasTurma/:id', function($id){
 
 $app->post('/admin/cadastraDisciplinasTurma/:id', function($id){
     Usuario::verifyLoginEscola();
-    $page = new PageAdmin();
-    $disciplina = new Disciplinas();
+    $disciplina = new DisciplinaTurma();
     $disciplina->setFkEscola($_SESSION['fkEscola']);
-    $professor = new Professores();
-    $professor->setFkEscola($_SESSION['fkEscola']);
-    $listaDisciplinas = $disciplina->listAll();
-    
+    $disciplina->setIdDisciplinaTurma(0);
+    $disciplina->setDados($_POST);
+    $disciplina->save();
+    header("location: /admin/disciplinasTurma/".$id);
     exit;
 });
 
