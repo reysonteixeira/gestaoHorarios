@@ -1,17 +1,47 @@
 <?php
-    class DisciplinaTurma{
+class DisciplinaTurma
+{
         private $idDisciplinaTurma;
-        private $idProfessorDisciplinaTurma;
         private $fkProfessor;
         private $fkDisciplina;
         private $fkTurma;
         private $fkEscola;
         private $turno;
-        
 
-        
+        private $maximoAulasDia;
+        private $maximoAulasSemana;
 
 
+        public function setDados($dados)
+        {
+                $this->fkProfessor = $dados['fkProfessor'];
+                $this->fkDisciplina = $dados['fkDisciplina'];
+                $this->fkTurma = $dados['fkTurma'];
+                $this->fkEscola = $dados['fkEscola'];
+                $this->turno = $dados['turno'];
+                $this->maximoAulasDia = $dados['maximoAulasDia'];
+                $this->maximoAulasSemana = $dados['maximoAulasSemana'];
+        }
+
+        public function save()
+        {
+                try {
+                        $sql = new Sql();
+                        $sql->select("CALL  sp_insert_update_tblDisciplinasTurma(
+                                :idDisciplinaTurma,  :maximoAulasSemana, 
+                                :fkDisciplina, :fkProfessor, :fkTurma,  :turno, :maximoAulasDia,)", array(
+                                ':idDisciplinaTurma' => $this->getIdDisciplinaTurma(),
+                                ':fkProfessor' => $this->getFkProfessor(),
+                                ':fkDisciplina' => $this->getFkDisciplina(),
+                                ':fkTurma' => $this->getFkTurma(),
+                                ':turno' => $this->getTurno(),
+                                ':maximoAulasDia' => $this->getMaximoAulasDia(),
+                                ':maximoAulasSemana' => $this->getMaximoAulasSemana()
+                        ));
+                } catch (Exception $e) {
+                        var_dump($e);
+                }
+        }
         /**
          * Get the value of idDisciplinaTurma
          */
@@ -33,20 +63,7 @@
         /**
          * Get the value of idProfessorDisciplinaTurma
          */
-        public function getIdProfessorDisciplinaTurma()
-        {
-                return $this->idProfessorDisciplinaTurma;
-        }
 
-        /**
-         * Set the value of idProfessorDisciplinaTurma
-         */
-        public function setIdProfessorDisciplinaTurma($idProfessorDisciplinaTurma): self
-        {
-                $this->idProfessorDisciplinaTurma = $idProfessorDisciplinaTurma;
-
-                return $this;
-        }
 
         /**
          * Get the value of fkProfessor
@@ -137,5 +154,40 @@
 
                 return $this;
         }
-    }
-?>
+
+        /**
+         * Get the value of maximoAulasSemana
+         */
+        public function getMaximoAulasSemana()
+        {
+                return $this->maximoAulasSemana;
+        }
+
+        /**
+         * Set the value of maximoAulasSemana
+         */
+        public function setMaximoAulasSemana($maximoAulasSemana): self
+        {
+                $this->maximoAulasSemana = $maximoAulasSemana;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of maximoAulasDia
+         */
+        public function getMaximoAulasDia()
+        {
+                return $this->maximoAulasDia;
+        }
+
+        /**
+         * Set the value of maximoAulasDia
+         */
+        public function setMaximoAulasDia($maximoAulasDia): self
+        {
+                $this->maximoAulasDia = $maximoAulasDia;
+
+                return $this;
+        }
+}

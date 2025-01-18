@@ -327,7 +327,9 @@ CREATE PROCEDURE sp_insert_update_tblDisciplinasTurma (
     IN p_quantidadeAulasSemana INT,
     IN p_fkDisciplina INT,
     IN p_fkProfessor INT,
-    IN p_fkTurma INT
+    IN p_fkTurma INT,
+    IN p_intTurno INT,
+    IN p_maximoAulasDia INT
 )
 BEGIN
     IF EXISTS (SELECT 1 FROM tblDisciplinasTurma WHERE idDisciplinaTurma = p_idDisciplinaTurma) THEN
@@ -335,11 +337,13 @@ BEGIN
         SET quantidadeAulasSemana = p_quantidadeAulasSemana,
             fkDisciplina = p_fkDisciplina,
             fkProfessor = p_fkProfessor,
-            fkTurma = p_fkTurma
+            fkTurma = p_fkTurma,
+            intTurno = p_intTurno,
+            maximoAulasDia = p_maximoAulasDia
         WHERE idDisciplinaTurma = p_idDisciplinaTurma;
     ELSE
-        INSERT INTO tblDisciplinasTurma (quantidadeAulasSemana, fkDisciplina, fkProfessor, fkTurma)
-        VALUES (p_quantidadeAulasSemana, p_fkDisciplina, p_fkProfessor, p_fkTurma);
+        INSERT INTO tblDisciplinasTurma (quantidadeAulasSemana, fkDisciplina, fkProfessor, fkTurma, intTurno, maximoAulasDia)
+        VALUES (p_quantidadeAulasSemana, p_fkDisciplina, p_fkProfessor, p_fkTurma, p_intTurno, p_maximoAulasDia);
     END IF;
 END //
 
