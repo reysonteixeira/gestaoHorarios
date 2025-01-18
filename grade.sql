@@ -106,11 +106,13 @@ CREATE TABLE IF NOT EXISTS tblDisciplinasTurma
 (
     idDisciplinaTurma INT PRIMARY KEY AUTO_INCREMENT,
     quantidadeAulasSemana INT,
+    maximoAulasDia INT,
+    intTurno int,
     fkDisciplina INT,
     fkProfessor INT,
     fkTurma INT,
     FOREIGN KEY (fkDisciplina) REFERENCES tblDisciplinas(idDisciplina),
-    FOREIGN KEY (fkProfessor) REFERENCES tblProfessorES(idProfessor),
+    FOREIGN KEY (fkProfessor) REFERENCES tblProfessores(idProfessor),
     FOREIGN KEY (fkTurma) REFERENCES tblTurmas(idTurma)
 );
 -- CREATE TABLE IF NOT EXISTS
