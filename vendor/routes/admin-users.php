@@ -16,6 +16,8 @@ $app->post("/login", function(){
     $usuario->setEmail($_POST['email']);
     $usuario->setSenha($_POST['senha']);
     $usuario->login();
+    var_dump($usuario);
+    exit;
     if($usuario->getIdUsuario() > 0){
         $_SESSION['idUsuario'] = $usuario->getIdUsuario();
         $_SESSION['nomeUsuario'] = $usuario->getNomeUsuario();
