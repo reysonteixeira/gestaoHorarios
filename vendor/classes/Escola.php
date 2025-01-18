@@ -19,7 +19,6 @@
         public function setDadosForm($post)
         {
             // Idetificadores da Escola:
-            $this->idEscola     =$post['idEscola'];
             $this->nomeEscola   =$post['nomeEscola'];
             $this->registroInep =$post['registroInep'];
             $this->telefone     =$post['telefone'];
