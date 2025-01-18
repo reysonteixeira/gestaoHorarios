@@ -38,14 +38,23 @@ $app->post("/login", function(){
 });
 
 $app->get('/admin/usuarios', function () {
+    Usuario::verifyLoginEscola();
     $usuario = new Usuario();
     $page = new PageAdmin();
+    $listaUsuarios = [];
+    if($_SESSION['tipoAcesso'] == 1){
+        $listaUsuarios = $usuario->listAll();
+    }else{
+        $usuario->setFkEscola($_SESSION['fkEscola']);
+        $listaUsuarios = $usuario->listByEscola();
+    }
     $usuario->listAll();
-    $page->setTpl("list-usuarios", array("usuarios" => $usuario->listAll()));
+    $page->setTpl("list-usuarios", array("usuarios" => $listaUsuarios));
     exit;
 });
 
 $app->get('/admin/usuarios/:id', function ($id) {
+    Usuario::verifyLoginEscola();
     $usuario = new Usuario();
     $page = new PageAdmin();
     $usuario->setIdUsuario($id);
@@ -54,6 +63,7 @@ $app->get('/admin/usuarios/:id', function ($id) {
 });
 
 $app->post('/admin/usuarios/:id', function ($id) {
+    Usuario::verifyLoginEscola();
     $usuario = new Usuario();
     $usuario->setIdUsuario($id);
     $usuario->setDados($_POST);
@@ -63,6 +73,7 @@ $app->post('/admin/usuarios/:id', function ($id) {
 });
 
 $app->post('/admin/cadastrar-usuarios', function () {
+    Usuario::verifyLoginEscola();
     $usuario = new Usuario();
     $usuario->setIdUsuario(0);
     $usuario->setDados($_POST);
@@ -73,6 +84,7 @@ $app->post('/admin/cadastrar-usuarios', function () {
 });
 
 $app->get('/admin/cadastrar-usuarios', function () {
+    Usuario::verifyLoginEscola();
     $page = new PageAdmin();
 
     $escolas = [];

@@ -50,7 +50,7 @@ $primeiraParte = strtolower($partesNome[0]);
                     $this->setDados($results[0]);
                     $this->setIdUsuario($results[0]['idUsuario']);
                     $this->setTipoAcesso($results[0]['tipoAcesso']);
-                   
+                    $this->setFkEscola($results[0]['fkEscola']);
                 }
             }catch(Exception $e){
                 var_dump($e->getMessage());
