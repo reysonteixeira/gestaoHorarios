@@ -23,7 +23,13 @@ $app->post("/login", function(){
         $_SESSION['nomeUsuario'] = $usuario->getNomeUsuario();
         $_SESSION['tipoAcesso'] = $usuario->getTipoAcesso();
         $_SESSION['fkEscola'] = $usuario->getFkEscola();
-        header("location: /admin");
+        if($usuario->getTipoAcesso() == 1){
+            header("location: /admin/escolas");
+            exit;
+        }else{
+            header("location: /admin/grades");
+            exit;
+        }
         exit;
     }else{
         header("location: /login");
