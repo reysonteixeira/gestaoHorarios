@@ -1,4 +1,4 @@
-name: Deploy via FTP
+name: Deploy via FTP using ftp-deploy-cli
 
 on:
   push:
@@ -14,19 +14,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # Instalar ftp-deploy
+      - name: Install ftp-deploy
+        run: npm install ftp-deploy -g
+
       # Deploy via FTP
-      - name: Deploy files via FTP
-        uses: lukka/ftp-deploy@v1
-        with:
-          host: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./ # Diretório local a ser enviado
-          remote-dir: /public_html/ # Diretório remoto no servidor
-          include: '**/*' # Incluir todos os arquivos
-          exclude: |
-            res/**           
-            node_modules/**   
-            vendor/**         
-            views-cache/**   
-          dry-run: false       # Para testes, defina como true para simular o envio
+      - name: Deploy to FTP Server
+        run: |
+          ftp-deploy \
+            --server ${{ secrets.FTP_HOST }} \
+            --user ${{ secrets.FTP_USERNAME }} \
+            --password ${{ secrets.FTP_PASSWORD }} \
+            --local ./ \
+            --remote /public_html/ \
+            --exclude "res/**" "node_modules/**" "vendor/**" "views-cache/**"
