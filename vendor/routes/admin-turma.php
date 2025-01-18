@@ -19,7 +19,7 @@ $app->get('/admin/turmas/:id', function($id){
     $horarios = new Horarios();
     $horarios->setFkEscola($_SESSION['fkEscola']);
     $listaHorarios = $horarios->listAll();
-    
+
     if(count($infoTurma) == 0){
         header("location: /admin/turmas");
         exit;
@@ -72,5 +72,36 @@ $app->get('/admin/turmas/delete/:id', function($id){
 });
 
 
+
+
+//----------------------------------------------
+
+$app->get('/admin/disciplinasTurma/:id', function($id){
+    Usuario::verifyLoginEscola();
+    $page = new PageAdmin();
+    $disciplina = new Disciplinas();
+    $disciplina->setFkEscola($_SESSION['fkEscola']);
+
+    $professor = new Professores();
+    $professor->setFkEscola($_SESSION['fkEscola']);
+
+    $listaDisciplinas = $disciplina->listAll();
+    $page->setTpl("list-disciplinas-turma", array("disciplinas" => $listaDisciplinas, "professores"=> $professor, "idTurma" => $id));
+    exit;
+});
+
+$app->get('/admin/cadastraDisciplinasTurma/:id', function($id){
+    Usuario::verifyLoginEscola();
+    $page = new PageAdmin();
+    $disciplina = new Disciplinas();
+    $disciplina->setFkEscola($_SESSION['fkEscola']);
+
+    $professor = new Professores();
+    $professor->setFkEscola($_SESSION['fkEscola']);
+
+    $listaDisciplinas = $disciplina->listAll();
+    $page->setTpl("cadastra-disciplinas-turma", array("disciplinas" => $listaDisciplinas, "professores"=> $professor->listProfessorEscola(), "idTurma" => $id));
+    exit;
+});
 
 

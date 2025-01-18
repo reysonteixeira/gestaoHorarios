@@ -10,4 +10,5 @@
     require_once('Professor.php');// Rescrita
     require_once('Disciplina.php');// Rescrita
     require_once('Usuario.php');
+    require_once("DisciplinaTurma.php");
 ?>

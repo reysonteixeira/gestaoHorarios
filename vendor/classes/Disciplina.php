@@ -4,6 +4,7 @@
         private $sigla;
         private $codigoDisciplina;
         private $nomeDisciplina;
+        private $fkEscola;
 
         public function setDadosForm($post)
         {
@@ -113,6 +114,24 @@
         public function setIdDisciplina($idDisciplina): self
         {
                 $this->idDisciplina = $idDisciplina;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of fkEscola
+         */
+        public function getFkEscola()
+        {
+                return $this->fkEscola;
+        }
+
+        /**
+         * Set the value of fkEscola
+         */
+        public function setFkEscola($fkEscola): self
+        {
+                $this->fkEscola = $fkEscola;
 
                 return $this;
         }
