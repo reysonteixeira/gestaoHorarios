@@ -23,7 +23,7 @@
             Tpl::configure( $config );
             $this->tpl = new Tpl;
             $this->setData($this->options["data"]);
-            var_dump($_SESSION);
+  
      
             if($this->options["header"] === true){
               

@@ -1,7 +1,7 @@
 <?php
 
 $app->post('/admin/escolas/:id', function ($id) {
-     // User::verifyLoginAdmin();
+     Usuario::verifyLoginAdmin();
      $escola = new Escola();
      $escola->setIdEscola($id);
      $escola->setDadosForm($_POST);
@@ -11,7 +11,7 @@ $app->post('/admin/escolas/:id', function ($id) {
 });
 
 $app->get('/admin/escolas/:id', function ($id) {
-     // User::verifyLoginAdmin();
+     Usuario::verifyLoginAdmin();
      $page = new PageAdmin();
      $escola = new Escola();
      $page->setTpl("edit-escolas", array("escola" => $escola->get($id)));
@@ -19,14 +19,14 @@ $app->get('/admin/escolas/:id', function ($id) {
 });
 
 $app->get('/admin/escolas', function () {
-     // User::verifyLoginAdmin();
+     Usuario::verifyLoginAdmin();
      $page = new PageAdmin();
      $page->setTpl("list-escolas", array("escolas" => Escola::listAll()));
      exit;
 });
 
 $app->post('/admin/cadastrar-escolas', function () {
-     // User::verifyLoginAdmin();
+     Usuario::verifyLoginAdmin();
      $escola = new Escola();
      $escola->setIdEscola(0);
      $escola->setDadosForm($_POST);
@@ -38,7 +38,7 @@ $app->post('/admin/cadastrar-escolas', function () {
 
 //Rota de cadastro
 $app->get('/admin/cadastrar-escolas', function () {
-     // User::verifyLoginAdmin();
+     Usuario::verifyLoginAdmin();
      $page = new PageAdmin();
      $page->setTpl("cadastro-escolas");
      exit;
@@ -46,7 +46,7 @@ $app->get('/admin/cadastrar-escolas', function () {
 
 //Rota DELETE
 $app->get('/admin/deletarEscola/:id', function ($id) {
-     // User::verifyLoginAdmin();
+     Usuario::verifyLoginAdmin();
      $business = new Escola();
      $business->delete($id);
      header('location: /admin/escolas');
