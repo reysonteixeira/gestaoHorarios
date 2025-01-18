@@ -78,7 +78,7 @@ $app->post('/admin/cadastrar-usuarios', function () {
     $usuario->setIdUsuario(0);
     $usuario->setDados($_POST);
     if($_SESSION['tipoAcesso'] == 1){
-        $usuario->setFkEscola($_POST['fkEscola']);
+        $usuario->setFkEscola($_POST['escola']);
         $usuario->setTipoAcesso($_POST['tipoAcesso']);
     }else{
         $usuario->setFkEscola($_SESSION['fkEscola']);
