@@ -109,6 +109,7 @@ $app->post('/admin/cadastraDisciplinasTurma/:id', function($id){
     Usuario::verifyLoginEscola();
     $disciplina = new DisciplinaTurma();
     $disciplina->setFkEscola($_SESSION['fkEscola']);
+    $disciplina->setFkTurma($id);
     $disciplina->setIdDisciplinaTurma(0);
     $disciplina->setDados($_POST);
     $disciplina->save();
