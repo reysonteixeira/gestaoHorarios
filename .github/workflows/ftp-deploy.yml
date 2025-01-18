@@ -14,19 +14,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Deploy incremental via FTP
-      - name: FTP Deploy (Exclude Specific Folders)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.0
+      # Deploy via FTP
+      - name: Deploy files via FTP
+        uses: lukka/ftp-deploy@v1
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          host: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./ # Diretório base do repositório local
-          server-dir: ./ # Diretório remoto no servidor
-          excludes: |
-            /res/**            # Ignorar a pasta res
-            /node_modules/**   # Ignorar a pasta node_modules
-            /vendor/**         # Ignorar a pasta vendor
-            /views-cache/**    # Ignorar a pasta views-cache
-          method: mirror       # Sincronizar local com remoto (remove o que não existe no repositório)
-          concurrency: 1       # Número de uploads simultâneos
+          local-dir: ./ # Diretório local a ser enviado
+          remote-dir: /public_html/ # Diretório remoto no servidor
+          include: '**/*' # Incluir todos os arquivos
+          exclude: |
+            res/**           
+            node_modules/**   
+            vendor/**         
+            views-cache/**   
+          dry-run: false       # Para testes, defina como true para simular o envio
