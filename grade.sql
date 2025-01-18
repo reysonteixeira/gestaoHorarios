@@ -68,6 +68,17 @@ CREATE TABLE IF NOT EXISTS tblHorarioTurma
     FOREIGN key (fkTurma) REFERENCES tblTurmas(idTurma)
 );
 
+CREATE TABLE IF NOT EXISTS tblUsuarios
+(
+    idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+    nomeUsuario VARCHAR(200) NOT NULL,
+    senha varchar(80) not null,
+    tipoAcesso int not null,
+    txtEmail VARCHAR(200) not NULL
+    fkEscola INT
+);
+
+
 CREATE TABLE IF NOT EXISTS tblProfessores
 (
     idProfessor INT PRIMARY KEY AUTO_INCREMENT,
