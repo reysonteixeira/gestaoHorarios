@@ -100,7 +100,7 @@ $app->get('/admin/cadastraDisciplinasTurma/:id', function($id){
     $professor->setFkEscola($_SESSION['fkEscola']);
 
     $listaDisciplinas = $disciplina->listAll();
-    $page->setTpl("cadastra-disciplinas-turma", array("disciplinas" => $listaDisciplinas, "professores"=> $professor->listProfessorEscola(), "idTurma" => $id));
+    $page->setTpl("cadastra-disciplinas-turma", array("disciplinas" => $listaDisciplinas, "professores"=> $professor->listProfessorEscola(), "turma" => $id));
     exit;
 });
 
