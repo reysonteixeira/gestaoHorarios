@@ -35,7 +35,7 @@
         }
 
         //Função devolve um array com todos os dados do banco de dados da tabela Escola
-        public function listAll()
+        public static function  listAll()
         {
             try
             {
@@ -125,6 +125,204 @@
                     );
                 break;
             }
+        }
+
+        /**
+         * Get the value of idEscola
+         */
+        public function getIdEscola()
+        {
+                return $this->idEscola;
+        }
+
+        /**
+         * Set the value of idEscola
+         */
+        public function setIdEscola($idEscola): self
+        {
+                $this->idEscola = $idEscola;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of nomeEscola
+         */
+        public function getNomeEscola()
+        {
+                return $this->nomeEscola;
+        }
+
+        /**
+         * Set the value of nomeEscola
+         */
+        public function setNomeEscola($nomeEscola): self
+        {
+                $this->nomeEscola = $nomeEscola;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of registroInep
+         */
+        public function getRegistroInep()
+        {
+                return $this->registroInep;
+        }
+
+        /**
+         * Set the value of registroInep
+         */
+        public function setRegistroInep($registroInep): self
+        {
+                $this->registroInep = $registroInep;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of telefone
+         */
+        public function getTelefone()
+        {
+                return $this->telefone;
+        }
+
+        /**
+         * Set the value of telefone
+         */
+        public function setTelefone($telefone): self
+        {
+                $this->telefone = $telefone;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of logradouro
+         */
+        public function getLogradouro()
+        {
+                return $this->logradouro;
+        }
+
+        /**
+         * Set the value of logradouro
+         */
+        public function setLogradouro($logradouro): self
+        {
+                $this->logradouro = $logradouro;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of numero
+         */
+        public function getNumero()
+        {
+                return $this->numero;
+        }
+
+        /**
+         * Set the value of numero
+         */
+        public function setNumero($numero): self
+        {
+                $this->numero = $numero;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of complemento
+         */
+        public function getComplemento()
+        {
+                return $this->complemento;
+        }
+
+        /**
+         * Set the value of complemento
+         */
+        public function setComplemento($complemento): self
+        {
+                $this->complemento = $complemento;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of bairro
+         */
+        public function getBairro()
+        {
+                return $this->bairro;
+        }
+
+        /**
+         * Set the value of bairro
+         */
+        public function setBairro($bairro): self
+        {
+                $this->bairro = $bairro;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of cidade
+         */
+        public function getCidade()
+        {
+                return $this->cidade;
+        }
+
+        /**
+         * Set the value of cidade
+         */
+        public function setCidade($cidade): self
+        {
+                $this->cidade = $cidade;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of estado
+         */
+        public function getEstado()
+        {
+                return $this->estado;
+        }
+
+        /**
+         * Set the value of estado
+         */
+        public function setEstado($estado): self
+        {
+                $this->estado = $estado;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of cep
+         */
+        public function getCep()
+        {
+                return $this->cep;
+        }
+
+        /**
+         * Set the value of cep
+         */
+        public function setCep($cep): self
+        {
+                $this->cep = $cep;
+
+                return $this;
         }
     }
 ?>
