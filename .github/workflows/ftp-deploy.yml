@@ -22,7 +22,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./ # Diretório base do repositório local
-          server-dir: /public_html/ # Diretório remoto no servidor
+          server-dir: ./ # Diretório remoto no servidor
           excludes: |
             /res/**            # Ignorar a pasta res
             /node_modules/**   # Ignorar a pasta node_modules
