@@ -20,7 +20,7 @@
             
             catch (Exception $e)
             {
-                return json_encode(Msg::arrayErros($e));
+                return var_dump($e);
             }
         }
 
@@ -37,7 +37,7 @@
             
             catch (Exception $e)
             {
-                return json_encode(Msg::arrayErros($e));
+                return var_dump($e);
             }
         }
 
@@ -48,14 +48,14 @@
                 $sql = new Sql();
 
                 return ($sql->query(
-                    "DELETE FROM tblHorarios WHERE idHorario = :ID;",
-                    array(":ID" => $id)
+                    "DELETE FROM tblHorarios WHERE idHorario = :ID and fkEscola = :FKESCOLA;",
+                    array(":ID" => $id, ":FKESCOLA" => $this->getFkEscola())
                 ));
             }
             
             catch (Exception $e)
             {
-                return json_encode(Msg::arrayErros($e));
+                return var_dump($e);
             }
         }
 
@@ -78,7 +78,7 @@
             }
             catch (Exception $e)
             {
-                return json_encode(Msg::arrayErros($e));
+                return var_dump($e);
             }
         }
         public function return_array($type=0)

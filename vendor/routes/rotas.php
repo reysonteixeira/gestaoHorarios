@@ -4,4 +4,5 @@
     require_once("admin-disciplinas.php");
     require_once("admin-professores.php");
     require_once("admin-users.php");
+    require_once("admin-horarios.php");
 ?>
