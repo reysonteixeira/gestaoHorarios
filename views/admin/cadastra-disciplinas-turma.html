@@ -25,7 +25,7 @@
               <!-- form start -->
               <form method="POST" action="/admin/cadastraDisciplinasTurma/{$turma}">
                 <div class="card-body row">
-                  <div class="form-group col-md-3">
+                  <div class="form-group col-md-4">
                     <label for="exampleInputAnoTurma">Disciplinas</label>
                     <select name="fkDisciplina" id=" " class="form-control">
                       {loop="$disciplinas"}
@@ -34,7 +34,7 @@
                     </select>
                   </div>
 
-                  <div class="form-group col-md-3">
+                  <div class="form-group col-md-4">
                     <label for="exampleInputAnoTurma">Professor</label>
                     <select name="fkProfessor" id=" " class="form-control">
                       {loop="$professores"}
@@ -43,11 +43,11 @@
                     </select>
                   </div>
 
-                  <div class="form-group col-md-2">
+                  <div class="form-group col-md-4">
                     <label for="exampleInputAnoTurma">Quantidade máx. de aulas no mesmo dia</label>
                     <input type="number" min="1" max="5" class="form-control" name="maximoAulasDia">
                   </div>
-                  <div class="form-group col-md-2">
+                  <div class="form-group col-md-3">
                     <label for="exampleInputAnoTurma">Quantidade de aulas na semana</label>
                     <input type="number" min="1" class="form-control" name="quantidadeAulasSemana">
                   </div>
