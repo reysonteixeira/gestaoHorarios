@@ -23,8 +23,8 @@
             Tpl::configure( $config );
             $this->tpl = new Tpl;
             $this->setData($this->options["data"]);
-            var_dump($_SESSION);
-            exit;
+            // var_dump($_SESSION);
+            // exit;
             if($this->options["header"] === true){
                 if(isset($_SESSION["acessoCovid"]["permissao"])){
                     $this->tpl->assign("permissaoCovid", $_SESSION["acessoCovid"]["permissao"]);
