@@ -47,8 +47,10 @@ $primeiraParte = strtolower($partesNome[0]);
                     ":senha"=>$this->getSenha()
                 ));
                 if(count($results) > 0){
-                    $this->setIdUsuario($results[0]['idUsuario']);
                     $this->setDados($results[0]);
+                    $this->setIdUsuario($results[0]['idUsuario']);
+                    $this->setTipoAcesso($results[0]['tipoAcesso']);
+                   
                 }
             }catch(Exception $e){
                 var_dump($e->getMessage());
