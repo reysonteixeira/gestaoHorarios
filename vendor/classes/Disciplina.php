@@ -25,7 +25,7 @@
             
             catch (Exception $e)
             {
-                return json_encode(Msg::arrayErros($e));
+                var_dump(json_encode($e->getMessage()));
             }
         }
 
@@ -42,7 +42,7 @@
             
             catch (Exception $e)
             {
-                return json_encode(Msg::arrayErros($e));
+                var_dump(json_encode($e->getMessage()));
             }
         }
 
@@ -60,7 +60,7 @@
             
             catch (Exception $e)
             {
-                return json_encode(Msg::arrayErros($e));
+                var_dump(json_encode($e->getMessage()));
             }
         }
 
@@ -83,7 +83,7 @@
             }
             catch (Exception $e)
             {
-                return json_encode(Msg::arrayErros($e));
+                var_dump(json_encode($e->getMessage()));
             }
         }
         public function return_array($type=0)
