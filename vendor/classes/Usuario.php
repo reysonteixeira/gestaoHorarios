@@ -31,6 +31,7 @@ $primeiraParte = strtolower($partesNome[0]);
                     ":fkEscola"=>$this->getFkEscola(),
                     ":tipoAcesso"=>$this->getTipoAcesso()
                 ));
+                echo("AQUI");
             }catch(Exception $e){
                 var_dump($e);
             }
