@@ -3,25 +3,25 @@ name: Deploy via FTP
 on:
   push:
     branches:
-      - main
+      - main  # Ajuste para a branch que deseja monitorar
 
 jobs:
-  deploy:
+  ftp-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the code
-      - name: Checkout code
+      # Checkout do repositório
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Set up FTP client
-      - name: DEPLOY CI
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      # Deploy incremental via FTP
+      - name: FTP Deploy (Incremental Upload)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.0
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          server: ftp://ftp.seuservidor.com
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./  # Diretório local do repositório
-          server-dir: /  # Diretório remoto no FTP
-          concurrency: 1
-      
+          local-dir: ./ # Diretório local do repositório
+          server-dir: /public_html/ # Diretório remoto no servidor
+          method: noclobber # Ignora arquivos que já existem no servidor
+          concurrency: 1 # Conexões simultâneas
