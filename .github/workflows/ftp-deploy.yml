@@ -3,7 +3,7 @@ name: Deploy via FTP
 on:
   push:
     branches:
-      - main  # Ajuste para a branch que deseja monitorar
+      - main  # Alterar para a branch desejada
 
 jobs:
   ftp-deploy:
@@ -15,18 +15,18 @@ jobs:
         uses: actions/checkout@v3
 
       # Deploy incremental via FTP
-      - name: FTP Deploy (Incremental Upload)
+      - name: FTP Deploy (Exclude Specific Folders)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./ # Diretório local do repositório
+          local-dir: ./ # Diretório base do repositório local
           server-dir: /public_html/ # Diretório remoto no servidor
           excludes: |
-            res/**            # Ignorar toda a pasta res
-            node_modules/**   # Ignorar toda a pasta node_modules
-            vendor/**         # Ignorar toda a pasta vendor
-            views-cache/**    # Ignorar toda a pasta views-cache
-          method: noclobber   # Evitar sobrescrever arquivos existentes
-          concurrency: 1      # Número de uploads simultâneos
+            /res/**            # Ignorar a pasta res
+            /node_modules/**   # Ignorar a pasta node_modules
+            /vendor/**         # Ignorar a pasta vendor
+            /views-cache/**    # Ignorar a pasta views-cache
+          method: mirror       # Sincronizar local com remoto (remove o que não existe no repositório)
+          concurrency: 1       # Número de uploads simultâneos
