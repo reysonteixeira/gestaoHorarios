@@ -40,7 +40,9 @@
                   <td>{$value.nomeHorario}</td>
                   <td></td>
                   <td class="botao"><a href="/admin/horarios/{$value.idHorario}"><button class="btn btn-primary btn-sm">Editar<i class="fas fa-edit"></i></button></a></td>
-                  <td class="botao"><a href="/admin/horarios/{$value.idHorario}"><button class="btn btn-danger btn-sm">Deletar <i class="fas fa-trash"></i></button></a></td>
+                  <td class="botao"><a
+                    onclick="return confirm('Deseja realmente remover esse horário?')"
+                    href="/admin/horarios/delete/{$value.idHorario}"><button class="btn btn-danger btn-sm">Deletar <i class="fas fa-trash"></i></button></a></td>
                 </tr>
                
                 {/loop}

@@ -54,3 +54,13 @@
         header("location: /admin/horarios");
         exit;
     });
+
+    $app->get('/admin/horarios/delete/:id', function ($id) {
+        Usuario::verifyLoginEscola();
+        $horarios = new Horarios();
+        $horarios->setFkEscola($_SESSION['fkEscola']);
+        $horarios->setIdHorario($id);
+        $horarios->delete($id);
+        header("location: /admin/horarios");
+        exit;
+    });
