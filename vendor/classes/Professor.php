@@ -11,7 +11,7 @@ class Professores
 
         public function setDados($dados)
         {
-                $this->txtemail = $dados['txtemail'];
+                $this->txtemail = $dados['txtEmail'];
                 $this->nomeProfessor = $dados['nomeProfessor'];
         }
 
