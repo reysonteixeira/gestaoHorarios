@@ -29,7 +29,7 @@ class DisciplinaTurma
                         $sql = new Sql();
                         $sql->select("CALL  sp_insert_update_tblDisciplinasTurma(
                                 :idDisciplinaTurma,  :maximoAulasSemana, 
-                                :fkDisciplina, :fkProfessor, :fkTurma,  :turno, :maximoAulasDia,)", array(
+                                :fkDisciplina, :fkProfessor, :fkTurma,  :turno, :maximoAulasDia)", array(
                                 ':idDisciplinaTurma' => $this->getIdDisciplinaTurma(),
                                 ':fkProfessor' => $this->getFkProfessor(),
                                 ':fkDisciplina' => $this->getFkDisciplina(),
