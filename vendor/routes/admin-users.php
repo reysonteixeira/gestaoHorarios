@@ -30,6 +30,7 @@ $app->post('/admin/cadastrar-usuarios', function () {
     $usuario = new Usuario();
     $usuario->setIdUsuario(0);
     $usuario->setDados($_POST);
+    var_dump($usuario);
     $usuario->save();
     exit;
     header("location: /admin/usuarios");
