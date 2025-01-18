@@ -27,13 +27,10 @@
                 if(isset($_SESSION["acessoCovid"]["permissao"])){
                     $this->tpl->assign("permissaoCovid", $_SESSION["acessoCovid"]["permissao"]);
                     $this->tpl->assign("permissaoMenu", 0);
-                }else if (isset($_SESSION["admin"]["permissao"])){
-                    $this->tpl->assign("permissaoMenu",  $_SESSION["admin"]["permissao"]);
-                    $this->tpl->assign("permissaoSupervisor",  $_SESSION["admin"]["supervisor"]);
-                    $this->tpl->assign("permissaoCovid", 0);
-
+                }else if (isset($_SESSION["tipoAcesso"])){
+                    $this->tpl->assign("permissaoMenu",  $_SESSION["tipoAcesso"]);
+                
                 }
-               
                 $this->tpl->draw("header");
 
                

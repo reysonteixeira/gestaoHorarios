@@ -86,13 +86,14 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-        
+                {if= "$tipoAcesso==1"}
                <li class="nav-item">
                 <a href="/admin/escolas" class="nav-link">
                   <i class="nav-icon fas fa-school"></i>
                   <p>Escolas</p>
                 </a>
               </li>
+              {/if}
 
               <li class="nav-item">
                 <a href="/admin/disciplinas" class="nav-link">
@@ -100,7 +101,7 @@
                   <p>Disciplinas</p>
                 </a>
               </li>
-
+              {if= "$tipoAcesso==2"}
               <li class="nav-item">
                 <a href="/admin/horarios" class="nav-link">
                   <i class="nav-icon fas fa-clock"></i>
@@ -121,6 +122,7 @@
                   <p>Turmas</p>
                 </a>
               </li>
+              {/if}
           
               <li class="nav-item">
                 <a href="/admin/usuarios" class="nav-link">
@@ -131,165 +133,8 @@
 
           {if="$permissaoMenu"}
 
-          {if="$permissaoMenu < 3"}
-          <li class="nav-item">
-            <a href="/admin/alunos" class="nav-link">
-              <i class="nav-icon fas fa-user-graduate"></i>
-              <p>Alunos</p>
-            </a>
-          </li>
-          {/if}
-
-          {if="$permissaoMenu < 3"}
-          <li class="nav-item">
-            <a href="/admin/matriculas" class="nav-link">
-              <i class="nav-icon fas fa-address-book"></i>
-              <p>Matrículas</p>
-            </a>
-          </li>
-          {/if}
-
-    
-
-        
-
-          {if="$permissaoMenu < 3"}
-          <li class="nav-item">
-            <a href="/admin/minhaEscola" class="nav-link">
-              <i class="nav-icon fas fa-school"></i>
-              <p>Minha escola</p>
-            </a>
-          </li>
-          {/if}
-
-          {if="$permissaoMenu < 3"}
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-
-              <i class="nav-icon fas fa-search"></i>  
-              <p>Relatórios<i class="fas fa-angle-left right"></i></p>
-             
-            </a>
-               
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/admin/relatorio-auxilio" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Auxílios Governo</p>
-                </a>
-              </li>
-              
-              
-              <li class="nav-item">
-                <a href="/admin/lista-presencas" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Lista de Presença</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/admin/alunosMatriculados" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Matrículas</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/admin/lista-movimentacoes" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Movimentações</p>
-                </a>
-              </li>
-              
-              <li class="nav-item">
-                <a href="/admin/presencasDias" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Presenças por dias</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/admin/relatorioTransporte" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Transporte escolar</p>
-                </a>
-              </li>
-
-            </ul>
-          </li>
-
-          {/if}
-
-          {if="$permissaoMenu < 3"}
-          <li class="nav-item">
-            <a href="/admin/supervisores" class="nav-link">
-              <i class="nav-icon fas fa-school"></i>
-              <p>Supervisores</p>
-            </a>
-          </li>
-          {/if}
-
-        
 
 
-
-          <li class="nav-item">
-            <a href="/admin/turmas" class="nav-link">
-              <i class="nav-icon fas fas fa-chalkboard"></i>
-              <p>Turmas</p>
-            </a>
-          </li>
-     
-          {if="$permissaoMenu == 1"}
-          <li class="nav-item">
-            <a href="/admin/maisEducacao" class="nav-link">
-              <i class="nav-icon  fas fa-copy"></i>
-              <p>Mais Educação</p>
-            </a>
-          </li>
-          {/if}
-
-          {if="$permissaoMenu == 1"}
-          <li class="nav-item">
-            <a href="/admin/blog" class="nav-link">
-              <i class="nav-icon fas fa-blog"></i>
-              <p>Blog</p>
-            </a>
-          </li>
-          {/if}
-
-          {if="$permissaoMenu == 1"}
-          <li class="nav-item">
-            <a href="/admin/bimestres" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
-              <p>Bimestres</p>
-            </a>
-          </li>
-          {/if}
-
-          {if="$permissaoMenu == 1"}
-          <li class="nav-item">
-            <a href="/admin/relatorioTurmas" class="nav-link">
-              <i class="nav-icon fas fa-school"></i>
-              <p>Alunos por Turma</p>
-            </a>
-          </li>
-          {/if}
-         
-          {if="$permissaoMenu == 1"}
-          <li class="nav-item">
-            <a href="/admin/requisicaoServico" class="nav-link">
-              <i class="nav-icon fas fa-tools"></i>
-              <p>Solicitação de Serviços</p>
-            </a>
-          </li>
-          {/if}
-         
-          {if="$permissaoSupervisor"}
-          <li class="nav-item">
-            <a href="/admin/supervisionarTurmas/escolas" class="nav-link">
-              <i class="nav-icon fas fa-school"></i>
-              <p>Supervisionar</p>
-            </a>
-          </li>
-          {/if}
           <li class="nav-header">ACESSO PESSOAL</li>
 
           {if="$permissaoMenu"}
