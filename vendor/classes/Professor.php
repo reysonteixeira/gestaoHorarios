@@ -1,107 +1,215 @@
 <?php
-    class Professor
-    {
+class Professores
+{
         private $idProfessor;
         private $matricula;
-        private $nomeProfessor;
-        private $txtEmail;
+        private $txtemail;
         private $fkEscola;
 
-        public function setDadosForm($post)
+        private $nomeProfessor;
+
+
+        public function setDados($dados)
         {
-            $this->idProfessor   =$post['idProfessor'];
-            $this->matricula     =$post['matricula'];
-            $this->nomeProfessor =$post['nomeProfessor'];
-            $this->txtEmail      =$post['txtEmail'];
-            $this->fkEscola      =$post['fkEscola'];
-            
+                $this->txtemail = $dados['txtemail'];
+                $this->nomeProfessor = $dados['nomeProfessor'];
         }
 
-        //Função devolve um array com todos os dados do banco de dados da tabela 
-        public function listAll()
+        public function save()
         {
-            try
-            {
-                $sql = new Sql();
-                return $sql->select("SELECT * FROM tblProfessors order by nomeProfessor;");
-            }
-            
-            catch (Exception $e)
-            {
-                return json_encode(Msg::arrayErros($e));
-            }
+                try {
+                        $sql = new Sql();
+                        return ($sql->select(
+                                "CALL sp_SaveProfessores(:ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3,:ATRIBUTO4)",
+                                array(
+                                        ":ATRIBUTO1" => $this->getNomeProfessor(),
+                                        ":ATRIBUTO2" => $this->getMatricula(),
+                                        ":ATRIBUTO3" => $this->getTxtemail(),
+                                        ":ATRIBUTO4" => $this->getFkEscola()
+                                ) //fim array
+                        ) //fim função select
+                        ); //fim return
+                } //fim try
+
+                catch (Exception $e) {
+                } //fim catch            
         }
 
-        //Função de busca um elemento pelo id na tabela:
-        public function get($id)
-        {
-            try{
-                $sql = new Sql();
-                return ($sql->select(
-                    "SELECT * FROM tblProfessores WHERE idProfessor = :ID;",
-                    array(":ID" => $id)
-                )[0]);
-            }
-            
-            catch (Exception $e)
-            {
-                return json_encode(Msg::arrayErros($e));
-            }
+        public function update(){
+                try {
+                        $sql = new Sql();
+                        return ($sql->select(
+                        "CALL sp_updProfessores(:ATRIBUTO1, :ATRIBUTO2, :ATRIBUTO3,:ATRIBUTO4, :ATRIBUTO5)",
+                        array(
+                                ":ATRIBUTO1"=>$this->getIdProfessor(),
+                                ":ATRIBUTO2" => $this->getNomeProfessor(),
+                                ":ATRIBUTO3"=>$this->getMatricula(),
+                                ":ATRIBUTO4"=>$this->getTxtemail(),
+                                ":ATRIBUTO5"=>$this->getFkEscola()
+                        ) //fim array
+                        ) //fim função select
+                        ); //fim return
+                } //fim try
+        
+                catch (Exception $e) {
+                   
+                } //fim catch            
         }
 
-        //Deleta do banco de dados os dados referete ao id
-        public function delete($id)
-        {
-            try{
-                $sql = new Sql();
-
-                return ($sql->query(
-                    "DELETE FROM tblProfessores WHERE idProfessor = :ID;",
-                    array(":ID" => $id)
-                ));
-            }
-            
-            catch (Exception $e)
-            {
-                return json_encode(Msg::arrayErros($e));
-            }
+        public function listProfessorEscola(){
+                try {
+                        $sql = new Sql();
+                        return ($sql->select(
+                                "SELECT * from tblProfessores where fkEscola = :ATRIBUTO1 order by nomeProfessor;",
+                                array(
+                                        ":ATRIBUTO1" => $this->getFkEscola()
+                                ) //fim array
+                        ) //fim função select
+                        ); //fim return
+                } //fim try
+        
+                catch (Exception $e) {
+                   
+                } //fim catch      
         }
 
-        // Caso o id == 0 um insert sera feito
-        // Caso o id != 0 um update acontece
-        public function save($id=0)
-        {
-            try {
-                $sql = new Sql();
+        public function listAll(){
+                try {
+                        $sql = new Sql();
+                        return ($sql->select(
+                                "SELECT * from tblProfessores order by nomeProfessor;"
+                        ) //fim função select
+                        ); //fim return
+                } //fim try
+        
+                catch (Exception $e) {
+                   
+                } //fim catch      
+        }
 
-                if ($id != 0)
-                {
-                    $this->idProfessor = $id;
-                }
-                
-                return ($sql->select(
-                    "CALL sp_insert_update_tblProfessores(:ATRIBUTO00,:ATRIBUTO01, :ATRIBUTO02, :ATRIBUTO03, :ATRIBUTO04)",
-                    $this->return_array()
-                ));   
-            }
-            catch (Exception $e)
-            {
-                return json_encode(Msg::arrayErros($e));
-            }
+        public function getProfessor(){
+                try {
+                        $sql = new Sql();
+                        return ($sql->select(
+                                "SELECT * from tblProfessores where idProfessor = :ATRIBUTO1 and fkEscola = :ATRIBUTO2;",
+                                array(
+                                        ":ATRIBUTO1" => $this->getIdProfessor(),
+                                        ":ATRIBUTO2" => $this->getFkEscola()
+                                ) //fim array
+                        ) //fim função select
+                        ); //fim return
+                } //fim try
+        
+                catch (Exception $e) {
+                   
+                } //fim catch      
         }
-        public function return_array($type=0)
+
+        public function searchProfessor(){
+                try {
+                        $sql = new Sql();
+                        return ($sql->select(
+                                "SELECT * from tblProfessores where fkEscola = :ATRIBUTO2 and nomeProfessor like :ATRIBUTO1",
+                                array(
+                                        ":ATRIBUTO1" => "%".$this->getNomeProfessor()."%",
+                                        ":ATRIBUTO2" => $this->getFkEscola()
+                                ) //fim array
+                        ) //fim função select
+                        ); //fim return
+                } //fim try
+        
+                catch (Exception $e) {
+                   
+                } //fim catch
+        }
+
+        /**
+         * Get the value of idProfessor
+         */
+        public function getIdProfessor()
         {
-            switch ($type) {
-                case 0:
-                    return array(
-                        ":ATRIBUTO00" => $this->idProfessor,
-                        ":ATRIBUTO01" => $this->matricula,
-                        ":ATRIBUTO02" => $this->nomeProfessor ,
-                        ":ATRIBUTO03" => $this->txtEmail,
-                        ":ATRIBUTO04" => $this->fkEscola,
-                    );
-                break;
-            }
+                return $this->idProfessor;
         }
-    }
-?>
+
+        /**
+         * Set the value of idProfessor
+         */
+        public function setIdProfessor($idProfessor): self
+        {
+                $this->idProfessor = $idProfessor;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of matricula
+         */
+        public function getMatricula()
+        {
+                return $this->matricula;
+        }
+
+        /**
+         * Set the value of matricula
+         */
+        public function setMatricula($matricula): self
+        {
+                $this->matricula = $matricula;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of txtemail
+         */
+        public function getTxtemail()
+        {
+                return $this->txtemail;
+        }
+
+        /**
+         * Set the value of txtemail
+         */
+        public function setTxtemail($txtemail): self
+        {
+                $this->txtemail = $txtemail;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of fkEscola
+         */
+        public function getFkEscola()
+        {
+                return $this->fkEscola;
+        }
+
+        /**
+         * Set the value of fkEscola
+         */
+        public function setFkEscola($fkEscola): self
+        {
+                $this->fkEscola = $fkEscola;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of nomeProfessor
+         */
+        public function getNomeProfessor()
+        {
+                return $this->nomeProfessor;
+        }
+
+        /**
+         * Set the value of nomeProfessor
+         */
+        public function setNomeProfessor($nomeProfessor): self
+        {
+                $this->nomeProfessor = $nomeProfessor;
+
+                return $this;
+        }
+}
