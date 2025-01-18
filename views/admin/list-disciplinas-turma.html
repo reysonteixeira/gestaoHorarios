@@ -22,52 +22,11 @@
           
   
             <div class="col-sm-5">
-                <a href="/admin/cadastraDisciplinasTurma" class="btn btn-success">Cadastrar Disciplina em Turma</a> 
+                <a href="/admin/cadastraDisciplinasTurma/{$idTurma}" class="btn btn-success">Cadastrar Disciplina em Turma</a> 
             </div>
 
 
-       
 
-            {if="$turmas"}
-            <table class="table mt-3 mb-5">
-              <thead>
-                <tr>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Ano</th>
-                  <th scope="col">Horário</th>
-                  <th scope="col"></th>
-                  <th></th>
-   
-                </tr>
-                
-              </thead>
-              <tbody>
-                {loop="$turmas"}
-             
-                <tr>
-                  <td>{$value.nomeTurma}</td>
-                  <td>{$value.anoTurma}</td>
-                  <td>{$value.nomeHorario}</td>
-                  <td class="botao"><a href="/admin/disciplinasTurma/{$value.idTurma}"><button class="btn btn-primary btn-sm">Vincular disciplinas <i class="fas fa-edit"></i></button></a></td>
-       
-                  <td class="botao"><a href="/admin/turmas/{$value.idTurma}"><button class="btn btn-primary btn-sm">Acessar <i class="fas fa-edit"></i></button></a></td>
-               
-                </tr>
-               
-                {/loop}
-               
-
-        
-              </tbody>
-            </table>
-            {else}
-            <div class="col-12">
-              <br>
-              <h1>Não foram encontradas turmas cadastradas!</h1>
-            </div>
-          
-            {/if}
-            
            
           <!-- ./col -->
         </div>
