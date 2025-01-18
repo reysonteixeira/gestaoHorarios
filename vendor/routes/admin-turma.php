@@ -16,12 +16,15 @@ $app->get('/admin/turmas/:id', function($id){
     $turma->setIdTurma($id);
     $turma->setFkEscola($_SESSION['fkEscola']);
     $infoTurma = $turma->get($id);
-
+    $horarios = new Horarios();
+    $horarios->setFkEscola($_SESSION['fkEscola']);
+    $listaHorarios = $horarios->listAll();
+    
     if(count($infoTurma) == 0){
         header("location: /admin/turmas");
         exit;
     }
-    $page->setTpl("edita-turmas", array("turma" => $infoTurma[0]));
+    $page->setTpl("edita-turmas", array("turma" => $infoTurma[0], "horarios"=> $listaHorarios));
     exit;
 });
 
