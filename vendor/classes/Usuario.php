@@ -16,8 +16,7 @@
             $partesNome = explode(" ", $dados['nomeUsuario']); // Divide o nome em partes
 $primeiraParte = strtolower($partesNome[0]);
             $this->setSenha(($primeiraParte . "123"));
-            $this->setFkEscola($dados['fkEscola']);
-            $this->setTipoAcesso($dados['tipoAcesso']);
+           
         }
 
         

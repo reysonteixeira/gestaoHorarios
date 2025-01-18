@@ -77,7 +77,13 @@ $app->post('/admin/cadastrar-usuarios', function () {
     $usuario = new Usuario();
     $usuario->setIdUsuario(0);
     $usuario->setDados($_POST);
-    var_dump($usuario);
+    if($_SESSION['tipoAcesso'] == 1){
+        $usuario->setFkEscola($_POST['fkEscola']);
+        $usuario->setTipoAcesso($_POST['tipoAcesso']);
+    }else{
+        $usuario->setFkEscola($_SESSION['fkEscola']);
+        $usuario->setTipoAcesso(2);
+    }
     $usuario->save();
     header("location: /admin/usuarios");
     exit;
