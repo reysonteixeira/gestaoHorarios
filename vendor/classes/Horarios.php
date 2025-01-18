@@ -32,7 +32,7 @@
                 return ($sql->select(
                     "SELECT * FROM tblHorarios WHERE idHorario = :ID and fkEscola = :FKESCOLA;",
                     array(":ID" => $id, ":FKESCOLA" => $this->getFkEscola())
-                )[0]);
+                ));
             }
             
             catch (Exception $e)
