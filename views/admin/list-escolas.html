@@ -39,7 +39,7 @@
               <thead>
                 <tr>
                   <th scope="col">Nome</th>
-                 
+                  <th>Cidade</th>
                   <th></th>
                   <th></th>
                 </tr>
@@ -48,10 +48,13 @@
                 {loop="$escolas"}
              
                 <tr>
-                  <td>{$value.txtNome}</td>
-                  
+                  <td>{$value.nomeEscola}</td>
+                  <td>{$value.cidade} - {$value.estado}</td>
                   <td class="botao"><a href="/admin/escolas/{$value.idEscola}"><button class="btn btn-primary btn-sm">Acessar <i class="fas fa-edit"></i></button></a></td>
-                  <td class="botao"><a href="/admin/deletarEscola/{$value.idEscola}"><button class="btn btn-danger btn-sm">Deletar <i class="fas fa-trash"></i></button></a></td>
+                  <td class="botao"><a href="/admin/deletarEscola/{$value.idEscola}" 
+                    onclick="return confirm('Deseja realmente remover essa escola?')"
+                    
+                    ><button class="btn btn-danger btn-sm">Deletar <i class="fas fa-trash"></i></button></a></td>
                 </tr>
                
                 {/loop}
