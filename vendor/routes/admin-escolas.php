@@ -28,8 +28,8 @@ $app->get('/admin/escolas', function () {
 $app->post('/admin/cadastrar-escolas', function () {
      // User::verifyLoginAdmin();
      $escola = new Escola();
+     $escola->setIdEscola(0);
      $escola->setDadosForm($_POST);
-
      $escola->save();
      exit;
      header("location: /admin/escolas");
