@@ -26,11 +26,9 @@
             var_dump($_SESSION);
      
             if($this->options["header"] === true){
-                if(isset($_SESSION["acessoCovid"]["permissao"])){
-                    $this->tpl->assign("permissaoCovid", $_SESSION["acessoCovid"]["permissao"]);
-                    $this->tpl->assign("permissaoMenu", 0);
-                }else if (isset($_SESSION["tipoAcesso"])){
-                    $this->tpl->assign("permissaoMenu",  $_SESSION["tipoAcesso"]);
+              
+                if (isset($_SESSION["tipoAcesso"])){
+                    $this->tpl->assign("tipoAcesso",  $_SESSION["tipoAcesso"]);
                 
                 }
                 $this->tpl->draw("header");
