@@ -16,9 +16,8 @@ class DisciplinaTurma
         {
                 $this->fkProfessor = $dados['fkProfessor'];
                 $this->fkDisciplina = $dados['fkDisciplina'];
-                $this->fkTurma = $dados['fkTurma'];
                 $this->fkEscola = $dados['fkEscola'];
-                $this->turno = $dados['turno'];
+                $this->turno = $dados['intTurno'];
                 $this->maximoAulasDia = $dados['maximoAulasDia'];
                 $this->maximoAulasSemana = $dados['maximoAulasSemana'];
         }
