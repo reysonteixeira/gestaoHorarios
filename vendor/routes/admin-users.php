@@ -15,10 +15,8 @@ $app->post("/login", function(){
     $usuario = new Usuario();
     $usuario->setEmail($_POST['email']);
     $usuario->setSenha($_POST['senha']);
-    $login = $usuario->login();
-    var_dump($usuario);
+    $usuario->login();
 
-    exit;
     if($usuario->getIdUsuario() > 0){
         var_dump($usuario);
         exit;
