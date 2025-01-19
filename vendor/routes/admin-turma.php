@@ -131,6 +131,7 @@ $app->post('/admin/cadastraDisciplinasTurma/:id', function($id){
 
 
 
+
 $app->post("/admin/editaDisciplinasTurma/:idTurma/:idDisciplinaTurma", function($idTurma, $idDisciplinaTurma){
     Usuario::verifyLoginEscola();
     $page = new PageAdmin();
@@ -144,6 +145,7 @@ $app->post("/admin/editaDisciplinasTurma/:idTurma/:idDisciplinaTurma", function(
    
     exit;
 });
+
 
 $app->get("/admin/editaDisciplinasTurma/:idTurma/:idDisciplinaTurma", function($idTurma, $idDisciplinaTurma){
     Usuario::verifyLoginEscola();
