@@ -137,7 +137,6 @@ $app->post("/admin/editaDisciplinasTurma/:idTurma/:idDisciplinaTurma", function(
     $disciplina = new DisciplinaTurma();
     $disciplina->setIdDisciplinaTurma($idDisciplinaTurma);
     $disciplina->setFkTurma($idTurma);
-    $disciplina->setIdDisciplinaTurma(idDisciplinaTurma: 0);
     $disciplina->setDados($_POST);
 
     $disciplina->save();
