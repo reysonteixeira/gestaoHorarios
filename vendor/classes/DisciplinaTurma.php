@@ -49,7 +49,7 @@ class DisciplinaTurma
                         inner join tblDisciplinas on tblDisciplinasTurma.fkDisciplina = tblDisciplinas.idDisciplina 
                         inner join tblProfessores on tblDisciplinasTurma.fkProfessor = tblProfessores.idProfessor 
                         inner join tblTurmas on tblDisciplinasTurma.fkTurma = tblTurmas.idTurma 
-                        WHERE fkTurma = :idTurma and fkEscola = :fkEscola", array(
+                        WHERE fkTurma = :idTurma and tblTurmas.fkEscola = :fkEscola", array(
                         ':idTurma' => $this->getFkTurma(),
                         ':fkEscola' => $this->getFkEscola()
                         
