@@ -85,7 +85,7 @@ $app->get('/admin/disciplinasTurma/:id', function($id){
 
     $listaDisciplinasTurma = $disciplina->listaDisciplinasTurma();
 
-    $page->setTpl("list-disciplinas-turma", array("disciplinas" => $listaDisciplinasTurma));
+    $page->setTpl("list-disciplinas-turma", array("disciplinas" => $listaDisciplinasTurma, "idTurma"=> $id));
     exit;
 });
 
