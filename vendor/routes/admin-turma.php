@@ -116,6 +116,27 @@ $app->get('/admin/deletarDisciplinasTurma/:idTurma/:idDisciplinaTurma', function
     exit;
 });
 
+$app->get("/admin/editaDisciplinasTurma/:idTurma/:idDisciplinaTurma", function($idTurma, $idDisciplinaTurma){
+    Usuario::verifyLoginEscola();
+    $page = new PageAdmin();
+    $disciplina = new DisciplinaTurma();
+    $disciplina->setIdDisciplinaTurma($idDisciplinaTurma);
+    $disciplina->setFkTurma($idTurma);
+    $disciplina->setFkEscola($_SESSION['fkEscola']);
+
+    $disciplinas = new Disciplinas();
+    $disciplinas->setFkEscola($_SESSION['fkEscola']);
+    $professor = new Professores();
+    $professor->setFkEscola($_SESSION['fkEscola']);
+
+    $infoDisciplinaTurma = $disciplina->get();
+
+    $listaDisciplinas = $disciplinas->listAll();
+    $page->setTpl("edita-disciplinas-turma", array("disciplinas" => $listaDisciplinas, 
+        "professores"=> $professor->listProfessorEscola(), "turma" => $idTurma));
+    exit;
+});
+
 $app->post('/admin/cadastraDisciplinasTurma/:id', function($id){
     Usuario::verifyLoginEscola();
     $disciplina = new DisciplinaTurma();

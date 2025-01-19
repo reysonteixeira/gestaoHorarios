@@ -42,6 +42,19 @@ class DisciplinaTurma
                 }
         }
 
+
+        public function get(){
+                try{
+                        $sql = new Sql();
+                        return $sql->select("SELECT * FROM tblDisciplinasTurma WHERE idDisciplinaTurma = :idDisciplinaTurma", array(
+                                ':idDisciplinaTurma' => $this->getIdDisciplinaTurma()
+                        ));
+                        
+                }catch(Exception $e){
+                        var_dump($e);
+                }
+        }
+
         public function listaDisciplinasTurma()
         {
                 try{

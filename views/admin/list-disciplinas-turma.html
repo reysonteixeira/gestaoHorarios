@@ -44,7 +44,7 @@
                   <td>{$value.nomeDisciplina}</td>
                   <td>{$value.nomeProfessor}</td>
               
-                  <td class="botao"><a href="/admin/disciplinas/{$value.idDisciplina}"><button class="btn btn-primary btn-sm">Acessar <i class="fas fa-edit"></i></button></a></td>
+                  <td class="botao"><a href="/admin/editaDisciplinasTurma/{$value.fkTurma}/{$value.idDisciplinaTurma}"><button class="btn btn-primary btn-sm">Acessar <i class="fas fa-edit"></i></button></a></td>
                   <td class="botao"><a 
                     onclick="return confirm('Deseja realmente remover essa disciplina?')"
                     href="/admin/deletarDisciplinasTurma/{$value.fkTurma}/{$value.idDisciplinaTurma}">
