@@ -44,17 +44,36 @@ class DisciplinaTurma
 
         public function listaDisciplinasTurma()
         {
-                $sql = new Sql();
-                return $sql->select("SELECT * FROM tblDisciplinasTurma 
-                        inner join tblDisciplinas on tblDisciplinasTurma.fkDisciplina = tblDisciplinas.idDisciplina 
-                        inner join tblProfessores on tblDisciplinasTurma.fkProfessor = tblProfessores.idProfessor 
-                        inner join tblTurmas on tblDisciplinasTurma.fkTurma = tblTurmas.idTurma 
-                        WHERE fkTurma = :idTurma and tblTurmas.fkEscola = :fkEscola", array(
-                        ':idTurma' => $this->getFkTurma(),
-                        ':fkEscola' => $this->getFkEscola()
-                        
-                ));
+                try{
+                        $sql = new Sql();
+                        return $sql->select("SELECT * FROM tblDisciplinasTurma 
+                                inner join tblDisciplinas on tblDisciplinasTurma.fkDisciplina = tblDisciplinas.idDisciplina 
+                                inner join tblProfessores on tblDisciplinasTurma.fkProfessor = tblProfessores.idProfessor 
+                                inner join tblTurmas on tblDisciplinasTurma.fkTurma = tblTurmas.idTurma 
+                                WHERE fkTurma = :idTurma and tblTurmas.fkEscola = :fkEscola", array(
+                                ':idTurma' => $this->getFkTurma(),
+                                ':fkEscola' => $this->getFkEscola()
+                                
+                        ));
+                }catch(Exception $e){
+                        var_dump($e);
+                }
+               
         }
+
+        public function deleteDisciplinaTurma(){
+                try{
+                        $sql = new Sql();
+                        return $sql->select("DELETE FROM tblDisciplinasTurma 
+                                WHERE idDisciplinaTurma = :idTurma", array(
+                                ':idTurma' => $this->getFkTurma()
+                                
+                        ));
+                }catch(Exception $e){
+                        var_dump($e);
+                }
+        }
+
         /**
          * Get the value of idDisciplinaTurma
          */

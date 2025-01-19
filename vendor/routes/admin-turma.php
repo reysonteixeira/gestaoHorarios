@@ -103,6 +103,18 @@ $app->get('/admin/cadastraDisciplinasTurma/:id', function($id){
     exit;
 });
 
+$app->get('/admin/deletarDisciplinasTurma/:idTurma/:idDisciplinaTurma', function($idTurma, $idDisciplinaTurma){
+    Usuario::verifyLoginEscola();
+    $disciplina = new DisciplinaTurma();
+    
+    $disciplina->setIdDisciplinaTurma($idDisciplinaTurma);
+    $disciplina->setFkTurma($idTurma);
+
+    $disciplina->deleteDisciplinaTurma();
+    header("location: /admin/disciplinasTurma/".$idTurma);
+
+    exit;
+});
 
 $app->post('/admin/cadastraDisciplinasTurma/:id', function($id){
     Usuario::verifyLoginEscola();

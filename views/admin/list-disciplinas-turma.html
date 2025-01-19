@@ -47,14 +47,11 @@
                   <td class="botao"><a href="/admin/disciplinas/{$value.idDisciplina}"><button class="btn btn-primary btn-sm">Acessar <i class="fas fa-edit"></i></button></a></td>
                   <td class="botao"><a 
                     onclick="return confirm('Deseja realmente remover essa disciplina?')"
-                    href="/admin/deletarDisciplina/{$value.idDisciplina}"><button class="btn btn-danger btn-sm">Deletar <i class="fas fa-trash"></i></button></a></td>
+                    href="/admin/deletarDisciplinasTurma/{$value.fkTurma}/{$value.idDisciplinaTurma}">
+                    <button class="btn btn-danger btn-sm">Deletar <i class="fas fa-trash"></i></button></a></td>
                 </tr>
-               
                 {/loop}
-               
-
-
-        
+                      
               </tbody>
             </table>
             {else}
