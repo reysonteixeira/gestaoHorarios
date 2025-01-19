@@ -132,8 +132,15 @@ $app->get("/admin/editaDisciplinasTurma/:idTurma/:idDisciplinaTurma", function($
     $infoDisciplinaTurma = $disciplina->get();
 
     $listaDisciplinas = $disciplinas->listAll();
+
+    if(count($infoDisciplinaTurma) == 0){
+        header("location: /admin/disciplinasTurma/".$idTurma);
+        exit;
+    }
+
     $page->setTpl("edita-disciplinas-turma", array("disciplinas" => $listaDisciplinas, 
-        "professores"=> $professor->listProfessorEscola(), "turma" => $idTurma));
+        "professores"=> $professor->listProfessorEscola(), "turma" => $idTurma, 
+        "infoDisciplinaTurma" => $infoDisciplinaTurma[0]));
     exit;
 });
 
