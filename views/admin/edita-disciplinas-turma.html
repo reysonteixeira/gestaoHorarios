@@ -29,7 +29,7 @@
                     <label for="exampleInputAnoTurma">Disciplinas</label>
                     <select name="fkDisciplina" id=" " class="form-control">
                       {loop="$disciplinas"}
-                        <option value="{$value.idDisciplina}">{$value.nomeDisciplina}</option>
+                        <option value="{$value.idDisciplina}" {if="$value.idDisciplina == $infoDisciplinaTurma.fkDisciplina"}selected{/if}>{$value.nomeDisciplina}</option>
                       {/loop}
                     </select>
                   </div>
@@ -38,7 +38,7 @@
                     <label for="exampleInputAnoTurma">Professor</label>
                     <select name="fkProfessor" id=" " class="form-control">
                       {loop="$professores"}
-                        <option value="{$value.idProfessor}">{$value.nomeProfessor}</option>
+                        <option value="{$value.idProfessor}" {if="$value.idProfessor == $infoDisciplinaTurma.fkProfessor"}selected{/if}>{$value.nomeProfessor}</option>
                       {/loop}
                     </select>
                   </div>
@@ -49,7 +49,7 @@
                   </div>
                   <div class="form-group col-md-3">
                     <label for="exampleInputAnoTurma">Quantidade de aulas na semana</label>
-                    <input type="number" min="1" class="form-control" value="{$infoDisciplinaTurma.maximoAulasSemana}" name="maximoAulasSemana">
+                    <input type="number" min="1" class="form-control" value="{$infoDisciplinaTurma.quantidadeAulasSemana}" name="maximoAulasSemana">
                   </div>
                   
                   <div class="form-group col-md-2">
