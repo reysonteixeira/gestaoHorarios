@@ -109,9 +109,7 @@ $app->get('/admin/deletarDisciplinasTurma/:idTurma/:idDisciplinaTurma', function
     
     $disciplina->setIdDisciplinaTurma($idDisciplinaTurma);
     $disciplina->setFkTurma($idTurma);
-    var_dump($disciplina);
     $disciplina->deleteDisciplinaTurma();
-    exit;
     header("location: /admin/disciplinasTurma/".$idTurma);
 
     exit;

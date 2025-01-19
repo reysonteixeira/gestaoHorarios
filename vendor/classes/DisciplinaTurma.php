@@ -79,7 +79,7 @@ class DisciplinaTurma
                         $sql = new Sql();
                         return $sql->select("DELETE FROM tblDisciplinasTurma 
                                 WHERE idDisciplinaTurma = :idTurma", array(
-                                ':idTurma' => $this->getFkTurma()
+                                ':idTurma' => $this->getIdDisciplinaTurma()
                                 
                         ));
                 }catch(Exception $e){
