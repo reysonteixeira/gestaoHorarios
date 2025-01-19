@@ -115,6 +115,37 @@ $app->get('/admin/deletarDisciplinasTurma/:idTurma/:idDisciplinaTurma', function
     exit;
 });
 
+
+$app->post('/admin/cadastraDisciplinasTurma/:id', function($id){
+    Usuario::verifyLoginEscola();
+    $disciplina = new DisciplinaTurma();
+    $disciplina->setFkEscola($_SESSION['fkEscola']);
+    $disciplina->setFkTurma($id);
+    $disciplina->setIdDisciplinaTurma(0);
+    $disciplina->setDados($_POST);
+    $disciplina->save();
+    header("location: /admin/disciplinasTurma/".$id);
+    exit;
+});
+
+
+
+
+$app->post("/admin/editaDisciplinasTurma/:idTurma/:idDisciplinaTurma", function($idTurma, $idDisciplinaTurma){
+    Usuario::verifyLoginEscola();
+    $page = new PageAdmin();
+    $disciplina = new DisciplinaTurma();
+    $disciplina->setIdDisciplinaTurma($idDisciplinaTurma);
+    $disciplina->setFkTurma($idTurma);
+    $disciplina->setIdDisciplinaTurma(idDisciplinaTurma: 0);
+    $disciplina->setDados($_POST);
+
+    $disciplina->save();
+    header("location: /admin/disciplinasTurma/".$idTurma);
+   
+    exit;
+});
+
 $app->get("/admin/editaDisciplinasTurma/:idTurma/:idDisciplinaTurma", function($idTurma, $idDisciplinaTurma){
     Usuario::verifyLoginEscola();
     $page = new PageAdmin();
@@ -140,18 +171,6 @@ $app->get("/admin/editaDisciplinasTurma/:idTurma/:idDisciplinaTurma", function($
     $page->setTpl("edita-disciplinas-turma", array("disciplinas" => $listaDisciplinas, 
         "professores"=> $professor->listProfessorEscola(), "turma" => $idTurma, 
         "infoDisciplinaTurma" => $infoDisciplinaTurma[0]));
-    exit;
-});
-
-$app->post('/admin/cadastraDisciplinasTurma/:id', function($id){
-    Usuario::verifyLoginEscola();
-    $disciplina = new DisciplinaTurma();
-    $disciplina->setFkEscola($_SESSION['fkEscola']);
-    $disciplina->setFkTurma($id);
-    $disciplina->setIdDisciplinaTurma(0);
-    $disciplina->setDados($_POST);
-    $disciplina->save();
-    header("location: /admin/disciplinasTurma/".$id);
     exit;
 });
 
