@@ -21,5 +21,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./  # Diretório base do repositório local
           server-dir: ./  # Diretório remoto no servidor
-          method: mirror  # Sincronizar apenas arquivos novos ou alterados
+          method: noclobber
           concurrency: 5      # 5 uploads simultâneos

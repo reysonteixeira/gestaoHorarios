@@ -79,14 +79,13 @@ $app->get('/admin/turmas/delete/:id', function($id){
 $app->get('/admin/disciplinasTurma/:id', function($id){
     Usuario::verifyLoginEscola();
     $page = new PageAdmin();
-    $disciplina = new Disciplinas();
+    $disciplina = new DisciplinaTurma();
+    $disciplina->setFkTurma($id);
     $disciplina->setFkEscola($_SESSION['fkEscola']);
 
-    $professor = new Professores();
-    $professor->setFkEscola($_SESSION['fkEscola']);
+    $listaDisciplinasTurma = $disciplina->listaDisciplinasTurma();
 
-    $listaDisciplinas = $disciplina->listAll();
-    $page->setTpl("list-disciplinas-turma", array("disciplinas" => $listaDisciplinas, "professores"=> $professor, "idTurma" => $id));
+    $page->setTpl("list-disciplinas-turma", array("disciplinas" => $listaDisciplinasTurma));
     exit;
 });
 

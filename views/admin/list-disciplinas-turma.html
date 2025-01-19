@@ -27,6 +27,43 @@
 
 
 
+            {if="$disciplinas"}
+            <table class="table mt-3">
+              <thead>
+                <tr>
+                  <th scope="col">Disciplina</th>
+                  <th scope="col">Professor</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {loop="$disciplinas"}
+             
+                <tr>
+                  <td>{$value.nomeDisciplina}</td>
+                  <td>{$value.nomeProfessor}</td>
+              
+                  <td class="botao"><a href="/admin/disciplinas/{$value.idDisciplina}"><button class="btn btn-primary btn-sm">Acessar <i class="fas fa-edit"></i></button></a></td>
+                  <td class="botao"><a 
+                    onclick="return confirm('Deseja realmente remover essa disciplina?')"
+                    href="/admin/deletarDisciplina/{$value.idDisciplina}"><button class="btn btn-danger btn-sm">Deletar <i class="fas fa-trash"></i></button></a></td>
+                </tr>
+               
+                {/loop}
+               
+
+
+        
+              </tbody>
+            </table>
+            {else}
+            <div class="col-12">
+              <br>
+              <h1>Não foram encontradas disciplinas nessa turma!</h1>
+            </div>
+          
+            {/if}
            
           <!-- ./col -->
         </div>
