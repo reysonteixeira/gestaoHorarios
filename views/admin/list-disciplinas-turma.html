@@ -48,7 +48,7 @@
                   <td class="botao"><a 
                     onclick="return confirm('Deseja realmente remover essa disciplina?')"
                     href="/admin/deletarDisciplinasTurma/{$value.fkTurma}/{$value.idDisciplinaTurma}">
-                    <button class="btn btn-danger btn-sm">Deletar <i class="fas fa-trash"></i></button></a></td>
+                    <button class="btn btn-danger btn-sm">Deletar {$value.fkTurma} - {$value.idDisciplinaTurma}<i class="fas fa-trash"></i></button></a></td>
                 </tr>
                 {/loop}
                       
