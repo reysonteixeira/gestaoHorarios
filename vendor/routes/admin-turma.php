@@ -9,6 +9,23 @@ $app->get('/admin/turmas', function(){
      exit;
 });
 
+
+$app->get('/admin/testeExport', function(){
+
+    $output = [];
+$returnVar = null;
+exec('which mysqldump', $output, $returnVar);
+
+if ($returnVar === 0 && !empty($output)) {
+    echo "O comando mysqldump está disponível: " . $output[0];
+} else {
+    echo "O comando mysqldump NÃO está disponível neste servidor.";
+}
+exit;
+});
+
+
+
 $app->get('/admin/turmas/:id', function($id){
     Usuario::verifyLoginEscola();
     $page = new PageAdmin();
