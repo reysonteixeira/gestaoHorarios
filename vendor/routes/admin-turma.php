@@ -12,16 +12,58 @@ $app->get('/admin/turmas', function(){
 
 $app->get('/admin/testeExport', function(){
 
-    $output = [];
-$returnVar = null;
-exec('which mysqldump', $output, $returnVar);
+    $outputFile = __DIR__ . '/backup_' . date('Y-m-d_H-i-s') . '.sql';
 
-if ($returnVar === 0 && !empty($output)) {
-    echo "O comando mysqldump está disponível: " . $output[0];
-} else {
-    echo "O comando mysqldump NÃO está disponível neste servidor.";
-}
-exit;
+    try {
+        // Instância da classe Sql
+        $sql = new Sql();
+
+        // Nome do banco de dados
+        $dbName = Sql::DBNAME;
+
+        // Obter todas as tabelas do banco
+        $tables = $sql->select("SHOW TABLES");
+
+        // Abrir arquivo para escrita
+        $fp = fopen($outputFile, 'w');
+
+        if (!$fp) {
+            throw new Exception("Não foi possível criar o arquivo de backup.");
+        }
+
+        // Iterar sobre as tabelas
+        foreach ($tables as $table) {
+            $tableName = $table["Tables_in_" . $dbName];
+
+            // Obter o comando CREATE TABLE
+            $createTable = $sql->select("SHOW CREATE TABLE $tableName")[0]["Create Table"];
+            fwrite($fp, "-- Estrutura da tabela $tableName\n");
+            fwrite($fp, $createTable . ";\n\n");
+
+            // Obter os dados da tabela
+            $rows = $sql->select("SELECT * FROM $tableName");
+
+            if (!empty($rows)) {
+                fwrite($fp, "-- Dados da tabela $tableName\n");
+
+                foreach ($rows as $row) {
+                    $values = array_map(function ($value) {
+                        return isset($value) ? "'" . addslashes($value) . "'" : "NULL";
+                    }, $row);
+
+                    fwrite($fp, "INSERT INTO `$tableName` VALUES (" . implode(", ", $values) . ");\n");
+                }
+
+                fwrite($fp, "\n");
+            }
+        }
+
+        fclose($fp);
+
+        echo "Backup criado com sucesso: $outputFile";
+    } catch (Exception $e) {
+        echo "Erro: " . $e->getMessage();
+    }
 });
 
 
